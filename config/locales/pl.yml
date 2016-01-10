@@ -1,3 +1,4 @@
 layouts:
   header:
     login: Zaloguj się
+    logout: Wyloguj się
