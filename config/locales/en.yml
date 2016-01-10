@@ -1,4 +1,6 @@
-layouts:
-  header:
-    login: Log in
-    logout: Log out
+---
+en:
+  layouts:
+    header:
+      login: Log in
+      logout: Log out

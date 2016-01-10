@@ -1,4 +1,6 @@
-layouts:
-  header:
-    login: Zaloguj się
-    logout: Wyloguj się
+---
+pl:
+  layouts:
+    header:
+      login: Zaloguj się
+      logout: Wyloguj się
