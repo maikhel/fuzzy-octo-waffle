@@ -1,0 +1,5 @@
+Przypadki użycia:
+
+
+- jako Użytkownik mogę się zalogować do systemu
+- jako Użytkownik mogę przypomnieć hasło jeśli nie pamiętam

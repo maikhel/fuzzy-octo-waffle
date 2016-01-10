@@ -12,5 +12,6 @@
  *
  *= require_tree .
  *= require_self
+ *= require layouts
  *= require devise_bootstrap_views
  */

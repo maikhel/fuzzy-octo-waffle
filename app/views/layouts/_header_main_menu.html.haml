@@ -1,0 +1,17 @@
+%ul.nav.navbar-nav.navbar-top-links
+  - if policy(:header).show_links?
+    %li
+      = link_to t('layouts.backend.header.dashboard'), backend.dashboard_path
+  - if policy(:header).show_companies?
+    %li
+      = link_to t('layouts.backend.header.companies'), backend.companies_path
+  - if policy(:header).show_links?
+    %li
+      = link_to t('layouts.backend.header.job_offers'), backend.job_offers_path
+    %li
+      = link_to t('layouts.backend.header.candidates'), backend.conversations_overview_path
+    %li
+      %a{href: "#"}= t("layouts.backend.header.finances")
+  - if policy(:header).show_admin?
+    %li
+      = link_to t('layouts.backend.header.dashboardnew'), backend.kpi_dashboard_path

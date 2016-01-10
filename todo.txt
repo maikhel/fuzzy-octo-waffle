@@ -1,6 +1,2 @@
 TODO
-
 - add models
-- add haml
-- add pundit
-- add bootstrap
