@@ -1,2 +1,7 @@
 TODO
-- add models
+- make I18n work
+- add models: field_of_study, semester, requirement, group
+- add roles to user: student, lecturer, dean, admin
+- add pundit
+- add rspec
+- add letter opener
