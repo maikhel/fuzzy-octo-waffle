@@ -1,0 +1,7 @@
+<h1>Welcome!</h1>
+<%= @users.each do |user| %>
+  <p><%= user.email %></p>
+  <p><%= user.first_name %></p>
+  <p><%= user.last_name %></p>
+
+<% end %>
