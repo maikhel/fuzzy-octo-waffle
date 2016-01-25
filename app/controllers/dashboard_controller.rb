@@ -1,6 +1,6 @@
 class DashboardController < ActionController::Base
   before_action :authenticate_user!
-  layout 'devise'
+  layout 'application'
 
   def index
     @users = User.all

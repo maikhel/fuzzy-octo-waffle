@@ -14,9 +14,6 @@ class ApplicationController < ActionController::Base
       I18n.locale = session[:locale] if session[:locale]
     end
 
-    def after_sign_out_path_for(resource)
-      ENV['LOGOUT_URL']
-    end
 
     # def after_sign_in_path_for(resource)
     #   if resource && resource.admin?
