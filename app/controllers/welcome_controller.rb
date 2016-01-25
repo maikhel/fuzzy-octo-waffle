@@ -1,7 +1,7 @@
 class WelcomeController < ActionController::Base
   before_action :authenticate_user!
-  layout 'application'
-  
+  layout 'devise'
+
   def index
     @users = User.all
   end

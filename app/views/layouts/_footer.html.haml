@@ -1,14 +1,17 @@
-.footer
-  .container
-    .row
-      .col-md-12
-        .navbar.navbar-default.navbar-static-bottom
-          .footer-visual
-          %ul.nav.navbar-nav.pull-right
-            = render 'layouts/footer_links'
-          - if false
-            %li.div.language-image{class: I18n.locale}
-              %ul
-                - Language.available_without(session[:locale]).each do |lang|
-                  %li
-                    = link_to "#{lang}", change_language_path(:locale => lang), title: t(".languages.#{lang}")
+%footer
+  .footer
+    .container
+      %p
+        = link_to "Home", "#", class: "btn btn-link"
+        = "|"
+        = link_to "Kontakt", "#", class: "btn btn-link"
+        = "|"
+        = link_to "Pomoc", "#", class: "btn btn-link"
+        = "|"
+        = link_to "O nas", "#", class: "btn btn-link"
+      - if false
+        %li.div.language-image{class: I18n.locale}
+          %ul
+            - Language.available_without(session[:locale]).each do |lang|
+              %li
+                = link_to "#{lang}", change_language_path(:locale => lang), title: t(".languages.#{lang}")

@@ -5,3 +5,22 @@
   To use Glyphicons sprites instead of Font Awesome, replace with "require twitter-bootstrap-static/sprites"
   =require twitter-bootstrap-static/fontawesome
   */
+.footer{
+  position: absolute;
+  bottom: 0px;
+  height: 60px;
+  width: 100%;
+  background-color: #F5F5F5;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.login-links{
+  height: 40px;
+}
+.forgotten-pass{
+  position: absolute;
+  right: 40px;
+  bottom: 130px;
+  float: right;
+}
