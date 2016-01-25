@@ -1,7 +1,9 @@
 TODO
 - make I18n work
+- sticky footer!
 - add models: field_of_study, semester, requirement, group
 - add roles to user: student, lecturer, dean, admin
 - add pundit
 - add rspec
 - add letter opener
+- add simple form

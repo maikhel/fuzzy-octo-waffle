@@ -52,6 +52,13 @@ before_action :set_user, only: [:show, :edit, :update, :destroy]
     end
   end
 
+  def moje_studia
+
+  end
+
+  def rejestracje
+  end
+
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy

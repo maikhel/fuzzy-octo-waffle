@@ -32,3 +32,6 @@
 .plain-jumbotron{
   background-color: none;
 }
+.sidebar-container{
+  margin-left: 0;
+}

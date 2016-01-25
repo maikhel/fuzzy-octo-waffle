@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-
+  layout :layout_by_resource
   before_action :set_locale
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
@@ -24,6 +24,14 @@ class ApplicationController < ActionController::Base
     #     backend.companies_path
     #   end
     # end
+
+    def layout_by_resource
+      if devise_controller?
+        "devise"
+      else
+        "application"
+      end
+    end
 
     def set_locale
       I18n.locale = params[:locale] || I18n.default_locale
