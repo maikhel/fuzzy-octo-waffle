@@ -1,4 +1,4 @@
-class WelcomeController < ActionController::Base
+class DashboardController < ActionController::Base
   before_action :authenticate_user!
   layout 'devise'
 

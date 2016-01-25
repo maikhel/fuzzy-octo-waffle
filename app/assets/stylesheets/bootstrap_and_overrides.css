@@ -7,7 +7,7 @@
   */
 .footer{
   position: absolute;
-  bottom: 0px;
+  bottom: -40px;
   height: 60px;
   width: 100%;
   background-color: #F5F5F5;
@@ -23,4 +23,12 @@
   right: 40px;
   bottom: 130px;
   float: right;
+}
+.my-jumbotron{
+  padding-left: 40px;
+  padding-right: 40px;
+  background-color: #CCE1E8;
+}
+.plain-jumbotron{
+  background-color: none;
 }
