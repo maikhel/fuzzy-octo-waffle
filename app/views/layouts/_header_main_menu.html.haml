@@ -1,4 +1,5 @@
 %ul.nav.navbar-nav.navbar-top-links
+  %li= link_to "Dashboard", root_path
   %li= link_to "Moje studia", "#"
   %li= link_to "Rejestracje", "#"
-  %li= link_to "Ustawienia", "#"
+  %li= link_to "Ustawienia", edit_user_path(current_user)
