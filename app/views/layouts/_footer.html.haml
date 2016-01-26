@@ -2,13 +2,13 @@
   .footer
     .container
       %p
-        = link_to "Home", "#", class: "btn btn-link"
+        = link_to t(".home"), "#", class: "btn btn-link"
         = "|"
-        = link_to "Kontakt", "#", class: "btn btn-link"
+        = link_to t(".contact"), "#", class: "btn btn-link"
         = "|"
-        = link_to "Pomoc", "#", class: "btn btn-link"
+        = link_to t(".help"), "#", class: "btn btn-link"
         = "|"
-        = link_to "O nas", "#", class: "btn btn-link"
+        = link_to t(".about"), "#", class: "btn btn-link"
       - if false
         %li.div.language-image{class: I18n.locale}
           %ul

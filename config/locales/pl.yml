@@ -4,3 +4,16 @@ pl:
     header:
       login: Zaloguj się
       logout: Wyloguj się
+    header_main_menu:
+      dashboard: Dashboard
+      my_study: Moje studia
+      registrations: Rejestracje
+      settings: Ustawienia
+      admin: Administracja
+    footer:
+      home: Home
+      contact: Kontakt
+      help: Pomoc
+      about: O nas
+  dashboard:
+    schedule: Plan zajęć
