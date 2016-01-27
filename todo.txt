@@ -1,9 +1,9 @@
 TODO
-- make I18n work
-- sticky footer!
-- add models: field_of_study, semester, requirement, group
-- add roles to user: student, lecturer, dean, admin
-- add pundit
-- add rspec
-- add letter opener
-- add simple form
+- dropdown do i18n
+- sticky footer
+- dodać gemy: rspec, letteropener, simple form, pundit
+- dodac role: student, lecturer, dean, admin
+- uzupelnic dane usera: adres korespondencyjny, nr_indexu, zainteresowania, stopien naukowy
+- formularz zmiany hasla
+- widok show profile
+- logowanie przy pomocy nr indeksu
