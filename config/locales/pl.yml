@@ -16,4 +16,5 @@ pl:
       help: Pomoc
       about: O nas
   dashboard:
-    schedule: Plan zajęć
+    index:
+      schedule: Plan zajęć

@@ -5,9 +5,13 @@
   To use Glyphicons sprites instead of Font Awesome, replace with "require twitter-bootstrap-static/sprites"
   =require twitter-bootstrap-static/fontawesome
   */
+
+body{
+  padding-bottom: -60px;
+}
 .footer{
   position: absolute;
-  bottom: -40px;
+  bottom: -80px;
   height: 60px;
   width: 100%;
   background-color: #F5F5F5;

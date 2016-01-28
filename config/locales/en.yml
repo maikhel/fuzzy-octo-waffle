@@ -16,4 +16,5 @@ en:
       help: Help
       about: About us
   dashboard:
-    schedule: Schedule
+    index:
+      schedule: Schedule

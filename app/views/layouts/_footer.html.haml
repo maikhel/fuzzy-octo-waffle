@@ -9,9 +9,4 @@
         = link_to t(".help"), "#", class: "btn btn-link"
         = "|"
         = link_to t(".about"), "#", class: "btn btn-link"
-      - if false
-        %li.div.language-image{class: I18n.locale}
-          %ul
-            - Language.available_without(session[:locale]).each do |lang|
-              %li
-                = link_to "#{lang}", change_language_path(:locale => lang), title: t(".languages.#{lang}")
+        -# link_to other_language, change_language_path(other_language.to_sym)
