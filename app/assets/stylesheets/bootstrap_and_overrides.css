@@ -39,3 +39,7 @@ body{
 .sidebar-container{
   margin-left: 0;
 }
+.language-image{
+  display: inline-block;
+  float: right;
+}

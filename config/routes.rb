@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   devise_for :users
   root 'dashboard#index'
 
+  get 'language' => 'languages#change', as: :change_language
+
   resources :users do
     get 'moje_studia', on: :member
     get 'rejestracje', on: :member
