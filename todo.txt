@@ -1,6 +1,4 @@
 TODO
-- dropdown do i18n
-- sticky footer
 - dodać gemy: rspec, letteropener, simple form, pundit
 - dodac role: student, lecturer, dean, admin
 - uzupelnic dane usera: adres korespondencyjny, nr_indexu, zainteresowania, stopien naukowy

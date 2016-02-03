@@ -1,0 +1,18 @@
+%header
+  .container
+    .row
+      = yield :warning
+      .col-md-2.pull-left
+  %nav.navbar.navbar-default{role: "navigation"}
+    .container
+      / Brand and toggle get grouped for better mobile display
+      .navbar-header.my-header
+        %button.navbar-toggle{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", type: "button"}
+          %span.sr-only Toggle navigation
+          %span.icon-bar
+          %span.icon-bar
+          %span.icon-bar
+      / Collect the nav links, forms, and other content for toggling
+      .collapse.navbar-collapse
+        %ul.nav.navbar-nav.navbar-right.user-nav
+          = render 'layouts/header_user_menu'
