@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
   #:registerable
   devise :database_authenticatable,
          :recoverable, :rememberable, :trackable, :validatable
-
+  validates_format_of :index_num, with: /^[0-9]/, multiline: true
 
   def login=(login)
     @login = login
@@ -37,12 +37,16 @@ class User < ActiveRecord::Base
     @login || self.index_num || self.email
   end
 
-  def self.find_for_database_authentication(warden_conditions)
+  def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup
     if login = conditions.delete(:login)
-      where(conditions.to_h).where(["lower(index_num) = :value OR lower(email) = :value", { :value => login.downcase }]).first
-    elsif conditions.has_key?(:index_num) || conditions.has_key?(:email)
-      where(conditions.to_h).first
+      where(conditions).where(["lower(index_num) = :value OR lower(email) = :value", { :value => login.downcase }]).first
+    else
+      if conditions[:index_num].nil?
+        where(conditions).first
+      else
+        where(index_num: conditions[:index_num]).first
+      end
     end
   end
 
