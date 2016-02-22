@@ -20,6 +20,8 @@ gem 'devise'
 gem 'devise-bootstrap-views'
 
 gem 'rails-i18n'
+
+gem 'pundit'
 # Use Unicorn as the app server
 # gem 'unicorn'
 

@@ -1,7 +1,6 @@
 TODO
-- dodać gemy: rspec, simple form, pundit
+- dodać gemy: rspec, simple form
 - dodac role: student, lecturer, dean, admin
 - uzupelnic dane usera: adres korespondencyjny, nr_indexu, zainteresowania, stopien naukowy
 - formularz zmiany hasla
 - widok show profile
-- logowanie przy pomocy nr indeksu 50%

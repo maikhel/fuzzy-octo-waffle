@@ -1,12 +1,10 @@
 class ApplicationController < ActionController::Base
+  include Pundit
+  protect_from_forgery
+
   layout :layout_by_resource
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_locale
-
-  # Prevent CSRF attacks by raising an exception.
-  # For APIs, you may want to use :null_session instead.
-  protect_from_forgery with: :exception
-
 
   protected
 
