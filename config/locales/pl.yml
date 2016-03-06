@@ -18,3 +18,18 @@ pl:
   dashboard:
     index:
       schedule: Plan zajęć
+  users:
+    edit:
+      title: Ustawienia konta
+      change_password: Zmień hasło
+    form:
+      first_name: Imię
+      last_name: Nazwisko
+      email: Email
+      save: Zapisz
+  devise:
+    shared:
+      password_form:
+        new_password: Nowe hasło
+        confirm_new_password: Powtórz hasło
+        save: Zapisz

@@ -10,24 +10,21 @@
           - @user.errors.full_messages.each do |msg|
             %li= msg
   .form-group
-    = f.label :email, :class => 'control-label col-lg-2'
-    .col-lg-10
+    = f.label t('.email'), :class => 'control-label col-md-2'
+    .col-md-10
       = f.text_field :email, :class => 'form-control'
     = f.error_span(:email)
   .form-group
-    = f.label :first_name, :class => 'control-label col-lg-2'
-    .col-lg-10
+    = f.label t('.first_name'), :class => 'control-label col-md-2'
+    .col-md-10
       = f.text_field :first_name, :class => 'form-control'
     = f.error_span(:first_name)
   .form-group
-    = f.label :last_name, :class => 'control-label col-lg-2'
-    .col-lg-10
+    = f.label t('.last_name'), :class => 'control-label col-md-2'
+    .col-md-10
       = f.text_field :last_name, :class => 'form-control'
     = f.error_span(:last_name)
 
-
   .form-group
-    .col-lg-offset-2.col-lg-10
-      = f.submit "Zapisz", :class => 'btn btn-primary'
-      = link_to t('.cancel', :default => t("helpers.links.cancel")), |
-        users_path, :class => 'btn btn-default'                      |
+    .col-md-12
+      = f.submit t('.save'), :class => 'btn btn-primary pull-right'

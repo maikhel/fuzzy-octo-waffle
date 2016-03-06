@@ -3,3 +3,8 @@
     .page-header
       %h1= t '.title', default: "Ustawienia konta"
     = render :partial => 'form'
+.row
+  .col-md-8.col-md-offset-2
+    .page-header
+      %h2= t '.change_password'
+    = render 'devise/shared/password_form'

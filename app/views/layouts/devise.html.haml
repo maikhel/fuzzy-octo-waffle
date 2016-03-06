@@ -10,6 +10,7 @@
     .wrapper
       = render "layouts/devise_header"
       .container
+        = bootstrap_flash
         = yield
       .push
     = render "layouts/footer"

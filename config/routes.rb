@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
-  devise_for :users
   root 'dashboard#index'
+
+  devise_for :users, :skip => [:registrations]
 
   get 'language' => 'languages#change', as: :change_language
 
   resources :users do
     get 'moje_studia', on: :member
     get 'rejestracje', on: :member
+    patch 'update_password', on: :member
   end
 
   if Rails.env.development?

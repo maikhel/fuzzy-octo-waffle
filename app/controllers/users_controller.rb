@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-before_action :set_user, only: [:show, :edit, :update, :destroy]
+before_action :set_user, only: [:show, :edit, :update, :update_password, :destroy]
 
   # GET /users
   # GET /users.json
@@ -52,8 +52,22 @@ before_action :set_user, only: [:show, :edit, :update, :destroy]
     end
   end
 
-  def moje_studia
+   def update_password
+    respond_to do |format|
+      if @user.update(user_params)
+        format.html do
+          sign_in @user, :bypass => true
+          redirect_to @user, notice: 'User was successfully updated.'
+        end
+        format.json { render :show, status: :ok, location: @user }
+      else
+        format.html { render :edit }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 
+  def moje_studia
   end
 
   def rejestracje
@@ -77,7 +91,7 @@ before_action :set_user, only: [:show, :edit, :update, :destroy]
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :email)
+      params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
     end
 
 

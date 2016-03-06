@@ -18,3 +18,18 @@ en:
   dashboard:
     index:
       schedule: Schedule
+  users:
+    edit:
+      title: Account settings
+      change_password: Change password
+    form:
+      first_name: First name
+      last_name: Last name
+      email: Email
+      save: Save
+  devise:
+    shared:
+      password_form:
+        new_password: New password
+        confirm_new_password: Confirm new password
+        save: Save
