@@ -12,7 +12,6 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
-gem 'annotate'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -31,6 +30,9 @@ gem 'pundit'
 group :development, :test do
   gem 'byebug'
   gem 'dotenv-rails'
+  gem 'rspec-rails'
+  gem 'faker'
+  gem 'annotate'
 end
 
 group :development do

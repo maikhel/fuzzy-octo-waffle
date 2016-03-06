@@ -1,6 +1,24 @@
 TODO
-- dodać gemy: rspec, simple form
+- dodać gemy: simple form
 - dodac role: student, lecturer, dean, admin
 - uzupelnic dane usera: adres korespondencyjny, nr_indexu, zainteresowania, stopien naukowy
 - formularz zmiany hasla
 - widok show profile
+- uzupełnić profil studenta
+- Zrobić w pełni zakładkę ustawienia
+- Wygenerować schemat https://github.com/voormedia/rails-erd
+- Dodać model Przedmiot i Grupa zajęciowa
+- Dodać formularze do Przedmiot i Grupa zajęciowa
+- Wyświetlam przedmioty i grupy zajęciowe (lista)
+- Dodać model Rejestracja
+- Dodać formularz rejestracji
+- Dodać listę rejestracji
+- Dodać rejestrowanie się studenta
+- Dodać wyświetlanie planu zajęć
+- Dodać wyświetlanie listy studentów na przedmiocie
+- Dodać wyświetlanie listy studentów na grupie zajęciowej
+- Dodać wpisywanie oceny studentowi
+- Liczenie średniej studentowi
+- Wyświetlanie powiadomień w dashboard
+- Wysyłanie maila z przypomnieniami
+- Wrzucić aplikację na heroku
