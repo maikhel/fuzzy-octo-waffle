@@ -2,7 +2,6 @@ TODO
 - dodać gemy: simple form
 - dodac role: student, lecturer, dean, admin
 - uzupelnic dane usera: adres korespondencyjny, nr_indexu, zainteresowania, stopien naukowy
-- formularz zmiany hasla
 - widok show profile
 - uzupełnić profil studenta
 - Zrobić w pełni zakładkę ustawienia

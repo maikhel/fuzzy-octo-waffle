@@ -1,18 +1,15 @@
 .row
   .col-md-8.col-md-offset-2
     .page-header
-      %h1= t '.title', default: "Ustawienia konta"
+      %h1= t '.title'
     %dl.dl-horizontal
       %dt
-        %strong= "Email"
-      %dd
-        = @user.email
-      %dt
-        %strong= "Imię"
+        %strong= t '.name'
       %dd
         = @user.first_name
-      %dt
-        %strong= "Nazwisko"
-      %dd
         = @user.last_name
-    = link_to "Edytuj ustawienia", edit_user_path(@user), class: "btn btn-primary"
+      %dt
+        %strong= t '.email'
+      %dd
+        = @user.email
+    = link_to t('.edit'), edit_user_path(@user), class: "btn btn-primary"

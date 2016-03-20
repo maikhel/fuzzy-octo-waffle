@@ -19,6 +19,12 @@ en:
     index:
       schedule: Schedule
   users:
+    show:
+      title: Account settings
+      name: "Name:"
+      email: "Email:"
+      address: "Address:"
+      edit: Edit account
     edit:
       title: Account settings
       change_password: Change password

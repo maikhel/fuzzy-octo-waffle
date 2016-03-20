@@ -19,6 +19,12 @@ pl:
     index:
       schedule: Plan zajęć
   users:
+    show:
+      title: Ustawienia konta
+      name: "Imię:"
+      email: "Email:"
+      address: "Adres:"
+      edit: Edytuj ustawienia
     edit:
       title: Ustawienia konta
       change_password: Zmień hasło

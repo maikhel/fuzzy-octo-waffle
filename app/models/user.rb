@@ -19,6 +19,11 @@
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  index_num              :string
+#  street                 :string
+#  postal_code            :string
+#  city                   :string
+#  country                :string
+#  bank_account           :string
 #
 
 class User < ActiveRecord::Base
