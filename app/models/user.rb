@@ -44,6 +44,10 @@ class User < ActiveRecord::Base
     @login || self.index_num || self.email
   end
 
+  def name
+    "#{first_name} #{last_name}".strip
+  end
+
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup
     if login = conditions.delete(:login)

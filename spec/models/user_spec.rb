@@ -26,8 +26,20 @@
 #  bank_account           :string
 #
 
-require 'rails_helper'
+require 'spec_helper'
 
 describe User do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  describe '.name' do
+    it 'creates valid user' do
+      user = create(:user)
+      expect(user).to be_valid
+    end
+
+    it 'shows first name + last name' do
+      user = create(:user, first_name: "Carl", last_name: "Kovalsky")
+      expect(user.name).to eq "Carl Kovalsky"
+    end
+  end
+
 end

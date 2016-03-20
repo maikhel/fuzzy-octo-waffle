@@ -34,6 +34,8 @@ group :development, :test do
   gem 'dotenv-rails'
   gem 'rspec-rails'
   gem 'faker'
+  gem 'factory_girl_rails'
+  gem 'database_cleaner'
   gem 'annotate'
 end
 
