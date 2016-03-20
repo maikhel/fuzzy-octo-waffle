@@ -30,12 +30,12 @@ require 'spec_helper'
 
 describe User do
 
-  describe '.name' do
-    it 'creates valid user' do
-      user = create(:user)
-      expect(user).to be_valid
-    end
+  it 'creates valid user' do
+    user = create(:user)
+    expect(user).to be_valid
+  end
 
+  describe '.name' do
     it 'shows first name + last name' do
       user = create(:user, first_name: "Carl", last_name: "Kovalsky")
       expect(user.name).to eq "Carl Kovalsky"
