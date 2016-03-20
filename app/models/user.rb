@@ -32,7 +32,9 @@ class User < ActiveRecord::Base
   #:registerable
   devise :database_authenticatable,
          :recoverable, :rememberable, :trackable, :validatable
+
   validates_format_of :index_num, with: /^[0-9]/, multiline: true
+  validates :first_name, :last_name, :email, presence: true
 
   def login=(login)
     @login = login

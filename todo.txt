@@ -1,10 +1,7 @@
 TODO
-- dodać gemy: simple form
 - dodac role: student, lecturer, dean, admin
 - uzupelnic dane usera: adres korespondencyjny, nr_indexu, zainteresowania, stopien naukowy
 - widok show profile
-- uzupełnić profil studenta
-- Zrobić w pełni zakładkę ustawienia
 - Wygenerować schemat https://github.com/voormedia/rails-erd
 - Dodać model Przedmiot i Grupa zajęciowa
 - Dodać formularze do Przedmiot i Grupa zajęciowa

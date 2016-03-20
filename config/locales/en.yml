@@ -33,6 +33,11 @@ en:
       last_name: Last name
       email: Email
       save: Save
+      street: Street
+      postal_code: Postal code
+      city: City
+      country: Country
+      bank_account: Bank account number
   devise:
     shared:
       password_form:

@@ -19,6 +19,8 @@ gem 'devise'
 gem 'devise-bootstrap-views'
 
 gem 'rails-i18n'
+gem 'simple_form'
+gem 'country_select'
 
 gem 'pundit'
 # Use Unicorn as the app server
