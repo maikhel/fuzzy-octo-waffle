@@ -39,6 +39,12 @@ pl:
       city: Miasto
       country: Państwo
       bank_account: Numer konta
+  subjects:
+    index:
+      subjects: 'Przedmioty'
+      title: 'Nazwa'
+      description: 'Opis'
+      no_subjects_message: 'Aktualnie nie ma żadnych przedmiotów.'
   devise:
     shared:
       password_form:

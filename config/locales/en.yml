@@ -20,25 +20,12 @@ en:
     index:
       schedule: Schedule
   users:
-    show:
-      title: Account settings
-      name: "Name:"
-      email: "Email:"
-      address: "Address:"
-      edit: Edit account
-    edit:
-      title: Account settings
-      change_password: Change password
-    form:
-      first_name: First name
-      last_name: Last name
-      email: Email
-      save: Save
-      street: Street
-      postal_code: Postal code
-      city: City
-      country: Country
-      bank_account: Bank account number
+  subjects:
+    index:
+      subjects: 'Subjects'
+      title: 'Title'
+      description: 'Description'
+      no_subjects_message: 'There are no subjects added.'
   devise:
     shared:
       password_form:

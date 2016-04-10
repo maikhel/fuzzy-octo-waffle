@@ -1,1 +1,25 @@
-%h2 Hello
+%h3= t(".subjects")
+
+- if @subjects.any?
+  %table
+    %thead
+      %tr
+        %th= t('.title')
+        %th= t('.description')
+        %th
+        %th
+
+    %tbody
+      - @subjects.each do |subject|
+        %tr
+          %td= subject.title
+          %td= subject.description
+          %td= link_to 'Show', subject
+          %td= link_to 'Edit', edit_subject_path(subject)
+          -#%td= link_to 'Destroy', subject, :method => :delete, :data => { :confirm => 'Are you sure?' }
+- else
+  %p= t('.no_subjects_message')
+
+%br
+
+-# link_to 'New Example', new_example_path
