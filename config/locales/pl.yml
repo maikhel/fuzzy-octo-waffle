@@ -6,6 +6,7 @@ pl:
       logout: Wyloguj się
     header_main_menu:
       dashboard: Dashboard
+      subjects: Przedmioty
       my_study: Moje studia
       registrations: Rejestracje
       settings: Ustawienia

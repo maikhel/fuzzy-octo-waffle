@@ -6,6 +6,7 @@ en:
       logout: Log out
     header_main_menu:
       dashboard: Dashboard
+      subjects: Subjects
       my_study: My study
       registrations: Registrations
       settings: Settings

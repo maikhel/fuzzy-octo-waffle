@@ -1,5 +1,6 @@
 %ul.nav.navbar-nav.navbar-top-links
   %li= link_to t(".dashboard"), root_path
+  %li= link_to t(".subjects"), subjects_path
   %li= link_to t(".my_study"), moje_studia_user_path(current_user)
   %li= link_to t(".registrations"), rejestracje_user_path(current_user)
   %li= link_to t(".settings"), edit_user_path(current_user)

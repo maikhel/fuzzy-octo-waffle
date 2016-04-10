@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'subjects_controller/new'
+
+  get 'subjects_controller/create'
+
+  get 'subjects_controller/index'
+
   root 'dashboard#index'
 
   devise_for :users, :skip => [:registrations]
@@ -10,6 +16,8 @@ Rails.application.routes.draw do
     get 'rejestracje', on: :member
     patch 'update_password', on: :member
   end
+
+  resources :subjects
 
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
