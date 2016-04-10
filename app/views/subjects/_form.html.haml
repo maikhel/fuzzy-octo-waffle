@@ -1,0 +1,8 @@
+= simple_form_for(@subject, html: {class: 'form', role: "form"} ) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :title, label: t('.title')
+    = f.input :description, label: t('.description'), as: :text, input_html: {rows: 4}
+
+  = f.submit t('.add'), class: 'btn btn-info'

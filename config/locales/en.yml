@@ -26,6 +26,13 @@ en:
       title: 'Title'
       description: 'Description'
       no_subjects_message: 'There are no subjects added.'
+      add_new: 'Add new'
+    new:
+      add_new_subject: 'Add new subject'
+    form:
+      title: 'Title'
+      description: 'Description'
+      add: 'Create'
   devise:
     shared:
       password_form:

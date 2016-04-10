@@ -45,6 +45,13 @@ pl:
       title: 'Nazwa'
       description: 'Opis'
       no_subjects_message: 'Aktualnie nie ma żadnych przedmiotów.'
+      add_new: 'Dodaj'
+    new:
+      add_new_subject: 'Dodaj nowy przedmiot'
+    form:
+      title: 'Nazwa'
+      description: 'Opis'
+      add: 'Stwórz'
   devise:
     shared:
       password_form:

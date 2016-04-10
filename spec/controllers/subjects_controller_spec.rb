@@ -20,4 +20,51 @@ RSpec.describe SubjectsController, type: :controller do
     end
   end
 
+  describe "GET new" do
+    it "has a 200 status code" do
+      get :new
+      expect(response.status).to eq(200)
+    end
+
+    it "assigns @subjects" do
+      get :new
+      expect(assigns(:subject)).to be_a Subject
+    end
+
+    it "renders the new template" do
+      get :new
+      expect(response).to render_template("new")
+    end
+  end
+
+
+  describe "POST create" do
+    context 'with valid attributes' do
+      it "creates a new subject" do
+        expect{
+          post :create, subject: attributes_for(:subject)
+        }.to change{ Subject.count }.by 1
+      end
+
+      it "redirects to the index path" do
+        post :create, subject: attributes_for(:subject)
+        expect(response).to redirect_to subjects_path
+      end
+    end
+
+    context 'with invalid attributes' do
+      it "does not save the new contact" do
+        expect{
+          post :create, subject: attributes_for(:subject, title: nil)
+        }.to_not change{ Subject.count }
+      end
+
+      it "re-renders the new method" do
+        post :create, subject: attributes_for(:subject, title: nil)
+        expect(response).to render_template(:new)
+      end
+    end
+
+  end
+
 end
