@@ -11,7 +11,7 @@ class SubjectsController < ApplicationController
   end
 
   def create
-    @subject = Subject.new(example_params)
+    @subject = Subject.new(subject_params)
 
     respond_to do |format|
       if @subject.save
@@ -32,7 +32,7 @@ private
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def example_params
-      params.require(:subject).permit(:title, :description)
+    def subject_params
+      params.require(:subject).permit(:title, :description, :short_description, :literature, :requirements, :learning_outcomes)
     end
 end

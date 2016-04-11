@@ -50,8 +50,12 @@ pl:
       add_new_subject: 'Dodaj nowy przedmiot'
     form:
       title: 'Nazwa'
-      description: 'Opis'
       add: 'Stwórz'
+      short_description: 'Skrócony opis'
+      description: 'Opis'
+      requirements: 'Wymagania'
+      learning_outcomes: 'Efekty kształcenia'
+      literature: 'Literatura'
   devise:
     shared:
       password_form:

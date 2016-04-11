@@ -3,6 +3,11 @@
 
   .form-inputs
     = f.input :title, label: t('.title')
+    = f.input :short_description, label: t('.short_description'), as: :text, input_html: {rows: 2}
     = f.input :description, label: t('.description'), as: :text, input_html: {rows: 4}
+    = f.input :requirements, label: t('.requirements'), as: :text, input_html: {rows: 4}
+    = f.input :learning_outcomes, label: t('.learning_outcomes'), as: :text, input_html: {rows: 4}
+    = f.input :literature, label: t('.literature'), as: :text, input_html: {rows: 4}
+
 
   = f.submit t('.add'), class: 'btn btn-info'

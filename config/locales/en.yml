@@ -6,7 +6,7 @@ en:
       logout: Log out
     header_main_menu:
       dashboard: Dashboard
-      subjects: Subjects
+      subjects: 'Courses'
       my_study: My study
       registrations: Registrations
       settings: Settings
@@ -22,17 +22,21 @@ en:
   users:
   subjects:
     index:
-      subjects: 'Subjects'
+      subjects: 'Courses'
       title: 'Title'
       description: 'Description'
-      no_subjects_message: 'There are no subjects added.'
+      no_subjects_message: 'There are no courses.'
       add_new: 'Add new'
     new:
-      add_new_subject: 'Add new subject'
+      add_new_subject: 'Add new course'
     form:
       title: 'Title'
-      description: 'Description'
       add: 'Create'
+      short_description: 'Short description'
+      description: 'Description'
+      requirements: 'Requirements'
+      learning_outcomes: 'Learning outcomes'
+      literature: 'Literature'
   devise:
     shared:
       password_form:
