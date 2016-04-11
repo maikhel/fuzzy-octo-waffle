@@ -1,6 +1,6 @@
 class SubjectsController < ApplicationController
 
-  # before_action :set_subject, only: [:show, :edit, :update, :destroy]
+  before_action :set_subject, only: [:show] #:edit, :update, :destroy]
 
   def index
     @subjects = Subject.all
@@ -22,6 +22,9 @@ class SubjectsController < ApplicationController
         format.json { render json: @subject.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def show
   end
 
 

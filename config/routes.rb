@@ -1,9 +1,4 @@
 Rails.application.routes.draw do
-  get 'subjects_controller/new'
-
-  get 'subjects_controller/create'
-
-  get 'subjects_controller/index'
 
   root 'dashboard#index'
 

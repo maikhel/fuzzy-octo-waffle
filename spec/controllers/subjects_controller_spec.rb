@@ -20,6 +20,27 @@ RSpec.describe SubjectsController, type: :controller do
     end
   end
 
+  describe 'GET show' do
+    it "has a 200 status code" do
+      subject = create(:subject)
+      get :show, id: subject.id
+      expect(response.status).to eq(200)
+    end
+
+    it "assigns @subjects" do
+      subject = create(:subject)
+      get :show, id: subject.id
+      expect(assigns(:subject)).to eq subject
+    end
+
+    it "renders the show template" do
+      subject = create(:subject)
+      get :show, id: subject.id
+      expect(response).to render_template("show")
+    end
+
+  end
+
   describe "GET new" do
     it "has a 200 status code" do
       get :new
@@ -36,7 +57,6 @@ RSpec.describe SubjectsController, type: :controller do
       expect(response).to render_template("new")
     end
   end
-
 
   describe "POST create" do
     context 'with valid attributes' do
@@ -64,7 +84,6 @@ RSpec.describe SubjectsController, type: :controller do
         expect(response).to render_template(:new)
       end
     end
-
   end
 
 end
