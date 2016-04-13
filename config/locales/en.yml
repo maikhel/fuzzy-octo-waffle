@@ -37,6 +37,14 @@ en:
       requirements: 'Requirements'
       learning_outcomes: 'Learning outcomes'
       literature: 'Literature'
+    show:
+      title: 'Title'
+      add: 'Create'
+      short_description: 'Short description'
+      description: 'Description'
+      requirements: 'Requirements'
+      learning_outcomes: 'Learning outcomes'
+      literature: 'Literature'
   devise:
     shared:
       password_form:

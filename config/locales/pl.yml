@@ -56,6 +56,14 @@ pl:
       requirements: 'Wymagania'
       learning_outcomes: 'Efekty kształcenia'
       literature: 'Literatura'
+    show:
+      title: 'Nazwa'
+      add: 'Stwórz'
+      short_description: 'Skrócony opis'
+      description: 'Opis'
+      requirements: 'Wymagania'
+      learning_outcomes: 'Efekty kształcenia'
+      literature: 'Literatura'
   devise:
     shared:
       password_form:
