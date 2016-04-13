@@ -9,5 +9,8 @@
     = f.input :learning_outcomes, label: t('.learning_outcomes'), as: :text, input_html: {rows: 4}
     = f.input :literature, label: t('.literature'), as: :text, input_html: {rows: 4}
 
-
-  = f.submit t('.add'), class: 'btn btn-info'
+  .row
+    .col-md-12
+      .pull-right.last-element
+        = link_to t('.cancel'), subjects_path, class: 'btn btn-default'
+        = f.submit t('.save'), class: 'btn btn-info'

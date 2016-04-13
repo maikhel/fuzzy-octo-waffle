@@ -6,3 +6,6 @@
     - %w(short_description description requirements learning_outcomes literature).each do |attribute|
       %h5= t(".#{attribute}")
       %p= @subject[attribute]
+.row
+  .col-md-8.col-md-offset-2
+    = link_to t('.back'), subjects_path, class: 'btn btn-default last-element'

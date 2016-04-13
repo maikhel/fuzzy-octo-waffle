@@ -1,6 +1,6 @@
 class SubjectsController < ApplicationController
 
-  before_action :set_subject, only: [:show] #:edit, :update, :destroy]
+  before_action :set_subject, only: [:show, :edit] #:edit, :update, :destroy]
 
   def index
     @subjects = Subject.all
@@ -25,6 +25,10 @@ class SubjectsController < ApplicationController
   end
 
   def show
+  end
+
+  def edit
+
   end
 
 

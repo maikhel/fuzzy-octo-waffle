@@ -7468,3 +7468,6 @@ input[type="checkbox"]:disabled:checked:after,
 .carousel-caption h6 {
   color: inherit;
 }
+.last-element{
+  margin-bottom: 20px;
+}

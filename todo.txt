@@ -1,7 +1,6 @@
 TODO
 - SUBJECT:
   - wice grid w widoku index
-  - dodać widok show
   - dodać relacje
 - dodac role: student, lecturer, dean, admin
 - uzupelnic dane usera: adres korespondencyjny, nr_indexu, zainteresowania, stopien naukowy

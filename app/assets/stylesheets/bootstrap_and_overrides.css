@@ -73,4 +73,7 @@ html, body {
   display: inline-block;
   float: right;
 }
+.last-element{
+  margin-bottom: 20px;
+}
 

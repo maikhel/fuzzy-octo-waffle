@@ -37,6 +37,8 @@ en:
       requirements: 'Requirements'
       learning_outcomes: 'Learning outcomes'
       literature: 'Literature'
+      save: 'Save'
+      cancel: 'Cancel'
     show:
       title: 'Title'
       add: 'Create'
@@ -45,6 +47,7 @@ en:
       requirements: 'Requirements'
       learning_outcomes: 'Learning outcomes'
       literature: 'Literature'
+      back: 'Back'
   devise:
     shared:
       password_form:

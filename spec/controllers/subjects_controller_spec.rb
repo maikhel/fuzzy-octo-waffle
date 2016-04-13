@@ -86,4 +86,24 @@ RSpec.describe SubjectsController, type: :controller do
     end
   end
 
+  describe "GET edit" do
+    it "has a 200 status code" do
+      subject = create(:subject)
+      get :edit, id: subject.id
+      expect(response.status).to eq(200)
+    end
+
+    it "assigns @subjects" do
+      subject = create(:subject)
+      get :edit, id: subject.id
+      expect(assigns(:subject)).to be_a Subject
+    end
+
+    it "renders the edit template" do
+      subject = create(:subject)
+      get :edit, id: subject.id
+      expect(response).to render_template("edit")
+    end
+  end
+
 end
