@@ -5,21 +5,14 @@
         .panel-heading
           %h4= t('.sign_in', :default => "Sign in")
         .panel-body
-          = form_for(resource, as: resource_name, url: session_path(resource_name), html: { role: "form" }) do |f|
-            .form-group
-              = f.label :login
-              = f.text_field :login, autofocus: true, class: "form-control"
-            .form-group
-              = f.label :password
-              = f.password_field :password, autocomplete: "off", class: "form-control"
-              .forgotten-pass
-                = link_to t(".forgot_your_password", :default => "Forgot your password?"), new_password_path(resource_name)
+          = simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: { role: "form" }) do |f|
+            = f.input :login, label: t('.login'), autofocus: true, hint: t('.login_hint')
+            = f.input :password, label: t('.password'), autocomplete: "off"
+            .forgotten-pass
+              = link_to t(".forgot_your_password"), new_password_path(resource_name)
             .row
               .col-md-6.login-links
-                .checkbox
-                  %label
-                    = f.check_box :remember_me
-                    = f.label :remember_me
+                = f.input :remember_me, inline_label: t('.remember_me'), as: :boolean
             .row
               .col-md-12
-                = f.submit t('.sign_in', :default => "Sign in"), class: "btn btn-primary"
+                = f.submit t('.sign_in'), class: "btn btn-primary"

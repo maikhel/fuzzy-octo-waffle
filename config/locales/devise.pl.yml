@@ -41,6 +41,12 @@ pl:
       update_needs_confirmation: "Konto zostało zaktualizowane. Niemniej jednak przed wprowadzeniem zmian musimy potwierdzić Twój nowy adres email. Za chwilę wyślemy instrukcję na nowy adres."
       updated: "Konto zostało pomyślnie zaktualizowane."
     sessions:
+      new:
+        forgot_your_password: 'Zapomniałeś hasła?'
+        password: 'Hasło'
+        login: 'Login'
+        login_hint: 'Adres email lub nr indexu'
+        remember_me: 'Zapamiętaj'
       user:
         signed_in: "Zostałeś zalogowany."
         signed_out: "Zostałeś wylogowany."
