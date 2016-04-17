@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+7.times do
+  FactoryGirl.create(:subject)
+end
+puts 'Seeds created successfuly'

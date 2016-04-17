@@ -19,9 +19,9 @@ FactoryGirl.define do
   factory :subject do
     title { Faker::Lorem.word }
     short_description { Faker::Lorem.sentence }
-    description { Faker::Lorem.sentence(3) }
-    literature { Faker::Lorem.sentence(3) }
-    requirements { Faker::Lorem.sentence(3) }
-    learning_outcomes { Faker::Lorem.sentence(3) }
+    description { Faker::Lorem.paragraph(3) }
+    literature { Faker::Lorem.paragraph(3) }
+    requirements { Faker::Lorem.paragraph(3) }
+    learning_outcomes { Faker::Lorem.paragraph(3) }
   end
 end
