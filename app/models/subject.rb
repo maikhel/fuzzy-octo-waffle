@@ -16,5 +16,7 @@
 
 class Subject < ActiveRecord::Base
 
+  has_many :course_groups
+
   validates :title, :short_description, presence: true
 end

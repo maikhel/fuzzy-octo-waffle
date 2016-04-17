@@ -47,6 +47,7 @@ pl:
       no_subjects_message: 'Aktualnie nie ma żadnych przedmiotów.'
       add_new: 'Dodaj'
       show: 'Szczegóły'
+      groups: 'Grupy'
       edit: 'Edytuj'
     new:
       add_new_subject: 'Dodaj nowy przedmiot'

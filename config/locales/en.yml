@@ -28,6 +28,7 @@ en:
       no_subjects_message: 'There are no courses.'
       add_new: 'Add new'
       show: 'Show'
+      groups: 'Groups'
       edit: 'Edit'
     new:
       add_new_subject: 'Add new course'

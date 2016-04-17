@@ -17,6 +17,7 @@
           %td.description= subject.description
           %td= link_to t('.show'), subject
           %td= link_to t('.edit'), edit_subject_path(subject)
+          %td= link_to t('.groups'), course_groups_path
           -#%td= link_to 'Destroy', subject, :method => :delete, :data => { :confirm => 'Are you sure?' }
 - else
   %p= t('.no_subjects_message')
