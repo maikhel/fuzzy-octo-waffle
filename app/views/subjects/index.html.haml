@@ -1,7 +1,7 @@
 %h3= t(".subjects")
 
 - if @subjects.any?
-  %table
+  %table.table
     %thead
       %tr
         %th= t('.title')
@@ -12,10 +12,11 @@
     %tbody
       - @subjects.each do |subject|
         %tr
-          %td= subject.title
-          %td= subject.description
-          %td= link_to 'Show', subject
-          %td= link_to 'Edit', edit_subject_path(subject)
+          %td
+            %strong= subject.title
+          %td.description= subject.description
+          %td= link_to t('.show'), subject
+          %td= link_to t('.edit'), edit_subject_path(subject)
           -#%td= link_to 'Destroy', subject, :method => :delete, :data => { :confirm => 'Are you sure?' }
 - else
   %p= t('.no_subjects_message')

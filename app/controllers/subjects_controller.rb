@@ -1,6 +1,6 @@
 class SubjectsController < ApplicationController
 
-  before_action :set_subject, only: [:show, :edit] #:edit, :update, :destroy]
+  before_action :set_subject, only: [:show, :edit, :update]
 
   def index
     @subjects = Subject.all
@@ -28,6 +28,19 @@ class SubjectsController < ApplicationController
   end
 
   def edit
+
+  end
+
+  def update
+    respond_to do |format|
+      if @subject.update(subject_params)
+        format.html { redirect_to @subject, notice: 'subject was successfully updated.' }
+        format.json { render :show, status: :ok, location: @subject }
+      else
+        format.html { render :edit }
+        format.json { render json: @subject.errors, status: :unprocessable_entity }
+      end
+    end
 
   end
 

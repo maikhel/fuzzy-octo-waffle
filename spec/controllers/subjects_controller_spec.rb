@@ -106,4 +106,36 @@ RSpec.describe SubjectsController, type: :controller do
     end
   end
 
+  describe "PATCH update" do
+    context 'with valid attributes' do
+      it "updates a subject" do
+        subject = create(:subject)
+        patch :update, id: subject.id, subject: attributes_for(:subject, title: 'new title')
+        subject.reload
+        expect(subject.title).to eq 'new title'
+      end
+
+      it "redirects to the index path" do
+        subject = create(:subject)
+        patch :update, id: subject.id, subject: attributes_for(:subject, title: 'new title')
+        expect(response).to redirect_to subject_path(subject)
+      end
+    end
+
+    context 'with invalid attributes' do
+      it 'does not update subject' do
+        subject = create(:subject, title: 'old title')
+        patch :update, id: subject.id, subject: attributes_for(:subject, title: nil)
+        subject.reload
+        expect(subject.title).to eq 'old title'
+      end
+
+      it 're-renders the edit action' do
+        subject = create(:subject, title: 'old title')
+        patch :update, id: subject.id, subject: attributes_for(:subject, title: nil)
+        expect(response).to render_template(:edit)
+      end
+    end
+  end
+
 end

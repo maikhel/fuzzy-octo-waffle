@@ -7471,3 +7471,6 @@ input[type="checkbox"]:disabled:checked:after,
 .last-element{
   margin-bottom: 20px;
 }
+.description{
+  width: 70%;
+}

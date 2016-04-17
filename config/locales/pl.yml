@@ -46,6 +46,8 @@ pl:
       description: 'Opis'
       no_subjects_message: 'Aktualnie nie ma żadnych przedmiotów.'
       add_new: 'Dodaj'
+      show: 'Szczegóły'
+      edit: 'Edytuj'
     new:
       add_new_subject: 'Dodaj nowy przedmiot'
     form:

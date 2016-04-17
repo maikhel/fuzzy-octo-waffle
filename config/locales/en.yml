@@ -27,6 +27,8 @@ en:
       description: 'Description'
       no_subjects_message: 'There are no courses.'
       add_new: 'Add new'
+      show: 'Show'
+      edit: 'Edit'
     new:
       add_new_subject: 'Add new course'
     form:

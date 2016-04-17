@@ -37,6 +37,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'database_cleaner'
   gem 'annotate'
+  gem 'pry-rails'
 end
 
 group :development do
@@ -44,6 +45,5 @@ group :development do
   gem 'spring'
   gem 'letter_opener'
   gem 'letter_opener_web'
-  gem 'pry-rails'
 end
 
