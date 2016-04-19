@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
-  resources :course_groups
-  resources :subjects
+  resources :subjects do
+    resources :course_groups
+  end
+
   root 'dashboard#index'
 
   devise_for :users, :skip => [:registrations]

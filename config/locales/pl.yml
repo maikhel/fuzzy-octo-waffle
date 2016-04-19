@@ -70,6 +70,14 @@ pl:
       learning_outcomes: 'Efekty kształcenia'
       literature: 'Literatura'
       back: 'Cofnij'
+  course_groups:
+    index:
+      course_groups: Grupy zajęciowe
+      no_groups_message: Brak grup
+      number: Numer
+      time: 'Godziny'
+      lecturer: 'Wykładowca'
+      max_limit: 'Limit osób'
   devise:
     shared:
       password_form:

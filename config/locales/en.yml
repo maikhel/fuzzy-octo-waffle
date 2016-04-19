@@ -51,6 +51,14 @@ en:
       learning_outcomes: 'Learning outcomes'
       literature: 'Literature'
       back: 'Back'
+  course_groups:
+    index:
+      course_groups: Course groups
+      no_groups_message: 'There are no course groups currently.'
+      number: 'Number'
+      time: 'Time'
+      lecturer: 'Lecturer'
+      max_limit: 'Max limit'
   devise:
     shared:
       password_form:

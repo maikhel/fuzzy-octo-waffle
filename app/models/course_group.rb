@@ -18,6 +18,9 @@ class CourseGroup < ActiveRecord::Base
   belongs_to :subject
   belongs_to :lecturer, class_name: 'User'
 
+  validates :subject, presence: true
+  validates :lecturer, presence: true
+
   validates :start_time, :end_time, :weekday, presence: true
 
 end

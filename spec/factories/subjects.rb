@@ -24,4 +24,15 @@ FactoryGirl.define do
     requirements { Faker::Lorem.paragraph(3) }
     learning_outcomes { Faker::Lorem.paragraph(3) }
   end
+
+  trait :with_groups do
+    transient do
+      groups_count 3
+    end
+
+    after(:create) do |subject, evaluator|
+      create_list(:course_group, evaluator.groups_count, subject: subject)
+    end
+  end
+
 end

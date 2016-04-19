@@ -23,6 +23,13 @@ RSpec.describe Subject, type: :model do
     expect(subject).to be_valid
   end
 
+  it 'creates valid subject with course groups' do
+    subject = create(:subject, :with_groups)
+    expect(subject).to be_valid
+    expect(subject.course_groups.count).to eq 3
+  end
+
+
   describe 'validations' do
     it 'is invalid without title' do
       subject = build(:subject, title: nil)

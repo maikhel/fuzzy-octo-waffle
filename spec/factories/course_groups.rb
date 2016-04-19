@@ -15,8 +15,8 @@
 
 FactoryGirl.define do
   factory :course_group do
-    start_time Time.now.strftime("%H:%M")
-    end_time (Time.now + 1.5.hours).strftime("%H:%M")
+    start_time { Faker::Time.between(4.days.ago, Date.today, :all).strftime("%H:%M") }
+    end_time { ((Faker::Time.between(4.days.ago, Date.today, :all)) + 1.5.hours).strftime("%H:%M") }
     weekday 2
     association :subject
     association :lecturer
