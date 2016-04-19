@@ -7,13 +7,14 @@ RSpec.describe CourseGroupsController, type: :controller do
    @lecturer = create(:user)
   end
 
+  let(:course) { create(:subject, :with_groups) }
+
   let(:valid_attributes) { attributes_for(:course_group).merge({subject_id: @subject.id, lecturer_id: @lecturer.id}) }
   let(:invalid_attributes) { attributes_for(:course_group, start_time: nil, end_time: nil) }
 
   let(:valid_session) { {} }
 
   describe "GET #index" do
-    let(:course) { create(:subject, :with_groups) }
     # subject { get :index, course_id: course.id }
 
     it "has a 200 status code" do
@@ -35,10 +36,22 @@ RSpec.describe CourseGroupsController, type: :controller do
   end
 
   describe "GET #show" do
+    let(:group) { course.course_groups.first }
+
+    it "has a 200 status code" do
+      get :show, {subject_id: course.id, id: group.id}
+      expect(response.status).to eq(200)
+    end
+
     it "assigns the requested course_group as @course_group" do
-      course_group = create(:course_group)
-      get :show, {:id => course_group.to_param}, valid_session
-      expect(assigns(:course_group)).to eq(course_group)
+      get :show, {subject_id: course.id, id: group.id}
+      expect(assigns(:course_group)).to eq(group)
+      expect(assigns(:course)).to eq(course)
+    end
+
+    it "renders the index template" do
+      get :show, {subject_id: course.id, id: group.id}
+      expect(response).to render_template("show")
     end
   end
 

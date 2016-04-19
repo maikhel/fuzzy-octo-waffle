@@ -78,6 +78,11 @@ pl:
       time: 'Godziny'
       lecturer: 'Wykładowca'
       max_limit: 'Limit osób'
+    show:
+      number: Numer
+      time: 'Godziny'
+      lecturer: 'Wykładowca'
+      max_limit: 'Limit osób'
   devise:
     shared:
       password_form:

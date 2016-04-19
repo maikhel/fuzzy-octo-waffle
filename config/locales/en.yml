@@ -59,6 +59,11 @@ en:
       time: 'Time'
       lecturer: 'Lecturer'
       max_limit: 'Max limit'
+    show:
+      number: 'Number'
+      time: 'Time'
+      lecturer: 'Lecturer'
+      max_limit: 'Max limit'
   devise:
     shared:
       password_form:
