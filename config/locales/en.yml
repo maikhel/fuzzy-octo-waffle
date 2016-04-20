@@ -20,6 +20,25 @@ en:
     index:
       schedule: Schedule
   users:
+    show:
+      title: Account settings
+      name: "Name:"
+      email: "Email:"
+      address: "Address:"
+      edit: Edit account
+    edit:
+      title: Account settings
+      change_password: Change password
+    form:
+      first_name: First name
+      last_name: Last name
+      email: Email
+      save: Save
+      street: Street
+      postal_code: Postal code
+      city: City
+      country: Country
+      bank_account: Bank account number
   subjects:
     index:
       subjects: 'Courses'
@@ -64,6 +83,17 @@ en:
       time: 'Time'
       lecturer: 'Lecturer'
       max_limit: 'Max limit'
+    new:
+      add_new_course_group: 'Add new course group'
+    form:
+      start_time: 'Start time'
+      end_time: 'End time'
+      weekday: 'Weekday'
+      subject: 'Course'
+      lecturer: 'Lecturer'
+      max_limit: 'Max limit'
+      save: 'Save'
+      cancel: 'Cancel'
   devise:
     shared:
       password_form:

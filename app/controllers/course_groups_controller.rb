@@ -28,7 +28,7 @@ class CourseGroupsController < ApplicationController
     @course_group = CourseGroup.new(course_group_params)
     respond_to do |format|
       if @course_group.save
-        format.html { redirect_to @course_group, notice: 'Course group was successfully created.' }
+        format.html { redirect_to subject_course_group_path(subject: @course_group.subject, id: @course_group.id) }
         format.json { render :show, status: :created, location: @course_group }
       else
         format.html { render :new }
@@ -70,6 +70,6 @@ class CourseGroupsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def course_group_params
-      params.require(:course_group).permit(:start_time, :end_time, :subject_id, :lecturer_id, :max_limit)
+      params.require(:course_group).permit(:start_time, :end_time, :weekday, :subject_id, :lecturer_id, :max_limit)
     end
 end

@@ -80,9 +80,20 @@ pl:
       max_limit: 'Limit osób'
     show:
       number: Numer
-      time: 'Godziny'
+      time: 'Termin'
       lecturer: 'Wykładowca'
       max_limit: 'Limit osób'
+    new:
+      add_new_course_group: 'Dodaj nową grupę zajęciową'
+    form:
+      start_time: 'Początek'
+      end_time: 'Koniec'
+      weekday: 'Dzień'
+      subject: 'Przedmiot'
+      lecturer: 'Prowadzący'
+      max_limit: 'Limit osób'
+      save: 'Zapisz'
+      cancel: 'Anuluj'
   devise:
     shared:
       password_form:
