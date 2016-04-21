@@ -1,31 +1,28 @@
-%h3="#{@course.title} - #{t('.course_groups')}"
+.row
+  .col-md-12
+    %h3.page-header= "#{@course.title} - #{t('.course_groups')}"
 
+.row
+  - num = 1
+  - @course_groups.each do |group|
+    .col-md-4.col-sm-6
+      .panel.panel-success
+        .panel-heading
+          %h6.white.mg-0
+            = "#{num}. #{group.start_time.strftime('%H:%M')} - #{group.end_time.strftime('%H:%M')}"
+            = link_to edit_subject_course_group_path(subject_id: group.subject.id, id: group.id) do
+              %span.glyphicon.glyphicon-edit.pull-right.white{'aria-hidden'=>"true"}
+        .panel-body
+          %p
+            %strong= t('.lecturer') + ':'
+            %span= group.lecturer.name
+          %p
+            %strong= t('.max_limit') + ':'
+            %span= group.max_limit
+    - num+= 1
 
-- if @course_groups.any?
-  %table.table
-    %thead
-      %tr
-        %th= t('.number')
-        %th= t('.time')
-        %th= t('.lecturer')
-        %th= t('.max_limit')
-        %th
-        %th
-
-    %tbody
-      - num = 1
-      - @course_groups.each do |group|
-        %tr
-          %td= num
-          %td= "#{group.start_time.strftime('%H:%M')} - #{group.end_time.strftime('%H:%M')}"
-          %td= group.lecturer.name
-          %td= group.max_limit
-          %td= link_to 'Show', subject_course_group_path(subject: @subject, id: group.id)
-          %td= link_to 'Edit', edit_subject_course_group_path(subject: @subject, id: group.id)
-          - num+= 1
-          -# %td= link_to 'Destroy', course_group, :method => :delete, :data => { :confirm => 'Are you sure?' }
-- else
-  %p= t('.no_groups_message')
+  - if @course_groups.empty?
+    %p= t('.no_groups_message')
 
 
 -# link_to 'New Course group', new_course_group_path
