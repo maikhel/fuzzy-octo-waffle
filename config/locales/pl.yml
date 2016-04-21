@@ -5,7 +5,7 @@ pl:
       login: Zaloguj się
       logout: Wyloguj się
     header_main_menu:
-      dashboard: Dashboard
+      dashboard: Strona główna
       subjects: Przedmioty
       my_study: Moje studia
       registrations: Rejestracje
@@ -49,6 +49,7 @@ pl:
       show: 'Szczegóły'
       groups: 'Grupy'
       edit: 'Edytuj'
+      course_groups: 'Grupy zajęciowe'
     new:
       add_new_subject: 'Dodaj nowy przedmiot'
     form:
@@ -74,6 +75,7 @@ pl:
     index:
       course_groups: Grupy zajęciowe
       no_groups_message: Brak grup
+      subject: 'Przedmiot'
       number: Numer
       time: 'Godziny'
       lecturer: 'Wykładowca'

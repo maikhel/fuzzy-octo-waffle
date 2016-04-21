@@ -4,8 +4,6 @@ TODO
 - dodac role: student, lecturer, dean, admin
 - uzupelnic dane usera: adres korespondencyjny, nr_indexu, zainteresowania, stopien naukowy
 - Wygenerować schemat https://github.com/voormedia/rails-erd
-- dodać model Grupa zajęciowa
-- Dodać formularze do Grupa zajęciowa
 - lista grupy zajęciowe
 - Dodać model Rejestracja
 - Dodać formularz rejestracji

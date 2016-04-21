@@ -49,6 +49,7 @@ en:
       show: 'Show'
       groups: 'Groups'
       edit: 'Edit'
+      course_groups: 'All course groups'
     new:
       add_new_subject: 'Add new course'
     form:
@@ -74,6 +75,7 @@ en:
     index:
       course_groups: Course groups
       no_groups_message: 'There are no course groups currently.'
+      subject: 'Course title'
       number: 'Number'
       time: 'Time'
       lecturer: 'Lecturer'

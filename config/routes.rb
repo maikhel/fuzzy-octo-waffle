@@ -4,6 +4,8 @@ Rails.application.routes.draw do
     resources :course_groups
   end
 
+  get 'course_groups/overview' => 'course_groups#overview'
+
   root 'dashboard#index'
 
   devise_for :users, :skip => [:registrations]

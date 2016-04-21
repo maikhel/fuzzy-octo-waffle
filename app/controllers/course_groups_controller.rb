@@ -2,14 +2,18 @@ class CourseGroupsController < ApplicationController
   before_action :set_course_group_and_subject, only: [:show, :edit, :update, :destroy]
 
   # GET /course_groups
-  # GET /course_groups.json
   def index
     @course        = Subject.find(params[:subject_id])
     @course_groups = @course.course_groups
   end
 
+  # GET /course_groups/overview
+  def overview
+    @course_groups = CourseGroup.all
+  end
+
+
   # GET /course_groups/1
-  # GET /course_groups/1.json
   def show
   end
 

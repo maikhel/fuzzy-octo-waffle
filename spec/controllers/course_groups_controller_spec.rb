@@ -35,6 +35,24 @@ RSpec.describe CourseGroupsController, type: :controller do
     end
   end
 
+  describe "GET #overview" do
+    it "has a 200 status code" do
+      get :overview
+      expect(response.status).to eq(200)
+    end
+
+    it "assigns subject course_groups as @course_groups" do
+      create_list(:course_group, 3)
+      get :overview
+      expect(assigns(:course_groups)).to eq(CourseGroup.all)
+    end
+
+    it "renders the overview template" do
+      get :overview
+      expect(response).to render_template("overview")
+    end
+  end
+
   describe "GET #show" do
     let(:group) { course.course_groups.first }
 

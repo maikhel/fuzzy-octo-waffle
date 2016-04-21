@@ -1,0 +1,33 @@
+%h3= t('course_groups.index.course_groups')
+
+- if @course_groups.any?
+  %table.table
+    %thead
+      %tr
+        %th= t('course_groups.index.number')
+        %th= t('course_groups.index.subject')
+        %th= t('course_groups.index.time')
+        %th= t('course_groups.index.lecturer')
+        %th= t('course_groups.index.max_limit')
+        %th
+        %th
+
+    %tbody
+      - num = 1
+      - @course_groups.each do |group|
+        %tr
+          %td= num
+          %td
+            %strong= group.subject.title
+          %td= "#{group.start_time.strftime('%H:%M')} - #{group.end_time.strftime('%H:%M')}"
+          %td= group.lecturer.name
+          %td= group.max_limit
+          %td= link_to 'Show', subject_course_group_path(subject_id: group.subject.id, id: group.id)
+          %td= link_to 'Edit', edit_subject_course_group_path(subject_id: group.subject.id, id: group.id)
+          - num+= 1
+          -# %td= link_to 'Destroy', course_group, :method => :delete, :data => { :confirm => 'Are you sure?' }
+- else
+  %p= t('course_groups.index.no_groups_message')
+
+
+-# link_to 'New Course group', new_course_group_path
