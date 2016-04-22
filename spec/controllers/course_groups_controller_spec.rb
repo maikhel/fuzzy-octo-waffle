@@ -99,9 +99,10 @@ RSpec.describe CourseGroupsController, type: :controller do
       expect(response.status).to eq(200)
     end
 
-    it "assigns the requested course_group as @course_group" do
+    it "assigns @course_group and @course" do
       get :edit, {subject_id: group.subject.id, id: group.id }
       expect(assigns(:course_group)).to eq(group)
+      expect(assigns(:course)).to eq(group.subject)
     end
 
     it "renders the new template" do
@@ -146,41 +147,49 @@ RSpec.describe CourseGroupsController, type: :controller do
   end
 
   describe "PUT #update" do
-    context "with valid params" do
-      let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
-      }
 
+    it "assigns @course_group and @course" do
+      course_group = create(:course_group)
+      put :update, {
+        subject_id: course_group.subject_id,
+        id: course_group.id,
+        course_group: attributes_for(:course_group, max_limit: 20)
+      }
+      expect(assigns(:course_group)).to eq(course_group)
+      expect(assigns(:course)).to eq(course_group.subject)
+    end
+
+    context "with valid params" do
       it "updates the requested course_group" do
         course_group = create(:course_group)
-        put :update, {:id => course_group.to_param, :course_group => new_attributes}, valid_session
+        put :update, {
+          subject_id: course_group.subject_id,
+          id: course_group.id,
+          course_group: attributes_for(:course_group, max_limit: 20)
+        }
         course_group.reload
-        skip("Add assertions for updated state")
-      end
-
-      it "assigns the requested course_group as @course_group" do
-        course_group = create(:course_group)
-        put :update, {:id => course_group.to_param, :course_group => valid_attributes}, valid_session
-        expect(assigns(:course_group)).to eq(course_group)
+        expect(course_group.max_limit).to eq 20
       end
 
       it "redirects to the course_group" do
         course_group = create(:course_group)
-        put :update, {:id => course_group.to_param, :course_group => valid_attributes}, valid_session
-        expect(response).to redirect_to(course_group)
+        put :update, {
+          subject_id: course_group.subject_id,
+          id: course_group.id,
+          course_group: attributes_for(:course_group, max_limit: 20)
+        }
+        expect(response).to redirect_to(subject_course_groups_path(course_group.subject_id))
       end
     end
 
     context "with invalid params" do
-      it "assigns the course_group as @course_group" do
-        course_group = create(:course_group)
-        put :update, {:id => course_group.to_param, :course_group => invalid_attributes}, valid_session
-        expect(assigns(:course_group)).to eq(course_group)
-      end
-
       it "re-renders the 'edit' template" do
         course_group = create(:course_group)
-        put :update, {:id => course_group.to_param, :course_group => invalid_attributes}, valid_session
+        put :update, {
+          subject_id: course_group.subject_id,
+          id: course_group.id,
+          course_group: attributes_for(:course_group, weekday: nil)
+        }
         expect(response).to render_template("edit")
       end
     end

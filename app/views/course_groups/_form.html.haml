@@ -1,4 +1,4 @@
-= simple_form_for(@course_group, url: subject_course_groups_path) do |f|
+= simple_form_for(@course_group, url: subject_course_group_path(subject_id: @course_group.subject_id)) do |f|
   = f.error_notification
 
   .form-inputs

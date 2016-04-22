@@ -46,8 +46,8 @@ class CourseGroupsController < ApplicationController
   def update
     respond_to do |format|
       if @course_group.update(course_group_params)
-        format.html { redirect_to @course_group, notice: 'Course group was successfully updated.' }
-        format.json { render :show, status: :ok, location: @course_group }
+        format.html { redirect_to subject_course_groups_path(@course.id) }
+        # format.json { render :show, status: :ok, location: @course_group }
       else
         format.html { render :edit }
         format.json { render json: @course_group.errors, status: :unprocessable_entity }
