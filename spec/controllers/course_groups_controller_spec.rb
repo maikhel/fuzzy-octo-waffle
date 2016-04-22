@@ -199,14 +199,14 @@ RSpec.describe CourseGroupsController, type: :controller do
     it "destroys the requested course_group" do
       course_group = create(:course_group)
       expect {
-        delete :destroy, {:id => course_group.to_param}, valid_session
+        delete :destroy, subject_id: course_group.subject_id, id: course_group.id
       }.to change(CourseGroup, :count).by(-1)
     end
 
     it "redirects to the course_groups list" do
       course_group = create(:course_group)
-      delete :destroy, {:id => course_group.to_param}, valid_session
-      expect(response).to redirect_to(course_groups_url)
+      delete :destroy, subject_id: course_group.subject_id, id: course_group.id
+      expect(response).to redirect_to(subject_course_groups_path(course_group.subject_id))
     end
   end
 

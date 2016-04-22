@@ -60,8 +60,8 @@ class CourseGroupsController < ApplicationController
   def destroy
     @course_group.destroy
     respond_to do |format|
-      format.html { redirect_to course_groups_url, notice: 'Course group was successfully destroyed.' }
-      format.json { head :no_content }
+      format.html { redirect_to subject_course_groups_path(@course.id) }
+      # format.json { head :no_content }
     end
   end
 
