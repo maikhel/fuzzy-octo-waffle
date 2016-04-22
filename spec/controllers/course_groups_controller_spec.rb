@@ -92,10 +92,21 @@ RSpec.describe CourseGroupsController, type: :controller do
   end
 
   describe "GET #edit" do
+    let(:group) { create(:course_group) }
+
+    it "has a 200 status code" do
+      get :edit, {subject_id: group.subject.id, id: group.id }
+      expect(response.status).to eq(200)
+    end
+
     it "assigns the requested course_group as @course_group" do
-      course_group = create(:course_group)
-      get :edit, {:id => course_group.to_param}, valid_session
-      expect(assigns(:course_group)).to eq(course_group)
+      get :edit, {subject_id: group.subject.id, id: group.id }
+      expect(assigns(:course_group)).to eq(group)
+    end
+
+    it "renders the new template" do
+      get :edit, {subject_id: group.subject.id, id: group.id }
+      expect(response).to render_template('edit')
     end
   end
 

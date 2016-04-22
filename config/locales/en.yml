@@ -87,6 +87,8 @@ en:
       max_limit: 'Max limit'
     new:
       add_new_course_group: 'Add new course group'
+    edit:
+      edit_course_group: 'Edit course group'
     form:
       start_time: 'Start time'
       end_time: 'End time'

@@ -87,6 +87,8 @@ pl:
       max_limit: 'Limit osób'
     new:
       add_new_course_group: 'Dodaj nową grupę zajęciową'
+    edit:
+      edit_course_group: 'Edytuj grupę zajęciową'
     form:
       start_time: 'Początek'
       end_time: 'Koniec'
