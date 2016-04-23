@@ -80,6 +80,7 @@ pl:
       time: 'Godziny'
       lecturer: 'Wykładowca'
       max_limit: 'Limit osób'
+      new_course_group: 'Dodaj grupę zajęciową'
     show:
       number: Numer
       time: 'Termin'

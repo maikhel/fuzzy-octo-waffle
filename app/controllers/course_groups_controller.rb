@@ -19,6 +19,7 @@ class CourseGroupsController < ApplicationController
 
   # GET /course_groups/new
   def new
+    @subject = Subject.find(params[:subject_id])
     @course_group = CourseGroup.new
   end
 
@@ -70,6 +71,7 @@ class CourseGroupsController < ApplicationController
     def set_course_group_and_subject
       @course_group = CourseGroup.find(params[:id])
       @course       = Subject.find(params[:subject_id])
+      @subject      = @course
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

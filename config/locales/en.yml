@@ -80,6 +80,7 @@ en:
       time: 'Time'
       lecturer: 'Lecturer'
       max_limit: 'Max limit'
+      new_course_group: 'Add course group'
     show:
       number: 'Number'
       time: 'Time'
