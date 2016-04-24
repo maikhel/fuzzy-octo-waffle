@@ -8,7 +8,7 @@
       .col-md-2
         = f.input :end_time, label: t('.end_time')
       .col-md-2
-        = f.input :weekday, label: t('.weekday'), collection: t(:"date.day_names")
+        = f.input :weekday, label: t('.weekday'), collection: weekdays_select
       .col-md-6
         = f.input :max_limit, label: t('.max_limit')
     .row

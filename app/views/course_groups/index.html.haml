@@ -9,7 +9,7 @@
       .panel.panel-success
         .panel-heading.pd-15.pd-r-10
           %h6.white.mg-0
-            = "#{num}. #{group.start_time.strftime('%H:%M')} - #{group.end_time.strftime('%H:%M')}"
+            = "#{num}.#{(t('date.day_names')[group.weekday]).mb_chars.upcase}, #{group.start_time.strftime('%H:%M')} - #{group.end_time.strftime('%H:%M')}"
             .pull-right
               = link_to subject_course_group_path(subject_id: group.subject.id, id: group.id), method: :delete, :data => { :confirm => "Are you sure?" }, class: 'mg-r-5' do
                 %span.glyphicon.glyphicon-trash.white{'aria-hidden'=>"true"}

@@ -1,12 +1,18 @@
 TODO
 - SUBJECT:
   - dodać relacje
+- Course Group:
+  - zmienić @course na @subject
+  - dodać typ: ćwiczenia, wykład, monograf
+
 - dodac role: student, lecturer, dean, admin
 - uzupelnic dane usera: adres korespondencyjny, nr_indexu, zainteresowania, stopien naukowy
 - Wygenerować schemat https://github.com/voormedia/rails-erd
-- lista grupy zajęciowe
-- Dodać model Rejestracja
-- Dodać formularz rejestracji
+- REJESTRACJA:
+  - model
+  - index
+  - form
+
 - Dodać listę rejestracji
 - Dodać rejestrowanie się studenta
 - Dodać wyświetlanie planu zajęć
@@ -17,3 +23,6 @@ TODO
 - Wyświetlanie powiadomień w dashboard
 - Wysyłanie maila z przypomnieniami
 - Wrzucić aplikację na heroku
+
+DETAILS:
+ - tłumaczenie błędów simple form
