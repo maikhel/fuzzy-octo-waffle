@@ -13,9 +13,9 @@
         = f.input :max_limit, label: t('.max_limit')
     .row
       .col-md-6
-        = f.association :subject, label: t('.subject')
+        = f.association :subject, label: t('.subject'), include_blank: false, selected: @subject.id
       .col-md-6
-        = f.association :lecturer, label: t('.lecturer')
+        = f.association :lecturer, label: t('.lecturer'), include_blank: false
   .row
     .col-md-12
       .pull-right.last-element
