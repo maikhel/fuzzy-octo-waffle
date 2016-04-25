@@ -1,6 +1,6 @@
 .row
   .col-md-12
-    %h3.page-header= "#{@course.title} - #{t('.course_groups')}"
+    %h3.page-header= "#{@subject.title} - #{t('.course_groups')}"
 
 .row
   - num = 1
@@ -31,4 +31,4 @@
     %p= t('.no_groups_message')
 .row
   .col-md-12
-    = link_to t('.new_course_group'), new_subject_course_group_path(subject_id: @course.id), class: 'btn btn-primary last-element'
+    = link_to t('.new_course_group'), new_subject_course_group_path(subject_id: @subject.id), class: 'btn btn-primary last-element'

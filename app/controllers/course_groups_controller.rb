@@ -3,8 +3,8 @@ class CourseGroupsController < ApplicationController
 
   # GET /course_groups
   def index
-    @course        = Subject.find(params[:subject_id])
-    @course_groups = @course.course_groups
+    @subject       = Subject.find(params[:subject_id])
+    @course_groups = @subject.course_groups
   end
 
   # GET /course_groups/overview
@@ -19,7 +19,7 @@ class CourseGroupsController < ApplicationController
 
   # GET /course_groups/new
   def new
-    @subject = Subject.find(params[:subject_id])
+    @subject      = Subject.find(params[:subject_id])
     @course_group = CourseGroup.new
   end
 
@@ -47,7 +47,7 @@ class CourseGroupsController < ApplicationController
   def update
     respond_to do |format|
       if @course_group.update(course_group_params)
-        format.html { redirect_to subject_course_groups_path(@course.id) }
+        format.html { redirect_to subject_course_groups_path(@subject.id) }
         # format.json { render :show, status: :ok, location: @course_group }
       else
         format.html { render :edit }
@@ -61,7 +61,7 @@ class CourseGroupsController < ApplicationController
   def destroy
     @course_group.destroy
     respond_to do |format|
-      format.html { redirect_to subject_course_groups_path(@course.id) }
+      format.html { redirect_to subject_course_groups_path(@subject.id) }
       # format.json { head :no_content }
     end
   end
@@ -70,8 +70,7 @@ class CourseGroupsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_course_group_and_subject
       @course_group = CourseGroup.find(params[:id])
-      @course       = Subject.find(params[:subject_id])
-      @subject      = @course
+      @subject      = Subject.find(params[:subject_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

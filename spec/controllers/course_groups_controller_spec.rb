@@ -26,7 +26,7 @@ RSpec.describe CourseGroupsController, type: :controller do
       create_list(:course_group, 3)
       get :index, subject_id: course.id
       expect(assigns(:course_groups)).to eq(course.course_groups)
-      expect(assigns(:course)).to eq(course)
+      expect(assigns(:subject)).to eq(course)
     end
 
     it "renders the index template" do
@@ -64,7 +64,7 @@ RSpec.describe CourseGroupsController, type: :controller do
     it "assigns the requested course_group as @course_group" do
       get :show, {subject_id: course.id, id: group.id}
       expect(assigns(:course_group)).to eq(group)
-      expect(assigns(:course)).to eq(course)
+      expect(assigns(:subject)).to eq(course)
     end
 
     it "renders the show template" do
@@ -102,7 +102,7 @@ RSpec.describe CourseGroupsController, type: :controller do
     it "assigns @course_group and @course" do
       get :edit, {subject_id: group.subject.id, id: group.id }
       expect(assigns(:course_group)).to eq(group)
-      expect(assigns(:course)).to eq(group.subject)
+      expect(assigns(:subject)).to eq(group.subject)
     end
 
     it "renders the new template" do
@@ -156,7 +156,7 @@ RSpec.describe CourseGroupsController, type: :controller do
         course_group: attributes_for(:course_group, max_limit: 20)
       }
       expect(assigns(:course_group)).to eq(course_group)
-      expect(assigns(:course)).to eq(course_group.subject)
+      expect(assigns(:subject)).to eq(course_group.subject)
     end
 
     context "with valid params" do
