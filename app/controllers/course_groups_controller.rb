@@ -76,6 +76,6 @@ class CourseGroupsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def course_group_params
-      params.require(:course_group).permit(:start_time, :end_time, :weekday, :subject_id, :lecturer_id, :max_limit)
+      params.require(:course_group).permit(:start_time, :end_time, :weekday, :subject_id, :lecturer_id, :max_limit, :group_type)
     end
 end

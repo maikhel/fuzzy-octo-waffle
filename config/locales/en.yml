@@ -72,6 +72,11 @@ en:
       literature: 'Literature'
       back: 'Back'
   course_groups:
+    group_types:
+      lecture: 'Lecture'
+      class: 'Class'
+      conversatorium: 'Conversatorium'
+      laboratory: 'Laboratory'
     index:
       course_groups: Course groups
       no_groups_message: 'There are no course groups currently.'
@@ -79,6 +84,7 @@ en:
       number: 'Number'
       time: 'Time'
       lecturer: 'Lecturer'
+      group_type: 'Type'
       max_limit: 'Max limit'
       new_course_group: 'Add course group'
     show:

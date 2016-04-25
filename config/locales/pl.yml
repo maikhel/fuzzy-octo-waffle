@@ -72,12 +72,18 @@ pl:
       literature: 'Literatura'
       back: 'Cofnij'
   course_groups:
+    group_types:
+      lecture: 'Wykład'
+      class: 'Ćwiczenia'
+      conversatorium: 'Konwersatorium'
+      laboratory: 'Laboratorium'
     index:
       course_groups: Grupy zajęciowe
       no_groups_message: Brak grup
       subject: 'Przedmiot'
       number: Numer
       time: 'Godziny'
+      group_type: 'Typ'
       lecturer: 'Wykładowca'
       max_limit: 'Limit osób'
       new_course_group: 'Dodaj grupę zajęciową'

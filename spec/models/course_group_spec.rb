@@ -22,6 +22,12 @@ RSpec.describe CourseGroup, type: :model do
     expect(group).to be_valid
   end
 
+  describe 'CourseGroup::GROUP_TYPES' do
+    it 'consists of lecture, class, conversatorium, laboratory' do
+      expect(CourseGroup::GROUP_TYPES).to eq ['lecture', 'class', 'conversatorium', 'laboratory']
+    end
+  end
+
   describe 'validations' do
     it 'is invalid without start_time/end_time' do
       group1 = build(:course_group, start_time: nil)
