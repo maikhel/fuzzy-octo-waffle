@@ -49,6 +49,15 @@ pl:
     mode_types:
       full_time: 'Dzienne'
       part_time: 'Zaoczne'
+    new:
+      add_new_field_of_study: 'Dodaj nowy kierunek studiów'
+    form:
+      title: 'Nazwa'
+      mode: 'Tryb'
+      degree: 'Stopeń'
+      faculty: 'Wydział'
+      save: 'Zapisz'
+      cancel: 'Anuluj'
     index:
       title: 'Nazwa'
       mode: 'Tryb'

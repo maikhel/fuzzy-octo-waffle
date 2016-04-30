@@ -7,7 +7,6 @@ class FieldOfStudiesController < ApplicationController
   end
 
   # GET /field_of_studies/1
-  # GET /field_of_studies/1.json
   def show
   end
 

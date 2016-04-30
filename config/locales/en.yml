@@ -49,6 +49,15 @@ en:
     mode_types:
       full_time: 'Full time'
       part_time: 'Part time'
+    new:
+      add_new_field_of_study: 'Add new field of study'
+    form:
+      title: 'Title'
+      mode: 'Mode'
+      degree: 'Degree'
+      faculty: 'Faculty'
+      save: 'Save'
+      cancel: 'Cancel'
     index:
       title: 'Title'
       mode: 'Mode'

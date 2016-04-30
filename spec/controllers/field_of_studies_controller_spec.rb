@@ -30,6 +30,42 @@ RSpec.describe FieldOfStudiesController, type: :controller do
     end
   end
 
+   describe "GET #new" do
+
+    it "has a 200 status code" do
+      get :new
+      expect(response.status).to eq(200)
+    end
+
+    it "assigns a new @field_of_study" do
+      get :new
+      expect(assigns(:field_of_study)).to be_a_new(FieldOfStudy)
+    end
+
+    it "renders the new template" do
+      get :new
+      expect(response).to render_template('new')
+    end
+  end
+
+  describe "GET #edit" do
+    let(:field) { create(:field_of_study) }
+
+    it "has a 200 status code" do
+      get :edit, id: field.id
+      expect(response.status).to eq(200)
+    end
+
+    it "assigns @field_of_study" do
+      get :edit, id: field.id
+      expect(assigns(:field_of_study)).to eq(field)
+    end
+
+    it "renders the edit template" do
+      get :edit, id: field.id
+      expect(response).to render_template('edit')
+    end
+  end
   # describe "GET #show" do
   #   it "assigns the requested field_of_study as @field_of_study" do
   #     field_of_study = FieldOfStudy.create! valid_attributes

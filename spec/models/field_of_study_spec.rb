@@ -33,7 +33,6 @@ RSpec.describe FieldOfStudy, type: :model do
       expect(build(:field_of_study, mode: nil)).not_to be_valid
       expect(build(:field_of_study, degree: nil)).not_to be_valid
       expect(build(:field_of_study, faculty_id: nil)).not_to be_valid
-      expect(build(:field_of_study, dean_id: nil)).not_to be_valid
     end
 
     it 'is invalid if degree isnt in DEGREE_TYPES' do

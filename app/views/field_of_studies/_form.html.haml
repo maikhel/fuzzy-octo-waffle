@@ -1,0 +1,19 @@
+= simple_form_for(@field_of_study) do |f|
+  = f.error_notification
+
+  .form-inputs
+    .row
+      .col-md-6
+        = f.input :title, label: t('.title')
+      .col-md-6
+        = f.association :faculty, label: t('.faculty'), include_blank: false
+      .col-md-6
+        = f.input :mode, label: t('.mode'), include_blank: false, collection: mode_types_select
+      .col-md-6
+        = f.input :degree, label: t('.degree'), include_blank: false, collection: degree_types_select
+
+  .row
+    .col-md-12
+      .pull-right.last-element
+        = link_to t('.cancel'), field_of_studies_path, class: 'btn btn-default'
+        = f.submit t('.save'), class: 'btn btn-info'
