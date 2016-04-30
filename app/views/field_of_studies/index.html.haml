@@ -1,0 +1,29 @@
+%h3= t(".field_of_studies")
+
+- if @field_of_studies.any?
+  %table.table
+    %thead
+      %tr
+        %th= t('.title')
+        %th= t('.mode')
+        %th= t('.degree')
+        %th= t('.faculty')
+        %th
+        %th
+
+    %tbody
+      - @field_of_studies.each do |field_of_study|
+        %tr
+          %td
+            %strong= field_of_study.title
+          %td= t("field_of_studies.mode_types.#{field_of_study.mode}")
+          %td= t("field_of_studies.degree_types.#{field_of_study.degree}")
+          %td= field_of_study.faculty.name
+          %td= link_to t('.show'), field_of_study_path(field_of_study)
+          %td= link_to t('.edit'), edit_field_of_study_path(field_of_study)
+- else
+  %p= t(".no_records")
+
+%br
+
+= link_to t('.add_new'), new_field_of_study_path, class: 'btn btn-primary last-element'

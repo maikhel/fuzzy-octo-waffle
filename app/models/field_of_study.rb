@@ -14,8 +14,8 @@
 
 class FieldOfStudy < ActiveRecord::Base
 
-  DEGREE_TYPES = ['master', 'first-cycle', 'second-cycle', 'PhD']
-  MODE_TYPES = ['full-time', 'part-time']
+  DEGREE_TYPES = ['master', 'first_cycle', 'second_cycle', 'phd']
+  MODE_TYPES = ['full_time', 'part_time']
 
   belongs_to :dean, class_name: 'User', foreign_key: 'dean_id'
   belongs_to :faculty

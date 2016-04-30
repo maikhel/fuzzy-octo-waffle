@@ -4,6 +4,8 @@ Rails.application.routes.draw do
     resources :course_groups
   end
 
+  resources :field_of_studies
+
   get 'course_groups/overview' => 'course_groups#overview'
 
   root 'dashboard#index'

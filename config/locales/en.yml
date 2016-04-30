@@ -7,6 +7,7 @@ en:
     header_main_menu:
       dashboard: Dashboard
       subjects: 'Courses'
+      field_of_studies: 'Field of studies'
       my_study: My study
       registrations: Registrations
       settings: Settings
@@ -39,6 +40,25 @@ en:
       city: City
       country: Country
       bank_account: Bank account number
+  field_of_studies:
+    degree_types:
+      master: 'Master'
+      first_cycle: 'Undergraduate, first degree'
+      second_cycle: 'Master, second degree'
+      phd: 'PhD'
+    mode_types:
+      full_time: 'Full time'
+      part_time: 'Part time'
+    index:
+      title: 'Title'
+      mode: 'Mode'
+      degree: 'Degree'
+      faculty: 'Faculty'
+      field_of_studies: 'Field of studies'
+      no_records: 'There are no field of studies'
+      add_new: 'Add new'
+      edit: 'Edit'
+      show: 'Show'
   subjects:
     index:
       subjects: 'Courses'

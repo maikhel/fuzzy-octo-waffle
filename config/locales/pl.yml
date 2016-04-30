@@ -8,6 +8,7 @@ pl:
       dashboard: Strona główna
       subjects: Przedmioty
       my_study: Moje studia
+      field_of_studies: 'Kierunki'
       registrations: Rejestracje
       settings: Ustawienia
       admin: Administracja
@@ -39,6 +40,25 @@ pl:
       city: Miasto
       country: Państwo
       bank_account: Numer konta
+  field_of_studies:
+    degree_types:
+      master: 'Jednolite magisterskie'
+      first_cycle: 'Licencjackie, pierwszego stopnia'
+      second_cycle: 'Magisterskie, drugiego stopnia'
+      phd: 'Doktoranckie'
+    mode_types:
+      full_time: 'Dzienne'
+      part_time: 'Zaoczne'
+    index:
+      title: 'Nazwa'
+      mode: 'Tryb'
+      degree: 'Stopeń'
+      faculty: 'Wydział'
+      field_of_studies: 'Kierunki studiów'
+      no_records: 'Brak kierunków studiów'
+      add_new: 'Dodaj nowy'
+      edit: 'Edytuj'
+      show: 'Szczegóły'
   subjects:
     index:
       subjects: 'Przedmioty'
