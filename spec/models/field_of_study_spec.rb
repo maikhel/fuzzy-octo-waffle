@@ -26,4 +26,22 @@ RSpec.describe FieldOfStudy, type: :model do
     expect(field.dean).to be_a User
     expect(field.faculty).to be_a Faculty
   end
+
+  describe 'validations' do
+    it 'is invalid without title, mode, degree, dean or faculty' do
+      expect(build(:field_of_study, title: nil)).not_to be_valid
+      expect(build(:field_of_study, mode: nil)).not_to be_valid
+      expect(build(:field_of_study, degree: nil)).not_to be_valid
+      expect(build(:field_of_study, faculty_id: nil)).not_to be_valid
+      expect(build(:field_of_study, dean_id: nil)).not_to be_valid
+    end
+
+    it 'is invalid if degree isnt in DEGREE_TYPES' do
+      expect(build(:field_of_study, degree: 'lol')).not_to be_valid
+    end
+
+    it 'is invalid if mode isnt in MODE_TYPES' do
+      expect(build(:field_of_study, mode: 'lol')).not_to be_valid
+    end
+  end
 end

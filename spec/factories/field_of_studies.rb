@@ -15,8 +15,8 @@
 FactoryGirl.define do
   factory :field_of_study do
     title { Faker::Lorem.word }
-    mode "MyString"
-    degree "MyString"
+    mode FieldOfStudy::MODE_TYPES.first
+    degree FieldOfStudy::DEGREE_TYPES.first
     association :dean
     association :faculty
   end
