@@ -11,6 +11,7 @@
 #  max_limit   :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  group_type  :string
 #
 
 FactoryGirl.define do
