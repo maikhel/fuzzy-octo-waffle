@@ -30,7 +30,7 @@ RSpec.describe FieldOfStudiesController, type: :controller do
     end
   end
 
-   describe "GET #new" do
+  describe "GET #new" do
 
     it "has a 200 status code" do
       get :new
@@ -45,6 +45,35 @@ RSpec.describe FieldOfStudiesController, type: :controller do
     it "renders the new template" do
       get :new
       expect(response).to render_template('new')
+    end
+  end
+
+  describe "POST create" do
+    let(:faculty) { create(:faculty) }
+    context 'with valid attributes' do
+      it "creates a new field_of_study" do
+        expect{
+          post :create, field_of_study: attributes_for(:field_of_study, faculty_id: faculty.id)
+        }.to change{ FieldOfStudy.count }.by 1
+      end
+
+      it "redirects to the index path" do
+        post :create, field_of_study: attributes_for(:field_of_study, faculty_id: faculty.id)
+        expect(response).to redirect_to field_of_studies_path
+      end
+    end
+
+    context 'with invalid attributes' do
+      it "does not save the new record" do
+        expect{
+          post :create, field_of_study: attributes_for(:field_of_study, title: nil)
+        }.to_not change{ FieldOfStudy.count }
+      end
+
+      it "re-renders the new method" do
+        post :create, field_of_study: attributes_for(:field_of_study, title: nil)
+        expect(response).to render_template(:new)
+      end
     end
   end
 

@@ -20,14 +20,12 @@ class FieldOfStudiesController < ApplicationController
   end
 
   # POST /field_of_studies
-  # POST /field_of_studies.json
   def create
     @field_of_study = FieldOfStudy.new(field_of_study_params)
 
     respond_to do |format|
       if @field_of_study.save
-        format.html { redirect_to @field_of_study, notice: 'Field of study was successfully created.' }
-        format.json { render :show, status: :created, location: @field_of_study }
+        format.html { redirect_to field_of_studies_path }
       else
         format.html { render :new }
         format.json { render json: @field_of_study.errors, status: :unprocessable_entity }
@@ -36,7 +34,6 @@ class FieldOfStudiesController < ApplicationController
   end
 
   # PATCH/PUT /field_of_studies/1
-  # PATCH/PUT /field_of_studies/1.json
   def update
     respond_to do |format|
       if @field_of_study.update(field_of_study_params)
