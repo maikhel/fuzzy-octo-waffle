@@ -95,6 +95,38 @@ RSpec.describe FieldOfStudiesController, type: :controller do
       expect(response).to render_template('edit')
     end
   end
+
+  describe "PATCH update" do
+    context 'with valid attributes' do
+      it "updates a field_of_study" do
+        field_of_study = create(:field_of_study)
+        patch :update, id: field_of_study.id, field_of_study: attributes_for(:field_of_study, title: 'new title')
+        field_of_study.reload
+        expect(field_of_study.title).to eq 'new title'
+      end
+
+      it "redirects to the index path" do
+        field_of_study = create(:field_of_study)
+        patch :update, id: field_of_study.id, field_of_study: attributes_for(:field_of_study, title: 'new title')
+        expect(response).to redirect_to field_of_studies_path
+      end
+    end
+
+    context 'with invalid attributes' do
+      it 'does not update field_of_study' do
+        field_of_study = create(:field_of_study, title: 'old title')
+        patch :update, id: field_of_study.id, field_of_study: attributes_for(:field_of_study, title: nil)
+        field_of_study.reload
+        expect(field_of_study.title).to eq 'old title'
+      end
+
+      it 're-renders the edit action' do
+        field_of_study = create(:field_of_study, title: 'old title')
+        patch :update, id: field_of_study.id, field_of_study: attributes_for(:field_of_study, title: nil)
+        expect(response).to render_template(:edit)
+      end
+    end
+  end
   # describe "GET #show" do
   #   it "assigns the requested field_of_study as @field_of_study" do
   #     field_of_study = FieldOfStudy.create! valid_attributes

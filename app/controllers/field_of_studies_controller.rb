@@ -37,8 +37,7 @@ class FieldOfStudiesController < ApplicationController
   def update
     respond_to do |format|
       if @field_of_study.update(field_of_study_params)
-        format.html { redirect_to @field_of_study, notice: 'Field of study was successfully updated.' }
-        format.json { render :show, status: :ok, location: @field_of_study }
+        format.html { redirect_to field_of_studies_path }
       else
         format.html { render :edit }
         format.json { render json: @field_of_study.errors, status: :unprocessable_entity }
