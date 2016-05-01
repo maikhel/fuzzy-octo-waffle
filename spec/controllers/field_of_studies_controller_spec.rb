@@ -137,19 +137,20 @@ RSpec.describe FieldOfStudiesController, type: :controller do
     end
   end
 
-  # describe "DELETE #destroy" do
-  #   it "destroys the requested field_of_study" do
-  #     field_of_study = FieldOfStudy.create! valid_attributes
-  #     expect {
-  #       delete :destroy, {:id => field_of_study.to_param}, valid_session
-  #     }.to change(FieldOfStudy, :count).by(-1)
-  #   end
+  describe "DELETE #destroy" do
 
-  #   it "redirects to the field_of_studies list" do
-  #     field_of_study = FieldOfStudy.create! valid_attributes
-  #     delete :destroy, {:id => field_of_study.to_param}, valid_session
-  #     expect(response).to redirect_to(field_of_studies_url)
-  #   end
-  # end
+    it "destroys the requested field_of_study" do
+      field_of_study = create(:field_of_study)
+      expect {
+        delete :destroy, id: field_of_study.id
+      }.to change(FieldOfStudy, :count).by -1
+    end
+
+    it "redirects to the field_of_studies list" do
+      field_of_study = create(:field_of_study)
+      delete :destroy, id: field_of_study.id
+      expect(response).to redirect_to field_of_studies_path
+    end
+  end
 
 end

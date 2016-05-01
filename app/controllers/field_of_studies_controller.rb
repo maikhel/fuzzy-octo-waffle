@@ -46,12 +46,10 @@ class FieldOfStudiesController < ApplicationController
   end
 
   # DELETE /field_of_studies/1
-  # DELETE /field_of_studies/1.json
   def destroy
     @field_of_study.destroy
     respond_to do |format|
-      format.html { redirect_to field_of_studies_url, notice: 'Field of study was successfully destroyed.' }
-      format.json { head :no_content }
+      format.html { redirect_to field_of_studies_path }
     end
   end
 

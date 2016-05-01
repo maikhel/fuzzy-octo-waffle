@@ -21,6 +21,9 @@
           %td= field_of_study.faculty.name
           %td= link_to t('.show'), field_of_study_path(field_of_study)
           %td= link_to t('.edit'), edit_field_of_study_path(field_of_study)
+          %td
+            = link_to field_of_study_path(id: field_of_study.id), method: :delete, :data => { :confirm => "Are you sure?" } do
+              %span.glyphicon.glyphicon-trash{'aria-hidden'=>"true"}
 - else
   %p= t(".no_records")
 
