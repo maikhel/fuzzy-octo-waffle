@@ -1,0 +1,19 @@
+.row
+  .col-md-8.col-md-offset-2
+    .panel.panel-default
+      .panel-heading
+        %h4= @field_of_study.title
+      .panel-body
+        %p
+          %strong= t('.mode') + ':'
+          %span= t("field_of_studies.mode_types.#{@field_of_study.mode}")
+        %p
+          %strong= t('.degree') + ':'
+          %span= t("field_of_studies.degree_types.#{@field_of_study.degree}")
+        %p
+          %strong= t('.faculty') + ':'
+          %span= @field_of_study.faculty.name
+
+.row
+  .col-md-8.col-md-offset-2
+    = link_to t('.back'), field_of_studies_path, class: 'btn btn-default last-element'

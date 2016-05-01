@@ -58,6 +58,11 @@ pl:
       faculty: 'Wydział'
       save: 'Zapisz'
       cancel: 'Anuluj'
+    show:
+      mode: 'Tryb'
+      degree: 'Stopeń'
+      faculty: 'Wydział'
+      back: 'Cofnij'
     index:
       title: 'Nazwa'
       mode: 'Tryb'

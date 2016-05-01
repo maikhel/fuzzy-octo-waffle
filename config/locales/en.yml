@@ -58,6 +58,11 @@ en:
       faculty: 'Faculty'
       save: 'Save'
       cancel: 'Cancel'
+    show:
+      mode: 'Mode'
+      degree: 'Degree'
+      faculty: 'Faculty'
+      back: 'Back'
     index:
       title: 'Title'
       mode: 'Mode'
