@@ -1,14 +1,15 @@
-class CourseGroupJoiner
+class CourseGroupJoiner < Struct.new(:course_group)
 
-  def initialize(user_id, course_group_id)
+  def add(users)
     begin
-      CourseGroupsUser.create(
-        user_id: user_id,
-        course_group_id: course_group_id
-      )
+      course_group.users << users if free_place? [*users].size
     rescue ActiveRecord::RecordNotUnique
       nil
     end
+  end
+
+  def free_place?(num)
+    course_group.max_limit - course_group.users.count >= num
   end
 
 end
