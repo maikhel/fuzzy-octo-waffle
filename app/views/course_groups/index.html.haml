@@ -11,10 +11,12 @@
           %h6.white.mg-0
             = "#{num}.#{(t('date.day_names')[group.weekday]).mb_chars.upcase}, #{group.start_time.strftime('%H:%M')} - #{group.end_time.strftime('%H:%M')}"
             .pull-right
-              = link_to subject_course_group_path(subject_id: group.subject.id, id: group.id), method: :delete, :data => { :confirm => "Are you sure?" }, class: 'mg-r-5' do
-                %span.glyphicon.glyphicon-trash.white{'aria-hidden'=>"true"}
-              = link_to edit_subject_course_group_path(subject_id: group.subject.id, id: group.id) do
+              = link_to subject_course_group_path(subject_id: group.subject.id, id: group.id), class: 'mg-r-5' do
+                %span.glyphicon.glyphicon-list.white{'aria-hidden'=>"true"}
+              = link_to edit_subject_course_group_path(subject_id: group.subject.id, id: group.id), class: 'mg-r-5' do
                 %span.glyphicon.glyphicon-edit.white{'aria-hidden'=>"true"}
+              = link_to subject_course_group_path(subject_id: group.subject.id, id: group.id), method: :delete, :data => { :confirm => "Are you sure?" } do
+                %span.glyphicon.glyphicon-trash.white{'aria-hidden'=>"true"}
         .panel-body
           %p
             %strong= t('.group_type') + ':'

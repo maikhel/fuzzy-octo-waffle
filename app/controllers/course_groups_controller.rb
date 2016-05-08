@@ -15,6 +15,7 @@ class CourseGroupsController < ApplicationController
 
   # GET /course_groups/1
   def show
+    @students = @course_group.users
   end
 
   # GET /course_groups/new

@@ -126,6 +126,7 @@ en:
       time: 'Time'
       lecturer: 'Lecturer'
       max_limit: 'Max limit'
+      students: 'Registrated students'
     new:
       add_new_course_group: 'Add new course group'
     edit:

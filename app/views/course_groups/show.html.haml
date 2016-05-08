@@ -5,15 +5,25 @@
       .panel-heading
         %h4.white= @subject.title
       .panel-body
-        %p
-          %strong= t(".time") + ':'
-          %span= "#{@course_group.start_time.strftime('%H:%M')} - #{@course_group.end_time.strftime('%H:%M')}"
-        %p
-          %strong= t('.max_limit') + ':'
-          %span= @course_group.max_limit
-        %p
-          %strong= t('.lecturer') + ':'
-          %span= @course_group.lecturer.name
+        .col-md-6
+          %p
+            %strong= t(".time") + ':'
+            %span= "#{@course_group.start_time.strftime('%H:%M')} - #{@course_group.end_time.strftime('%H:%M')}"
+          %p
+            %strong= t('.max_limit') + ':'
+            %span= @course_group.max_limit
+          %p
+            %strong= t('.lecturer') + ':'
+            %span= @course_group.lecturer.name
+        .col-md-6
+          %table.table
+            %thead
+              %tr
+                %th= t('.students')
+            %tbody
+              - @students.each do |student|
+                %tr
+                  %td= student.name
 
 .row
   .col-md-8.col-md-offset-2
