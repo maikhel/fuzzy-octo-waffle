@@ -1,0 +1,25 @@
+%h3= t('.registrations')
+
+- if @registrations.any?
+  %table.table
+    %thead
+      %tr
+        %th= t('.start_date')
+        %th= t('.end_date')
+        %th= t('.actions')
+
+    %tbody
+      - @registrations.each do |registration|
+        %tr
+          %td= l registration.start_date, format: :short
+          %td= l registration.end_date, format: :short
+          %td
+            %span
+              = link_to t('.show'), '#', class: 'mg-r-10'
+              = link_to t('.edit'), '#', class: 'mg-r-10'
+              = link_to '#' do
+                %span.mg-r-10.glyphicon.glyphicon-user{'aria-hidden'=>"true"}
+              = link_to '#' do
+                %span.mg-r-10.glyphicon.glyphicon-trash{'aria-hidden'=>"true"}
+- else
+  %p= t('.no_registrations')

@@ -146,6 +146,15 @@ en:
       max_limit: 'Max limit'
       save: 'Save'
       cancel: 'Cancel'
+  registrations:
+    index:
+      registrations: 'Registrations'
+      start_date: 'Start date'
+      end_date: 'End date'
+      actions: 'Actions'
+      show: 'Details'
+      edit: 'Edit'
+      no_registrations: 'There are no registrations yet'
   devise:
     shared:
       password_form:

@@ -146,6 +146,15 @@ pl:
       max_limit: 'Limit osób'
       save: 'Zapisz'
       cancel: 'Anuluj'
+  registrations:
+    index:
+      registrations: 'Rejestracje'
+      start_date: 'Początek'
+      end_date: 'Koniec'
+      actions: 'Akcje'
+      show: 'Szczegóły'
+      edit: 'Edytuj'
+      no_registrations: 'Nie ma jeszcze żadnych rejestracji.'
   devise:
     shared:
       password_form:

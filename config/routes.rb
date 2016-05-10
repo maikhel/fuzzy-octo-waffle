@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   end
 
   resources :field_of_studies
+  resources :registrations
 
   get 'course_groups/overview' => 'course_groups#overview'
 
@@ -21,7 +22,6 @@ Rails.application.routes.draw do
 
   resources :users do
     get 'moje_studia', on: :member
-    get 'rejestracje', on: :member
     patch 'update_password', on: :member
   end
 
