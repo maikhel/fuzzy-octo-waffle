@@ -131,7 +131,8 @@ pl:
       max_limit: 'Limit osób'
       students: 'Studenci zapisani na zajęcia'
       registrated: 'Studenci zapisani na zajęcia'
-      registrate: 'Zarejestruj'
+      registrate: 'Zarejestruj się'
+      deregistrate: 'Wyrejestruj się'
     new:
       add_new_course_group: 'Dodaj nową grupę zajęciową'
     edit:

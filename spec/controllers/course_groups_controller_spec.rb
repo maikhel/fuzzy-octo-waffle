@@ -218,6 +218,12 @@ RSpec.describe CourseGroupsController, type: :controller do
     end
     let(:group) { course.course_groups.first }
 
+    it 'registrates user to group' do
+      get :registrate, {subject_id: course.id, id: group.id}
+      expect(@lecturer.course_groups).to include group
+    end
+
+
     it "has a 302 status code" do
       get :registrate, {subject_id: course.id, id: group.id}
       expect(response.status).to eq(302)
@@ -231,6 +237,38 @@ RSpec.describe CourseGroupsController, type: :controller do
 
     it "redirects to show action" do
       get :registrate, {subject_id: course.id, id: group.id}
+      expect(response).to redirect_to subject_course_group_path(subject_id: course.id, id: group.id)
+    end
+  end
+
+  describe 'GET #deregistrate' do
+    before(:each) do
+      @request.env["devise.mapping"] = Devise.mappings[:user]
+      sign_in @lecturer
+      CourseGroupJoiner.new(group).enroll(@lecturer)
+    end
+
+    let(:group) { course.course_groups.first }
+
+    it 'deregistrated user from course group' do
+      get :deregistrate, {subject_id: course.id, id: group.id}
+      expect(@lecturer.course_groups).not_to include group
+    end
+
+
+    it "has a 302 status code" do
+      get :deregistrate, {subject_id: course.id, id: group.id}
+      expect(response.status).to eq(302)
+    end
+
+    it "assigns the course_group as @course_group" do
+      get :deregistrate, {subject_id: course.id, id: group.id}
+      expect(assigns(:course_group)).to eq group
+      expect(assigns(:subject)).to eq course
+    end
+
+    it "redirects to show action" do
+      get :deregistrate, {subject_id: course.id, id: group.id}
       expect(response).to redirect_to subject_course_group_path(subject_id: course.id, id: group.id)
     end
   end

@@ -132,6 +132,7 @@ en:
       registrated: 'Registrated students'
       students: 'Registrated students'
       registrate: 'Registrate'
+      deregistrate: 'Deregistrate'
     new:
       add_new_course_group: 'Add new course group'
     edit:

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     resources :course_groups do
       member do
         get 'registrate'
+        get 'deregistrate'
       end
     end
   end

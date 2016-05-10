@@ -1,5 +1,5 @@
 class CourseGroupsController < ApplicationController
-  before_action :set_course_group_and_subject, only: [:show, :edit, :update, :destroy, :registrate]
+  before_action :set_course_group_and_subject, only: [:show, :edit, :update, :destroy, :registrate, :deregistrate]
 
   # GET /course_groups
   def index
@@ -33,6 +33,15 @@ class CourseGroupsController < ApplicationController
       nil
     else
       CourseGroupJoiner.new(@course_group).enroll(current_user)
+    end
+    redirect_to action: 'show', subject_id: params[:subject_id], id: params[:id]
+  end
+
+  def deregistrate
+    if params[:user_ids]
+      nil
+    else
+      CourseGroupJoiner.new(@course_group).leave(current_user)
     end
     redirect_to action: 'show', subject_id: params[:subject_id], id: params[:id]
   end
