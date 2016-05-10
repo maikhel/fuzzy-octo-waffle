@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
 
   resources :subjects do
-    resources :course_groups
+    resources :course_groups do
+      member do
+        get 'registrate'
+      end
+    end
   end
 
   resources :field_of_studies

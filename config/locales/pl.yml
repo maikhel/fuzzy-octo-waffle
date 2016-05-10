@@ -120,13 +120,18 @@ pl:
       group_type: 'Typ'
       lecturer: 'Wykładowca'
       max_limit: 'Limit osób'
+      students_count: 'Zapisane osoby'
       new_course_group: 'Dodaj grupę zajęciową'
+      show: 'Szczegóły'
+      edit: 'Edytuj'
     show:
       number: Numer
       time: 'Termin'
       lecturer: 'Wykładowca'
       max_limit: 'Limit osób'
       students: 'Studenci zapisani na zajęcia'
+      registrated: 'Studenci zapisani na zajęcia'
+      registrate: 'Zarejestruj'
     new:
       add_new_course_group: 'Dodaj nową grupę zajęciową'
     edit:

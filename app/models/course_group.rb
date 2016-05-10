@@ -27,4 +27,9 @@ class CourseGroup < ActiveRecord::Base
 
   validates :start_time, :end_time, :weekday, presence: true
 
+
+  def enrolled_students
+    users
+  end
+
 end

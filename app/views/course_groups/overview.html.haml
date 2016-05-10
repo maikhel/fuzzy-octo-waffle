@@ -9,7 +9,9 @@
         %th= t('course_groups.index.group_type')
         %th= t('course_groups.index.time')
         %th= t('course_groups.index.lecturer')
-        %th= t('course_groups.index.max_limit')
+        %th= t('course_groups.index.students_count')
+        %th
+        %th
         %th
         %th
 
@@ -24,11 +26,16 @@
             %td= t("course_groups.group_types.#{group.group_type}")
             %td= "#{group.start_time.strftime('%H:%M')} - #{group.end_time.strftime('%H:%M')}"
             %td= group.lecturer.name
-            %td= group.max_limit
-            %td= link_to 'Show', subject_course_group_path(subject_id: group.subject.id, id: group.id)
-            %td= link_to 'Edit', edit_subject_course_group_path(subject_id: group.subject.id, id: group.id)
+            %td= "#{group.enrolled_students.count} / #{group.max_limit}"
+            %td= link_to t('course_groups.index.show'), subject_course_group_path(subject_id: group.subject.id, id: group.id)
+            %td= link_to t('course_groups.index.edit'), edit_subject_course_group_path(subject_id: group.subject.id, id: group.id)
+            %td
+              = link_to subject_course_group_path(subject_id: group.subject.id, id: group.id), method: :delete, :data => { :confirm => "Are you sure?" } do
+                %span.glyphicon.glyphicon-user{'aria-hidden'=>"true"}
+            %td
+              = link_to subject_course_group_path(subject_id: group.subject.id, id: group.id), method: :delete, :data => { :confirm => "Are you sure?" } do
+                %span.glyphicon.glyphicon-trash{'aria-hidden'=>"true"}
             - num+= 1
-            -# %td= link_to 'Destroy', course_group, :method => :delete, :data => { :confirm => 'Are you sure?' }
 - else
   %p= t('course_groups.index.no_groups_message')
 

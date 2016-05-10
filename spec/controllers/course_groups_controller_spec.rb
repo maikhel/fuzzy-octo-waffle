@@ -1,10 +1,11 @@
 require 'spec_helper'
+require 'devise'
 
 RSpec.describe CourseGroupsController, type: :controller do
 
   before(:all) do
-   @subject = create(:subject)
-   @lecturer = create(:user)
+    @subject = create(:subject)
+    @lecturer = create(:user)
   end
 
   let(:course) { create(:subject, :with_groups) }
@@ -207,6 +208,30 @@ RSpec.describe CourseGroupsController, type: :controller do
       course_group = create(:course_group)
       delete :destroy, subject_id: course_group.subject_id, id: course_group.id
       expect(response).to redirect_to(subject_course_groups_path(course_group.subject_id))
+    end
+  end
+
+  describe 'GET #registrate' do
+    before(:each) do
+      @request.env["devise.mapping"] = Devise.mappings[:user]
+      sign_in @lecturer
+    end
+    let(:group) { course.course_groups.first }
+
+    it "has a 302 status code" do
+      get :registrate, {subject_id: course.id, id: group.id}
+      expect(response.status).to eq(302)
+    end
+
+    it "assigns the course_group as @course_group" do
+      get :registrate, {subject_id: course.id, id: group.id}
+      expect(assigns(:course_group)).to eq group
+      expect(assigns(:subject)).to eq course
+    end
+
+    it "redirects to show action" do
+      get :registrate, {subject_id: course.id, id: group.id}
+      expect(response).to redirect_to subject_course_group_path(subject_id: course.id, id: group.id)
     end
   end
 

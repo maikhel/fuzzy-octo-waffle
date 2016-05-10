@@ -120,13 +120,18 @@ en:
       lecturer: 'Lecturer'
       group_type: 'Type'
       max_limit: 'Max limit'
+      students_count: 'Registrated students'
       new_course_group: 'Add course group'
+      show: 'Show'
+      edit: 'Edit'
     show:
       number: 'Number'
       time: 'Time'
       lecturer: 'Lecturer'
       max_limit: 'Max limit'
+      registrated: 'Registrated students'
       students: 'Registrated students'
+      registrate: 'Registrate'
     new:
       add_new_course_group: 'Add new course group'
     edit:

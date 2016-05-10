@@ -13,8 +13,6 @@ TODO
 - Dodać listę rejestracji
 - Dodać rejestrowanie się studenta
 - Dodać wyświetlanie planu zajęć
-- Dodać wyświetlanie listy studentów na przedmiocie
-- Dodać wyświetlanie listy studentów na grupie zajęciowej
 - Dodać wpisywanie oceny studentowi
 - Liczenie średniej studentowi
 - Wyświetlanie powiadomień w dashboard
