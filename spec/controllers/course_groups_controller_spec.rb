@@ -214,13 +214,14 @@ RSpec.describe CourseGroupsController, type: :controller do
   describe 'GET #registrate' do
     before(:each) do
       @request.env["devise.mapping"] = Devise.mappings[:user]
-      sign_in @lecturer
+      sign_in student
     end
     let(:group) { course.course_groups.first }
+    let(:student) { create(:student) }
 
     it 'registrates user to group' do
       get :registrate, {subject_id: course.id, id: group.id}
-      expect(@lecturer.course_groups).to include group
+      expect(student.course_groups).to include group
     end
 
 
@@ -244,15 +245,16 @@ RSpec.describe CourseGroupsController, type: :controller do
   describe 'GET #deregistrate' do
     before(:each) do
       @request.env["devise.mapping"] = Devise.mappings[:user]
-      sign_in @lecturer
-      CourseGroupJoiner.new(group).enroll(@lecturer)
+      sign_in student
+      CourseGroupJoiner.new(group).enroll(student)
     end
 
     let(:group) { course.course_groups.first }
+    let(:student) { create(:student) }
 
     it 'deregistrated user from course group' do
       get :deregistrate, {subject_id: course.id, id: group.id}
-      expect(@lecturer.course_groups).not_to include group
+      expect(student.course_groups).not_to include group
     end
 
 
