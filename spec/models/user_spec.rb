@@ -42,4 +42,19 @@ describe User do
     end
   end
 
+  describe '.enrolled?' do
+    let(:course_group) { create(:course_group) }
+    let(:student) { create(:student) }
+    let(:joiner) { CourseGroupJoiner.new(course_group) }
+
+    it 'returns true if student enrolled to course' do
+      joiner.enroll(student)
+      expect(student.enrolled?(course_group)).to eq true
+    end
+
+    it 'returns false if student not enrolled to course' do
+      expect(student.enrolled?(course_group)).to eq false
+    end
+  end
+
 end

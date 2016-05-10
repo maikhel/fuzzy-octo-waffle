@@ -38,17 +38,6 @@ class User < ActiveRecord::Base
   validates_format_of :index_num, with: /^[0-9]/, multiline: true
   validates :first_name, :last_name, :email, presence: true
 
-  def login=(login)
-    @login = login
-  end
-
-  def login
-    @login || self.index_num || self.email
-  end
-
-  def name
-    "#{first_name} #{last_name}".strip
-  end
 
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup
@@ -62,5 +51,22 @@ class User < ActiveRecord::Base
       end
     end
   end
+
+  def login=(login)
+    @login = login
+  end
+
+  def login
+    @login || self.index_num || self.email
+  end
+
+  def name
+    "#{first_name} #{last_name}".strip
+  end
+
+  def enrolled?(course)
+    CourseGroupJoiner.new(course).enrolled?(self)
+  end
+
 
 end
