@@ -16,10 +16,13 @@
           %td
             %span
               = link_to t('.show'), '#', class: 'mg-r-10'
-              = link_to t('.edit'), '#', class: 'mg-r-10'
+              = link_to t('.edit'), edit_registration_path(registration), class: 'mg-r-10'
               = link_to '#' do
                 %span.mg-r-10.glyphicon.glyphicon-user{'aria-hidden'=>"true"}
               = link_to '#' do
                 %span.mg-r-10.glyphicon.glyphicon-trash{'aria-hidden'=>"true"}
 - else
   %p= t('.no_registrations')
+.row
+  .col-md-12
+    = link_to t('.new_registration'), new_registration_path, class: 'btn btn-primary last-element'

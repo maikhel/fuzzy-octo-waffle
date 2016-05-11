@@ -155,6 +155,11 @@ pl:
       show: 'Szczegóły'
       edit: 'Edytuj'
       no_registrations: 'Nie ma jeszcze żadnych rejestracji.'
+      new_registration: 'Dodaj rejestrację'
+    new:
+      add_new_registration: 'Nowa rejestracja'
+    edit:
+      edit_registration: 'Edytuj rejestrację'
   devise:
     shared:
       password_form:

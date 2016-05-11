@@ -1,12 +1,18 @@
 class RegistrationsController < ApplicationController
 
-  before_action :set_registration, only: [:show]
+  before_action :set_registration, only: [:show, :edit]
 
   def index
     @registrations = Registration.all
     @course_groups = CourseGroup.all
   end
 
+  def new
+    @registration = Registration.new
+  end
+
+  def edit
+  end
 
 
   private

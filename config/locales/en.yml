@@ -155,6 +155,11 @@ en:
       show: 'Details'
       edit: 'Edit'
       no_registrations: 'There are no registrations yet'
+      new_registration: 'Add registration'
+    new:
+      add_new_registration: 'Add new registration'
+    edit:
+      edit_registration: 'Edit registration'
   devise:
     shared:
       password_form:
