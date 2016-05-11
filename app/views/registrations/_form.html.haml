@@ -1,1 +1,17 @@
-'form'
+= simple_form_for(@registration) do |f|
+  = f.error_notification
+
+  .form-inputs
+    .row
+      .col-md-6
+        = f.input :start_date, label: t('.start_date')
+      .col-md-6
+        = f.input :end_date, label: t('.end_date')
+      .col-md-6
+        = f.association :field_of_study, label: t('.field_of_study'), include_blank: false
+
+  .row
+    .col-md-12
+      .pull-right.last-element
+        = link_to t('.cancel'), registrations_path, class: 'btn btn-default'
+        = f.submit t('.save'), class: 'btn btn-info'

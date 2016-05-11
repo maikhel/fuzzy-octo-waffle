@@ -160,6 +160,12 @@ en:
       add_new_registration: 'Add new registration'
     edit:
       edit_registration: 'Edit registration'
+    form:
+      start_date: 'Start date'
+      end_date: 'End date'
+      field_of_study: 'Field of study'
+      cancel: 'Cancel'
+      save: 'Save'
   devise:
     shared:
       password_form:
