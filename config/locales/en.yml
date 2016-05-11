@@ -151,6 +151,7 @@ en:
       registrations: 'Registrations'
       start_date: 'Start date'
       end_date: 'End date'
+      field_of_study: 'Field of study'
       actions: 'Actions'
       show: 'Details'
       edit: 'Edit'

@@ -151,6 +151,7 @@ pl:
       registrations: 'Rejestracje'
       start_date: 'Początek'
       end_date: 'Koniec'
+      field_of_study: 'Kierunek studiów'
       actions: 'Akcje'
       show: 'Szczegóły'
       edit: 'Edytuj'

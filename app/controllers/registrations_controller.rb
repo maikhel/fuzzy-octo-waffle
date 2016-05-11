@@ -1,6 +1,6 @@
 class RegistrationsController < ApplicationController
 
-  before_action :set_registration, only: [:show, :edit, :update]
+  before_action :set_registration, only: [:show, :edit, :update, :destroy]
 
   def index
     @registrations = Registration.all
@@ -36,6 +36,14 @@ class RegistrationsController < ApplicationController
         format.html { render :edit }
         format.json { render json: @registration.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def destroy
+    @registration.destroy
+    respond_to do |format|
+      format.html { redirect_to registrations_path }
+      # format.json { head :no_content }
     end
   end
 

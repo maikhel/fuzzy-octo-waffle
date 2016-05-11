@@ -143,4 +143,19 @@ RSpec.describe RegistrationsController, type: :controller do
     end
   end
 
+  describe "DELETE #destroy" do
+    it "destroys the requested registration" do
+      registration = create(:registration)
+      expect {
+        delete :destroy, id: registration.id
+      }.to change(Registration, :count).by(-1)
+    end
+
+    it "redirects to the registrations list" do
+      registration = create(:registration)
+      delete :destroy, id: registration.id
+      expect(response).to redirect_to registrations_path
+    end
+  end
+
 end
