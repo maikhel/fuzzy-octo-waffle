@@ -10,9 +10,9 @@ module CourseGroupHelper
 
   def registration_button(course_group)
     if current_user.enrolled?(course_group)
-      link_to t('.deregistrate'), deregistrate_subject_course_group_path(subject_id: course_group.subject.id, id: course_group.id), class: 'btn btn-info pull-right'
+      link_to t('.deregistrate'), deregistrate_subject_course_group_path(subject_id: course_group.subject.id, id: course_group.id), method: 'POST', class: 'btn btn-info pull-right'
     else
-      link_to t('.registrate'), registrate_subject_course_group_path(subject_id: course_group.subject.id, id: course_group.id), class: 'btn btn-info pull-right'
+      link_to t('.registrate'), registrate_subject_course_group_path(subject_id: course_group.subject.id, id: course_group.id), method: 'POST', class: 'btn btn-info pull-right'
     end
   end
 

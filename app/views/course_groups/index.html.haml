@@ -6,7 +6,7 @@
   - num = 1
   - @course_groups.each do |group|
     .col-md-4.col-sm-6
-      .panel{class: "#{group_class(group.group_type)}"}
+      .panel.modal_button_parent{class: "#{group_class(group.group_type)}"}
         .panel-heading.pd-15.pd-r-10
           %h6.white.mg-0
             = "#{num}.#{(t('date.day_names')[group.weekday]).mb_chars.upcase}, #{group.start_time.strftime('%H:%M')} - #{group.end_time.strftime('%H:%M')}"
@@ -27,6 +27,8 @@
           %p
             %strong= t('.max_limit') + ':'
             %span= group.max_limit
+          %button#show_modal.btn.btn-default{data: {modal: 'select_users', url: select_users_modal_path(course_group_id: group.id) } }
+            = t('.registrate_users')
     - num+= 1
 
   - if @course_groups.empty?
@@ -34,3 +36,5 @@
 .row
   .col-md-12
     = link_to t('.new_course_group'), new_subject_course_group_path(subject_id: @subject.id), class: 'btn btn-primary last-element'
+
+#modal_placeholder

@@ -30,7 +30,8 @@ class CourseGroupsController < ApplicationController
 
   def registrate
     if params[:user_ids]
-      nil
+      students = User.find params[:user_ids]
+      CourseGroupJoiner.new(@course_group).enroll(students)
     else
       CourseGroupJoiner.new(@course_group).enroll(current_user)
     end

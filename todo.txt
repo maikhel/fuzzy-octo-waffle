@@ -1,6 +1,4 @@
 TODO
-- dodać formularz rejestracji
-- dodać rejestrowanie kilku użytkowników
 - dodać warunki rejestracji: nie można do różnych grup w ramach tego samego przedmiotu itp.
 - dodać model Semestr
 - Dodać wpisywanie oceny studentowi
