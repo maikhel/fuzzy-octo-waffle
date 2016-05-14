@@ -124,6 +124,7 @@ en:
       new_course_group: 'Add course group'
       show: 'Show'
       edit: 'Edit'
+      registrate_users: 'Registrate students'
     show:
       number: 'Number'
       time: 'Time'
@@ -173,3 +174,9 @@ en:
         new_password: New password
         confirm_new_password: Confirm new password
         save: Save
+  modals:
+    select_users_modal:
+      title: 'Select students'
+      body: 'Choose students, who will be registered to course group.'
+      cancel: 'Close'
+      registrate: 'Registrate'

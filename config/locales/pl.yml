@@ -124,6 +124,7 @@ pl:
       new_course_group: 'Dodaj grupę zajęciową'
       show: 'Szczegóły'
       edit: 'Edytuj'
+      registrate_users: 'Zarejestruj studentów'
     show:
       number: Numer
       time: 'Termin'
@@ -173,3 +174,9 @@ pl:
         new_password: Nowe hasło
         confirm_new_password: Powtórz hasło
         save: Zapisz
+  modals:
+    select_users_modal:
+      title: 'Wybierz studentów'
+      body: 'Wybierz studentów, którzy zostaną zarejestrowani do wybranej grupy zajęciowej.'
+      cancel: 'Anuluj'
+      registrate: 'Zarejestruj'

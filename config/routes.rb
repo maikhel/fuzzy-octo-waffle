@@ -3,14 +3,16 @@ Rails.application.routes.draw do
   resources :subjects do
     resources :course_groups do
       member do
-        get 'registrate'
-        get 'deregistrate'
+        post 'registrate'
+        post 'deregistrate'
       end
     end
   end
 
   resources :field_of_studies
   resources :registrations
+
+  post 'select_users' => 'modals#select_users', as: :select_users_modal
 
   get 'course_groups/overview' => 'course_groups#overview'
 
