@@ -14,7 +14,7 @@ $(document).ready(function () {
     return $.ajax({
       url: url,
       dataType: 'html',
-      type: 'POST'
+      type: 'GET'
     });
   }
 

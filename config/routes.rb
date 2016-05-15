@@ -12,7 +12,8 @@ Rails.application.routes.draw do
   resources :field_of_studies
   resources :registrations
 
-  post 'select_users' => 'modals#select_users', as: :select_users_modal
+  #modals
+  get 'select_users' => 'modals#select_users', as: :select_users_modal
 
   get 'course_groups/overview' => 'course_groups#overview'
 
