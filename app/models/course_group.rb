@@ -21,6 +21,7 @@ class CourseGroup < ActiveRecord::Base
   belongs_to :subject
   belongs_to :lecturer, class_name: 'User'
   has_and_belongs_to_many :users
+  has_many :grades
 
   validates :subject, presence: true
   validates :lecturer, presence: true
