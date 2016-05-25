@@ -11,9 +11,11 @@ Rails.application.routes.draw do
 
   resources :field_of_studies
   resources :registrations
+  resources :grades, only: [:create]
 
   #modals
   get 'select_users' => 'modals#select_users', as: :select_users_modal
+  get 'update_grades' => 'modals#update_grades', as: :update_grades_modal
 
   get 'course_groups/overview' => 'course_groups#overview'
 

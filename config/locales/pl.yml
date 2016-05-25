@@ -182,3 +182,9 @@ pl:
       body: 'Wybierz studentów, którzy zostaną zarejestrowani do wybranej grupy zajęciowej.'
       cancel: 'Anuluj'
       registrate: 'Zarejestruj'
+    update_grades_modal:
+      title: 'Wpisz oceny'
+      name: 'Imię i nazwisko'
+      grade: 'Ocena'
+      cancel: 'Anuluj'
+      save: 'Zapisz'

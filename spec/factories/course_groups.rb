@@ -22,5 +22,14 @@ FactoryGirl.define do
     association :subject
     association :lecturer
     max_limit 100
+
+
+    factory :course_group_with_students do
+
+      after(:create) do |course_group, evaluator|
+        students = create_list(:student, 5)
+        course_group.users << students
+      end
+    end
   end
 end

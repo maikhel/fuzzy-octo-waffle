@@ -23,4 +23,24 @@ RSpec.describe ModalsController, type: :controller do
     end
   end
 
+  describe "GET update_grades" do
+
+    let(:course_group) { create(:course_group_with_students) }
+
+    it "has a 200 status code" do
+      get :update_grades, course_group_id: course_group.id
+      expect(response.status).to eq(200)
+    end
+
+    it "assigns @students" do
+      get :update_grades, course_group_id: course_group.id
+      expect(assigns(:students)).to eq course_group.users
+    end
+
+    it "renders partial update_grades_modal" do
+      get :update_grades, course_group_id: course_group.id
+      expect(response).to render_template('modals/_update_grades_modal')
+    end
+  end
+
 end

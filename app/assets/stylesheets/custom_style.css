@@ -120,3 +120,7 @@
 .mg-l-20{
   margin-left: 20px;
 }
+
+.grade-select .form-group{
+  margin-bottom: 0px;
+}

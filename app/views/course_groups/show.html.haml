@@ -22,13 +22,13 @@
                 %th= t('.students')
                 %th= t('.grades')
             %tbody
-            - @students.each do |student|
-              %tr
-                %td= student.name
-                %td= student.grades.where(course_group: @course_group).first.try(:value)
+              - @students.each do |student|
+                %tr
+                  %td= student.name
+                  %td= student.grades.where(course_group: @course_group).first.try(:value)
           = registration_button(@course_group)
           %button#show_modal.btn.btn-default{data: {modal: 'update_grades', url: update_grades_modal_path(course_group_id: @course_group.id) } }
-            = "wpisz oceny"
+            = t('.update_grades')
 .row
   .col-md-8.col-md-offset-2
     = link_to t('.back'), subject_course_groups_path, class: 'btn btn-default last-element'
