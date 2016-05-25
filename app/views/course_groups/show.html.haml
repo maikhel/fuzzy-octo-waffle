@@ -15,16 +15,21 @@
           %p
             %strong= t('.lecturer') + ':'
             %span= @course_group.lecturer.name
-        .col-md-6
+        .col-md-6.modal_button_parent
           %table.table
             %thead
               %tr
                 %th= t('.students')
+                %th= t('.grades')
             %tbody
-              - @students.each do |student|
-                %tr
-                  %td= student.name
+            - @students.each do |student|
+              %tr
+                %td= student.name
+                %td= student.grades.where(course_group: @course_group).first.try(:value)
           = registration_button(@course_group)
+          %button#show_modal.btn.btn-default{data: {modal: 'update_grades', url: update_grades_modal_path(course_group_id: @course_group.id) } }
+            = "wpisz oceny"
 .row
   .col-md-8.col-md-offset-2
     = link_to t('.back'), subject_course_groups_path, class: 'btn btn-default last-element'
+#modal_placeholder

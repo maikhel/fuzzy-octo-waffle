@@ -132,6 +132,8 @@ en:
       max_limit: 'Max limit'
       registrated: 'Registrated students'
       students: 'Registrated students'
+      grades: 'Grades'
+      update_grades: 'Update grades'
       registrate: 'Registrate'
       deregistrate: 'Deregistrate'
     new:

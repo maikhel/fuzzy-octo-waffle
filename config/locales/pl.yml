@@ -131,6 +131,8 @@ pl:
       lecturer: 'Wykładowca'
       max_limit: 'Limit osób'
       students: 'Studenci zapisani na zajęcia'
+      grades: 'Oceny'
+      update_grades: 'Wpisz oceny'
       registrated: 'Studenci zapisani na zajęcia'
       registrate: 'Zarejestruj się'
       deregistrate: 'Wyrejestruj się'
