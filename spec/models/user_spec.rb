@@ -42,6 +42,26 @@ describe User do
     end
   end
 
+  describe '.address' do
+    it 'returns string with merget street, zip, city' do
+      user = create(:user,
+        street: "Konwaliowa 3",
+        postal_code: '33-222',
+        city: 'Warszawa',
+        country: 'PL'
+      )
+      expect(user.address).to eq "Konwaliowa 3, 33-222, Warszawa"
+    end
+  end
+
+  describe '.subjects' do
+    it 'returns all subjects that user is enrolled' do
+      student = create(:student)
+      student.course_groups << create_list(:course_group, 3)
+      expect(student.subjects.count).to eq Subject.count
+    end
+  end
+
   describe '.enrolled?' do
     let(:course_group) { create(:course_group) }
     let(:student) { create(:student) }

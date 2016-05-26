@@ -1,0 +1,26 @@
+.row
+  .col-md-8.col-md-offset-2
+    .panel.panel-default
+      .panel-heading
+        %h4= @user.name
+      .panel-body
+        %p
+          %strong= t('.email') + ':'
+          %span= @user.email
+        %p
+          %strong= t('.address') + ':'
+          %span= @user.address
+        - if current_user == @user
+          %p
+            %strong= t('.index_num') + ':'
+            %span= @user.index_num
+          %p
+            %strong= t('.bank_account') + ':'
+            %span= @user.bank_account
+        %p
+          %strong= t('.subjects') + ':'
+        - @user.subjects.each do |subject|
+          %ul
+            %li
+              %span= subject.title + ','
+              %span= link_to t('.details'), subject_path(subject)

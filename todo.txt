@@ -1,10 +1,7 @@
 TODO
 - dodać warunki rejestracji: nie można do różnych grup w ramach tego samego przedmiotu itp.
 - dodać model Semestr
-
-- dodać widok show usera
 - dodac role: student, lecturer, admin
-- uzupelnic dane usera: adres korespondencyjny, nr_indexu, zainteresowania
 - Dodać wyświetlanie planu zajęć
 - Liczenie średniej studentowi
 - Wyświetlanie powiadomień w dashboard

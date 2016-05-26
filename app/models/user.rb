@@ -61,8 +61,16 @@ class User < ActiveRecord::Base
     @login || self.index_num || self.email
   end
 
+  def subjects
+    Subject.where(id: course_groups.pluck(:subject_id))
+  end
+
   def name
     "#{first_name} #{last_name}".strip
+  end
+
+  def address
+    "#{street}, #{postal_code}, #{city}"
   end
 
   def enrolled?(course)

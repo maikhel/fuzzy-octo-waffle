@@ -22,11 +22,12 @@ en:
       schedule: Schedule
   users:
     show:
-      title: Account settings
-      name: "Name:"
-      email: "Email:"
-      address: "Address:"
-      edit: Edit account
+      email: 'Email'
+      address: 'Address'
+      index_num: 'Index number'
+      bank_account: 'Bank account'
+      details: 'Details'
+      subjects: 'Courses'
     edit:
       title: Account settings
       change_password: Change password

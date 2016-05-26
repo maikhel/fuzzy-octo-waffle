@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       end
     end
   end
+  get 'course_groups/overview' => 'course_groups#overview'
 
   resources :field_of_studies
   resources :registrations
@@ -16,8 +17,6 @@ Rails.application.routes.draw do
   #modals
   get 'select_users' => 'modals#select_users', as: :select_users_modal
   get 'update_grades' => 'modals#update_grades', as: :update_grades_modal
-
-  get 'course_groups/overview' => 'course_groups#overview'
 
   root 'dashboard#index'
 

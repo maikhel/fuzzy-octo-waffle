@@ -22,11 +22,12 @@ pl:
       schedule: Plan zajęć
   users:
     show:
-      title: Ustawienia konta
-      name: "Imię:"
-      email: "Email:"
-      address: "Adres:"
-      edit: Edytuj ustawienia
+      email: 'Email'
+      address: 'Adres'
+      index_num: 'Numer indeksu'
+      bank_account: 'Numer konta'
+      details: 'Szczegóły'
+      subjects: 'Przedmioty'
     edit:
       title: Ustawienia konta
       change_password: Zmień hasło
