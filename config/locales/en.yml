@@ -28,6 +28,7 @@ en:
       bank_account: 'Bank account'
       details: 'Details'
       subjects: 'Courses'
+      average_grade: 'Average grade'
     edit:
       title: Account settings
       change_password: Change password

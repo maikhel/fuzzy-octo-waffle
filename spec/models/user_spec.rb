@@ -54,6 +54,16 @@ describe User do
     end
   end
 
+  describe '.average_grade' do
+
+    it 'returns average from user grades' do
+      student = create(:student)
+      create_list(:grade, 3, user_id: student.id, value: 4.0)
+      create(:grade, user_id: student.id, value: 2.0)
+      expect(student.average_grade).to eq ((3*4.0 + 2.0)/4)
+    end
+  end
+
   describe '.subjects' do
     it 'returns all subjects that user is enrolled' do
       student = create(:student)

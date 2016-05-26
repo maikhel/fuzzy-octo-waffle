@@ -24,3 +24,6 @@
             %li
               %span= subject.title + ','
               %span= link_to t('.details'), subject_path(subject)
+        %h4
+          %span= t('.average_grade') + ':'
+          %strong= @user.average_grade

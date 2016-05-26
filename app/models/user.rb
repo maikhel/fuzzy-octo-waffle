@@ -73,6 +73,10 @@ class User < ActiveRecord::Base
     "#{street}, #{postal_code}, #{city}"
   end
 
+  def average_grade
+    grades.average(:value)
+  end
+
   def enrolled?(course)
     CourseGroupJoiner.new(course).enrolled?(self)
   end

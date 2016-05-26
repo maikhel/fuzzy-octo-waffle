@@ -3,8 +3,6 @@ TODO
 - dodać model Semestr
 - dodac role: student, lecturer, admin
 - Dodać wyświetlanie planu zajęć
-- Liczenie średniej studentowi
-- Wyświetlanie powiadomień w dashboard
 
 
 - Wygenerować schemat https://github.com/voormedia/rails-erd

@@ -28,6 +28,7 @@ pl:
       bank_account: 'Numer konta'
       details: 'Szczegóły'
       subjects: 'Przedmioty'
+      average_grade: 'Średnia ocen'
     edit:
       title: Ustawienia konta
       change_password: Zmień hasło
