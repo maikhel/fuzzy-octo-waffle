@@ -5,13 +5,13 @@ Rails.application.routes.draw do
       member do
         post 'registrate'
         post 'deregistrate'
+        post 'update_grades'
       end
     end
   end
 
   resources :field_of_studies
   resources :registrations
-  resources :grades, only: [:create]
 
   #modals
   get 'select_users' => 'modals#select_users', as: :select_users_modal

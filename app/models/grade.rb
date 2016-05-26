@@ -12,7 +12,7 @@
 
 class Grade < ActiveRecord::Base
 
-  GRADE_VALUES = [2,3,3.5,4,4.5,5]
+  GRADE_VALUES = [2.0,3.0,3.5,4.0,4.5,5.0]
 
   belongs_to :user
   belongs_to :course_group

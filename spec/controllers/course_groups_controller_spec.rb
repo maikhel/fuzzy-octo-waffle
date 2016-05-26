@@ -275,4 +275,66 @@ RSpec.describe CourseGroupsController, type: :controller do
     end
   end
 
+  describe "POST update_grades" do
+    before(:all) do
+      @course_group = create(:course_group)
+      @student = create(:student)
+      @student2 = create(:student)
+    end
+
+    let(:sample_hash) { {user_id: @student.id, value: 3} }
+    let(:another_hash) { {user_id: @student2.id, value: 4.5} }
+
+    context 'with valid attributes' do
+      it "creates a new grade" do
+        expect{
+          post :update_grades, grades: [sample_hash], id: @course_group.id, subject_id: @course_group.subject.id
+        }.to change{ Grade.count }.by 1
+      end
+
+      it 'updates existing grade' do
+        grade = create(:grade, user_id: @student.id, course_group: @course_group, value: 4)
+        post :update_grades, grades: [sample_hash], id: @course_group.id, subject_id: @course_group.subject.id
+        grade.reload
+        expect(grade.value).to eq 3
+      end
+
+      it 'creates many new grades' do
+        expect{
+          post :update_grades, grades: [sample_hash, another_hash], id: @course_group.id, subject_id: @course_group.subject.id
+        }.to change{ Grade.count }.by 2
+      end
+
+      it 'updates many grades' do
+        grade = create(:grade, user_id: @student.id, course_group: @course_group, value: 4)
+        grade2 = create(:grade, user_id: @student2.id, course_group: @course_group, value: 3)
+
+        post :update_grades, grades: [sample_hash, another_hash], id: @course_group.id, subject_id: @course_group.subject.id
+
+        grade.reload
+        grade2.reload
+        expect(grade.value).to eq 3
+        expect(grade2.value).to eq 4.5
+      end
+
+      it "redirects to show coure group path" do
+        post :update_grades, grades: [sample_hash], id: @course_group.id, subject_id: @course_group.subject.id
+        expect(response).to redirect_to subject_course_group_path(subject_id: @course_group.subject.id, id: @course_group.id)
+      end
+    end
+
+    # context 'with invalid attributes' do
+    #   it "does not save the new record" do
+    #     expect{
+    #       post :create, field_of_study: attributes_for(:field_of_study, title: nil)
+    #     }.to_not change{ FieldOfStudy.count }
+    #   end
+
+    #   it "re-renders the new method" do
+    #     post :create, field_of_study: attributes_for(:field_of_study, title: nil)
+    #     expect(response).to render_template(:new)
+    #   end
+    # end
+  end
+
 end

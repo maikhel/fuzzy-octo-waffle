@@ -23,9 +23,10 @@
                 %th= t('.grades')
             %tbody
               - @students.each do |student|
-                %tr
+                - grade_val = student.grades.where(course_group: @course_group).first.try(:value)
+                %tr{class: "#{danger_class(grade_val)}" }
                   %td= student.name
-                  %td= student.grades.where(course_group: @course_group).first.try(:value)
+                  %td= grade_val
           = registration_button(@course_group)
           %button#show_modal.btn.btn-default{data: {modal: 'update_grades', url: update_grades_modal_path(course_group_id: @course_group.id) } }
             = t('.update_grades')

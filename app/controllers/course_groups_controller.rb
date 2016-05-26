@@ -1,5 +1,5 @@
 class CourseGroupsController < ApplicationController
-  before_action :set_course_group_and_subject, only: [:show, :edit, :update, :destroy, :registrate, :deregistrate]
+  before_action :set_course_group_and_subject, only: [:show, :edit, :update, :destroy, :registrate, :deregistrate, :update_grades]
 
   # GET /course_groups
   def index
@@ -45,6 +45,14 @@ class CourseGroupsController < ApplicationController
       CourseGroupJoiner.new(@course_group).leave(current_user)
     end
     redirect_to action: 'show', subject_id: params[:subject_id], id: params[:id]
+  end
+
+  def update_grades
+    params[:grades].each do |grade_hash|
+      grade = Grade.find_or_initialize_by(course_group_id: @course_group.id, user_id: grade_hash["user_id"])
+      grade.update(value: grade_hash["value"]) if grade.value != grade_hash["value"]
+    end
+    redirect_to subject_course_group_path(subject_id: @course_group.subject.id, id: @course_group.id)
   end
 
   # POST /course_groups

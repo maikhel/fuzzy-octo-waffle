@@ -16,6 +16,10 @@ module CourseGroupHelper
     end
   end
 
+  def danger_class(val)
+    'danger' if val == 2
+  end
+
   def group_class(type)
     if ['class', 'laboratory'].include?(type)
       'panel-success'
