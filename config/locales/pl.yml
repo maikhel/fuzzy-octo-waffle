@@ -188,3 +188,12 @@ pl:
       grade: 'Ocena'
       cancel: 'Anuluj'
       save: 'Zapisz'
+
+  shared:
+    email_footer:
+      greetings: 'Pozdrawiamy,'
+      company_name: 'Licencjat Inc.'
+  grade_changed_mailer:
+    subject: 'Powiadomienie o zmianie oceny'
+    notify:
+      message: 'Twoja ocena z przedmiotu %{subject_title} została zmieniona. Teraz wynosi ona: %{grade_val}.'

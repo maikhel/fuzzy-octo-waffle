@@ -188,3 +188,11 @@ en:
       grade: 'Grade'
       cancel: 'Close'
       save: 'Save'
+  shared:
+    email_footer:
+      greetings: 'Greetings'
+      company_name: 'Licencjat Inc.'
+  grade_changed_mailer:
+    subject: 'Grade was changed notification'
+    notify:
+      message: 'Your grade from subject %{subject_title} was changed. Now you have %{grade_val}.'

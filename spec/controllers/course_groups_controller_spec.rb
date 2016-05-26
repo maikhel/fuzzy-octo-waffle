@@ -282,7 +282,7 @@ RSpec.describe CourseGroupsController, type: :controller do
       @student2 = create(:student)
     end
 
-    let(:sample_hash) { {user_id: @student.id, value: 3} }
+    let(:sample_hash) { {user_id: @student.id, value: 3.0} }
     let(:another_hash) { {user_id: @student2.id, value: 4.5} }
 
     context 'with valid attributes' do
@@ -320,6 +320,25 @@ RSpec.describe CourseGroupsController, type: :controller do
       it "redirects to show coure group path" do
         post :update_grades, grades: [sample_hash], id: @course_group.id, subject_id: @course_group.subject.id
         expect(response).to redirect_to subject_course_group_path(subject_id: @course_group.subject.id, id: @course_group.id)
+      end
+
+      it 'sends email after updating grade' do
+        expect{
+          post :update_grades, grades: [sample_hash], id: @course_group.id, subject_id: @course_group.subject.id
+        }.to change { ActionMailer::Base.deliveries.count }.by 1
+      end
+
+      it 'sends email for many students' do
+        expect{
+          post :update_grades, grades: [sample_hash, another_hash], id: @course_group.id, subject_id: @course_group.subject.id
+        }.to change { ActionMailer::Base.deliveries.count }.by 2
+      end
+
+      it 'sends email only if grade was changed' do
+        create(:grade, user_id: @student.id, course_group: @course_group, value: 3.0)
+        expect{
+          post :update_grades, grades: [sample_hash, another_hash], id: @course_group.id, subject_id: @course_group.subject.id
+        }.to change { ActionMailer::Base.deliveries.count }.by 1
       end
     end
 
