@@ -2,7 +2,7 @@
   .col-md-8.col-md-offset-2
     .panel.panel-default
       .panel-heading
-        %h4= @user.name
+        %h4= @user.name + ', ' + t("users.roles.#{@user.role}").downcase
       .panel-body
         %p
           %strong= t('.email') + ':'

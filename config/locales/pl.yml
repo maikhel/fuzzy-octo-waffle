@@ -21,6 +21,10 @@ pl:
     index:
       schedule: Plan zajęć
   users:
+    roles:
+      Student: 'Student'
+      Lecturer: 'Wykładowca'
+      Admin: 'Admin'
     show:
       email: 'Email'
       address: 'Adres'
