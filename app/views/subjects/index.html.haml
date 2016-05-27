@@ -18,7 +18,7 @@
               %th
 
           %tbody
-            - semester.subjects.each do |subject|
+            - semester.subjects.order(:title).each do |subject|
               %tr
                 %td
                   %strong= subject.title

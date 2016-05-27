@@ -13,10 +13,12 @@
             .pull-right
               = link_to subject_course_group_path(subject_id: group.subject.id, id: group.id), class: 'mg-r-5' do
                 %span.glyphicon.glyphicon-list.white{'aria-hidden'=>"true"}
-              = link_to edit_subject_course_group_path(subject_id: group.subject.id, id: group.id), class: 'mg-r-5' do
-                %span.glyphicon.glyphicon-edit.white{'aria-hidden'=>"true"}
-              = link_to subject_course_group_path(subject_id: group.subject.id, id: group.id), method: :delete, :data => { :confirm => "Are you sure?" } do
-                %span.glyphicon.glyphicon-trash.white{'aria-hidden'=>"true"}
+              - if policy(:course_group).edit?
+                = link_to edit_subject_course_group_path(subject_id: group.subject.id, id: group.id), class: 'mg-r-5' do
+                  %span.glyphicon.glyphicon-edit.white{'aria-hidden'=>"true"}
+              - if policy(:course_group).destroy?
+                = link_to subject_course_group_path(subject_id: group.subject.id, id: group.id), method: :delete, :data => { :confirm => "Are you sure?" } do
+                  %span.glyphicon.glyphicon-trash.white{'aria-hidden'=>"true"}
         .panel-body
           %p
             %strong= t('.group_type') + ':'
@@ -35,6 +37,7 @@
     %p= t('.no_groups_message')
 .row
   .col-md-12
-    = link_to t('.new_course_group'), new_subject_course_group_path(subject_id: @subject.id), class: 'btn btn-primary last-element'
+    - if policy(:course_group).new?
+      = link_to t('.new_course_group'), new_subject_course_group_path(subject_id: @subject.id), class: 'btn btn-primary last-element'
 
 #modal_placeholder

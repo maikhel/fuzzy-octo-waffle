@@ -22,10 +22,13 @@ class CourseGroupsController < ApplicationController
   def new
     @subject      = Subject.find(params[:subject_id])
     @course_group = CourseGroup.new
+
+    authorize @course_group
   end
 
   # GET /course_groups/1/edit
   def edit
+    authorize @course_group
   end
 
   def registrate
@@ -62,6 +65,8 @@ class CourseGroupsController < ApplicationController
   # POST /course_groups.json
   def create
     @course_group = CourseGroup.new(course_group_params)
+    authorize @course_group
+
     respond_to do |format|
       if @course_group.save
         format.html { redirect_to subject_course_group_path(subject: @course_group.subject, id: @course_group.id) }
@@ -76,6 +81,8 @@ class CourseGroupsController < ApplicationController
   # PATCH/PUT /course_groups/1
   # PATCH/PUT /course_groups/1.json
   def update
+    authorize @course_group
+
     respond_to do |format|
       if @course_group.update(course_group_params)
         format.html { redirect_to subject_course_groups_path(@subject.id) }
@@ -90,6 +97,8 @@ class CourseGroupsController < ApplicationController
   # DELETE /course_groups/1
   # DELETE /course_groups/1.json
   def destroy
+    authorize @course_group
+
     @course_group.destroy
     respond_to do |format|
       format.html { redirect_to subject_course_groups_path(@subject.id) }
