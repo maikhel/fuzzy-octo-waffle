@@ -9,7 +9,10 @@
         %th= t('.degree')
         %th= t('.faculty')
         %th
-        %th
+        - if policy(:field_of_study).edit?
+          %th
+        - if policy(:field_of_study).destroy?
+          %th
 
     %tbody
       - @field_of_studies.each do |field_of_study|
@@ -20,13 +23,15 @@
           %td= t("field_of_studies.degree_types.#{field_of_study.degree}")
           %td= field_of_study.faculty.name
           %td= link_to t('.show'), field_of_study_path(field_of_study)
-          %td= link_to t('.edit'), edit_field_of_study_path(field_of_study)
-          %td
-            = link_to field_of_study_path(id: field_of_study.id), method: :delete, :data => { :confirm => "Are you sure?" } do
-              %span.glyphicon.glyphicon-trash{'aria-hidden'=>"true"}
+          - if policy(:field_of_study).edit?
+            %td= link_to t('.edit'), edit_field_of_study_path(field_of_study)
+          - if policy(:field_of_study).destroy?
+            %td
+              = link_to field_of_study_path(id: field_of_study.id), method: :delete, :data => { :confirm => "Are you sure?" } do
+                %span.glyphicon.glyphicon-trash{'aria-hidden'=>"true"}
 - else
   %p= t(".no_records")
 
 %br
-
-= link_to t('.add_new'), new_field_of_study_path, class: 'btn btn-primary last-element'
+- if policy(:field_of_study).new?
+  = link_to t('.add_new'), new_field_of_study_path, class: 'btn btn-primary last-element'
