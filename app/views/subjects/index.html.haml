@@ -1,26 +1,33 @@
-%h3= t(".subjects")
+%h3.page-header= t(".subjects")
 
-- if @subjects.any?
-  %table.table
-    %thead
-      %tr
-        %th= t('.title')
-        %th= t('.description')
-        %th
-        %th
+- @semesters.order(:field_of_study_id).each do |semester|
+  %h4
+    %span= semester
+    %span.glyphicon.glyphicon-menu-down.hoverable{data: {toggle: :collapse, target: "#semester_#{semester.id}"}}
+  - if semester.subjects.any?
+    .row.collapse.in.fold{id: "semester_#{semester.id}"}
+      .col-md-12
+        %table.table
+          %thead
+            %tr
+              %th= t('.title')
+              %th= t('.description')
+              %th
+              %th
+              %th
 
-    %tbody
-      - @subjects.each do |subject|
-        %tr
-          %td
-            %strong= subject.title
-          %td.description= subject.description
-          %td= link_to t('.show'), subject
-          %td= link_to t('.edit'), edit_subject_path(subject)
-          %td= link_to t('.groups'), subject_course_groups_path(subject.id)
-          -#%td= link_to 'Destroy', subject, :method => :delete, :data => { :confirm => 'Are you sure?' }
-- else
-  %p= t('.no_subjects_message')
+          %tbody
+            - semester.subjects.each do |subject|
+              %tr
+                %td
+                  %strong= subject.title
+                %td.description= subject.description
+                %td= link_to t('.show'), subject
+                %td= link_to t('.edit'), edit_subject_path(subject)
+                %td= link_to t('.groups'), subject_course_groups_path(subject.id)
+                -#%td= link_to 'Destroy', subject, :method => :delete, :data => { :confirm => 'Are you sure?' }
+  - else
+    %p= t('.no_subjects_message')
 
 %br
 

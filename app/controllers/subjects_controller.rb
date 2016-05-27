@@ -3,7 +3,7 @@ class SubjectsController < ApplicationController
   before_action :set_subject, only: [:show, :edit, :update]
 
   def index
-    @subjects = Subject.all
+    @semesters = Semester.all
   end
 
   def new

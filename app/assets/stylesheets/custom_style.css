@@ -124,3 +124,6 @@
 .grade-select .form-group{
   margin-bottom: 0px;
 }
+.hoverable{
+  cursor: pointer;
+}
