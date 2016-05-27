@@ -27,27 +27,19 @@
 #  role                   :string           default("Student")
 #
 
-FactoryGirl.define do
+require 'spec_helper'
 
-  factory :user , aliases: [:dean] do
-    first_name { Faker::Name.first_name }
-    last_name { Faker::Name.last_name }
-    email { Faker::Internet.email }
-    password Faker::Internet.password(8)
-    index_num { Faker::Number.number(6) }
+describe Admin do
 
-    country Faker::Address.country_code
+  it 'creates admin class' do
+    admin = create(:admin)
+    expect(admin).to be_a Admin
+  end
 
-    factory :student, class: 'Student' do
-      role 'Student'
-    end
-
-    factory :lecturer, class: 'Lecturer' do
-      role 'Lecturer'
-    end
-
-    factory :admin, class: 'Admin' do
-      role 'Admin'
+  describe '.admin?' do
+    it 'returns true' do
+      user = create(:admin)
+      expect(user.admin?).to eq true
     end
   end
 

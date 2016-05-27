@@ -24,6 +24,7 @@
 #  city                   :string
 #  country                :string
 #  bank_account           :string
+#  role                   :string           default("Student")
 #
 
 require 'spec_helper'
@@ -33,6 +34,44 @@ describe User do
   it 'creates valid user' do
     user = create(:user)
     expect(user).to be_valid
+  end
+
+  describe 'roles' do
+    it 'creates student' do
+      student = create(:student)
+      expect(student.role).to eq 'Student'
+    end
+
+    it 'creates lecturer' do
+      lecturer = create(:lecturer)
+      expect(lecturer.role).to eq 'Lecturer'
+    end
+
+    it 'creates admin' do
+      admin = create(:admin)
+      expect(admin.role).to eq 'Admin'
+    end
+  end
+
+  describe '.admin?' do
+    it 'returns false' do
+      user = create(:user)
+      expect(user.admin?).to eq false
+    end
+  end
+
+  describe '.student?' do
+    it 'returns false' do
+      user = create(:user)
+      expect(user.student?).to eq false
+    end
+  end
+
+  describe '.lecturer?' do
+    it 'returns false' do
+      user = create(:user)
+      expect(user.lecturer?).to eq false
+    end
   end
 
   describe '.name' do
@@ -68,7 +107,7 @@ describe User do
     it 'returns all subjects that user is enrolled' do
       student = create(:student)
       student.course_groups << create_list(:course_group, 3)
-      expect(student.subjects.count).to eq Subject.count
+      expect(student.subjects.count).to eq 3
     end
   end
 

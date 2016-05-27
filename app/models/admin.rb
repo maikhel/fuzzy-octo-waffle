@@ -27,28 +27,9 @@
 #  role                   :string           default("Student")
 #
 
-FactoryGirl.define do
+class Admin < User
 
-  factory :user , aliases: [:dean] do
-    first_name { Faker::Name.first_name }
-    last_name { Faker::Name.last_name }
-    email { Faker::Internet.email }
-    password Faker::Internet.password(8)
-    index_num { Faker::Number.number(6) }
-
-    country Faker::Address.country_code
-
-    factory :student, class: 'Student' do
-      role 'Student'
-    end
-
-    factory :lecturer, class: 'Lecturer' do
-      role 'Lecturer'
-    end
-
-    factory :admin, class: 'Admin' do
-      role 'Admin'
-    end
+  def admin?
+    true
   end
-
 end

@@ -24,12 +24,16 @@
 #  city                   :string
 #  country                :string
 #  bank_account           :string
+#  role                   :string           default("Student")
 #
 
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   #:registerable
+  self.inheritance_column = :role
+  ROLES = %w{Admin Student Lecturer}
+
   devise :database_authenticatable,
          :recoverable, :rememberable, :trackable, :validatable
 
@@ -79,6 +83,18 @@ class User < ActiveRecord::Base
 
   def enrolled?(course)
     CourseGroupJoiner.new(course).enrolled?(self)
+  end
+
+  def admin?
+    false
+  end
+
+  def student?
+    false
+  end
+
+  def lecturer?
+    false
   end
 
 

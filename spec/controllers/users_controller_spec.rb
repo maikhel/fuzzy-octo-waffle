@@ -9,8 +9,8 @@ RSpec.describe UsersController, type: :controller do
       expect(response.status).to eq(200)
     end
 
-    it "assigns @users" do
-      user = create(:user)
+    it "assigns @user" do
+      user = create(:student)
       get :show, id: user.id
       expect(assigns(:user)).to eq user
     end
