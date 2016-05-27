@@ -7,6 +7,8 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_locale
 
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+
   protected
 
     def configure_permitted_parameters
@@ -39,4 +41,7 @@ class ApplicationController < ActionController::Base
       devise_controller? ? "devise" : "application"
     end
 
+    def user_not_authorized
+      redirect_to root_path
+    end
 end

@@ -35,6 +35,10 @@ class ApplicationPolicy
     false
   end
 
+  def administrable?
+    user.admin?
+  end
+
   def scope
     Pundit.policy_scope!(user, record.class)
   end

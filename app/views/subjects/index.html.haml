@@ -13,7 +13,8 @@
               %th= t('.title')
               %th= t('.description')
               %th
-              %th
+              - if policy(:subject).edit?
+                %th
               %th
 
           %tbody
@@ -23,7 +24,8 @@
                   %strong= subject.title
                 %td.description= subject.description
                 %td= link_to t('.show'), subject
-                %td= link_to t('.edit'), edit_subject_path(subject)
+                - if policy(:subject).edit?
+                  %td= link_to t('.edit'), edit_subject_path(subject)
                 %td= link_to t('.groups'), subject_course_groups_path(subject.id)
                 -#%td= link_to 'Destroy', subject, :method => :delete, :data => { :confirm => 'Are you sure?' }
   - else
@@ -31,5 +33,6 @@
 
 %br
 
-= link_to t('.add_new'), new_subject_path, class: 'btn btn-primary last-element'
+- if policy(:subject).new?
+  = link_to t('.add_new'), new_subject_path, class: 'btn btn-primary last-element'
 = link_to t('.course_groups'), course_groups_overview_path, class: 'pull-right'

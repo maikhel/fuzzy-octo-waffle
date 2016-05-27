@@ -9,10 +9,12 @@ class SubjectsController < ApplicationController
 
   def new
     @subject = Subject.new
+    authorize @subject
   end
 
   def create
     @subject = Subject.new(subject_params)
+    authorize @subject
 
     respond_to do |format|
       if @subject.save
@@ -29,10 +31,11 @@ class SubjectsController < ApplicationController
   end
 
   def edit
-
+    authorize @subject
   end
 
   def update
+    authorize @subject
     respond_to do |format|
       if @subject.update(subject_params)
         format.html { redirect_to @subject, notice: 'subject was successfully updated.' }
