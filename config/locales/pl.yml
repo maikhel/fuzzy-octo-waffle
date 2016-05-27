@@ -89,6 +89,7 @@ pl:
       show: 'Szczegóły'
       groups: 'Grupy'
       edit: 'Edytuj'
+      semester: 'Semestr'
       course_groups: 'Grupy zajęciowe'
     new:
       add_new_subject: 'Dodaj nowy przedmiot'
@@ -100,6 +101,7 @@ pl:
       requirements: 'Wymagania'
       learning_outcomes: 'Efekty kształcenia'
       literature: 'Literatura'
+      semester: 'Semestr'
       save: 'Zapisz'
       cancel: 'Anuluj'
     show:
@@ -110,6 +112,7 @@ pl:
       requirements: 'Wymagania'
       learning_outcomes: 'Efekty kształcenia'
       literature: 'Literatura'
+      semester: 'Semestr'
       back: 'Cofnij'
   course_groups:
     group_types:

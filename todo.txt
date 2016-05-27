@@ -1,6 +1,5 @@
 TODO
 - dodać warunki rejestracji: nie można do różnych grup w ramach tego samego przedmiotu itp.
-- dodać model Semestr
 - definiowanie egzaminów, automatyczne zapisanie na egzamin poprawkowy
 - powiadomienia email przy wpisaniu terminu egzaminu
 - dodac role: student, lecturer, admin

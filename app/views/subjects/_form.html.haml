@@ -8,6 +8,7 @@
     = f.input :requirements, label: t('.requirements'), as: :text, input_html: {rows: 4}
     = f.input :learning_outcomes, label: t('.learning_outcomes'), as: :text, input_html: {rows: 4}
     = f.input :literature, label: t('.literature'), as: :text, input_html: {rows: 4}
+    = f.association :semester, label: t('.semester'), include_blank: false
 
   .row
     .col-md-12

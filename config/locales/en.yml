@@ -88,6 +88,7 @@ en:
       add_new: 'Add new'
       show: 'Show'
       groups: 'Groups'
+      semester: 'Semester'
       edit: 'Edit'
       course_groups: 'All course groups'
     new:
@@ -100,6 +101,7 @@ en:
       requirements: 'Requirements'
       learning_outcomes: 'Learning outcomes'
       literature: 'Literature'
+      semester: 'Semester'
       save: 'Save'
       cancel: 'Cancel'
     show:
@@ -110,6 +112,7 @@ en:
       requirements: 'Requirements'
       learning_outcomes: 'Learning outcomes'
       literature: 'Literature'
+      semester: 'Semester'
       back: 'Back'
   course_groups:
     group_types:
