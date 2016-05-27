@@ -8,10 +8,10 @@ RSpec.describe SubjectsController, type: :controller do
       expect(response.status).to eq(200)
     end
 
-    it "assigns @subjects" do
-      create_list(:subject, 3)
+    it "assigns @semesters" do
+      create_list(:semester, 3)
       get :index
-      expect(assigns(:subjects)).to eq(Subject.all)
+      expect(assigns(:semesters)).to eq(Semester.all)
     end
 
     it "renders the index template" do

@@ -38,6 +38,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_and_belongs_to_many :course_groups
+  has_and_belongs_to_many :semesters
   has_many :grades
 
   validates_format_of :index_num, with: /^[0-9]/, multiline: true

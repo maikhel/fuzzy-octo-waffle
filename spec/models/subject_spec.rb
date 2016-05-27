@@ -12,6 +12,7 @@
 #  literature        :text
 #  requirements      :text
 #  learning_outcomes :text
+#  semester_id       :integer
 #
 
 require 'spec_helper'

@@ -3,7 +3,8 @@ class SubjectsController < ApplicationController
   before_action :set_subject, only: [:show, :edit, :update]
 
   def index
-    @semesters = Semester.all
+    authorize Semester
+    @semesters = policy_scope(Semester)
   end
 
   def new
