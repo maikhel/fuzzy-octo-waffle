@@ -53,6 +53,6 @@ private
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def subject_params
-      params.require(:subject).permit(:title, :description, :short_description, :literature, :requirements, :learning_outcomes)
+      params.require(:subject).permit(:title, :description, :short_description, :literature, :requirements, :learning_outcomes, :semester_id)
     end
 end

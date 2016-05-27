@@ -16,7 +16,9 @@
 
 class Subject < ActiveRecord::Base
 
-  has_many :course_groups
+  has_many :course_groups, dependent: :destroy
+  belongs_to :semester
 
+  validates :semester, presence: true
   validates :title, :short_description, presence: true
 end

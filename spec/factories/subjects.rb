@@ -23,6 +23,7 @@ FactoryGirl.define do
     literature { Faker::Lorem.paragraph(3) }
     requirements { Faker::Lorem.paragraph(3) }
     learning_outcomes { Faker::Lorem.paragraph(3) }
+    association :semester
   end
 
   trait :with_groups do

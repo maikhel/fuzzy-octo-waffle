@@ -40,6 +40,11 @@ RSpec.describe Subject, type: :model do
       subject = build(:subject, short_description: nil)
       expect(subject).not_to be_valid
     end
+
+    it 'is invalid without semester_id' do
+      subject = build(:subject, semester_id: nil)
+      expect(subject).not_to be_valid
+    end
   end
 
 end

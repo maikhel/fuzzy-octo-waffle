@@ -59,15 +59,17 @@ RSpec.describe SubjectsController, type: :controller do
   end
 
   describe "POST create" do
+    let(:semester) { create(:semester) }
+
     context 'with valid attributes' do
       it "creates a new subject" do
         expect{
-          post :create, subject: attributes_for(:subject)
+          post :create, subject: attributes_for(:subject).merge({semester_id: semester.id})
         }.to change{ Subject.count }.by 1
       end
 
       it "redirects to the index path" do
-        post :create, subject: attributes_for(:subject)
+        post :create, subject: attributes_for(:subject).merge({semester_id: semester.id})
         expect(response).to redirect_to subjects_path
       end
     end
