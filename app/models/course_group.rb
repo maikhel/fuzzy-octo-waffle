@@ -24,7 +24,6 @@ class CourseGroup < ActiveRecord::Base
   has_many :calendar_events
   has_many :grades
 
-
   accepts_nested_attributes_for :grades
 
   validates :subject, presence: true
@@ -34,7 +33,7 @@ class CourseGroup < ActiveRecord::Base
 
 
   def enrolled_students
-    users
+    users.where(role: 'Student')
   end
 
 end

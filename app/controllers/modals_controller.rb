@@ -2,13 +2,13 @@ class ModalsController < ApplicationController
 
   def select_users
     @course_group = CourseGroup.find modal_params[:course_group_id]
-    @students = User.all
+    @students = @course_group.subject.semester.users.where(role: 'Student')
     render partial: 'select_users_modal', layout: false
   end
 
   def update_grades
     @course_group = CourseGroup.find modal_params[:course_group_id]
-    @students = @course_group.users
+    @students = @course_group.users.where(role: 'Student')
     render partial: 'update_grades_modal', layout: false
   end
 

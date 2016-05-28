@@ -68,7 +68,8 @@ before_action :set_user, only: [:show, :edit, :update, :update_password, :destro
   end
 
   def moje_studia
-    @course_groups = @user.course_groups
+    groups_ids = @user.course_groups.pluck(:id)
+    @calendar_events = CalendarEvent.where(course_group: groups_ids)
   end
 
   def rejestracje

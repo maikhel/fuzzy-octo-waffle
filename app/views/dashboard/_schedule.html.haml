@@ -1,4 +1,4 @@
-= week_calendar events: @course_groups, number_of_weeks: 1, number_of_days: 5 do |date, groups|
+= week_calendar attribute: :start_date, events: @calendar_events, number_of_weeks: 1, number_of_days: 5 do |date, groups|
   = date
   - groups.each do |group|
-    group.start_time
+    group.start_date

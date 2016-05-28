@@ -5,7 +5,7 @@ RSpec.describe CourseGroupsController, type: :controller do
 
   before(:all) do
     @subject = create(:subject)
-    @lecturer = create(:user)
+    @lecturer = create(:lecturer)
   end
 
   let(:course) { create(:subject, :with_groups) }
@@ -26,7 +26,7 @@ RSpec.describe CourseGroupsController, type: :controller do
     it "assigns subject course_groups as @course_groups" do
       create_list(:course_group, 3)
       get :index, subject_id: course.id
-      expect(assigns(:course_groups)).to eq(course.course_groups)
+      expect(assigns(:course_groups)).to eq(course.course_groups.order(:start_time))
       expect(assigns(:subject)).to eq(course)
     end
 
@@ -125,6 +125,12 @@ RSpec.describe CourseGroupsController, type: :controller do
         post :create, course_group: valid_attributes, subject_id: @subject.id
         expect(assigns(:course_group)).to be_a(CourseGroup)
         expect(assigns(:course_group)).to be_persisted
+      end
+
+      it 'creates CalendarEvents' do
+        expect{
+          post :create, course_group: valid_attributes, subject_id: @subject.id
+        }.to change(CalendarEvent, :count)
       end
 
       it "redirects to the created course_group" do

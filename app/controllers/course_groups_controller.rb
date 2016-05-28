@@ -15,7 +15,7 @@ class CourseGroupsController < ApplicationController
 
   # GET /course_groups/1
   def show
-    @students = @course_group.users
+    @students = @course_group.enrolled_students
   end
 
   # GET /course_groups/new
@@ -69,6 +69,7 @@ class CourseGroupsController < ApplicationController
 
     respond_to do |format|
       if @course_group.save
+        CalendarEventsCreator.new(@course_group).run
         format.html { redirect_to subject_course_group_path(subject: @course_group.subject, id: @course_group.id) }
         format.json { render :show, status: :created, location: @course_group }
       else
