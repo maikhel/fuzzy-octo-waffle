@@ -21,7 +21,10 @@ class CourseGroup < ActiveRecord::Base
   belongs_to :subject
   belongs_to :lecturer
   has_and_belongs_to_many :users
+  has_many :calendar_events
   has_many :grades
+
+
   accepts_nested_attributes_for :grades
 
   validates :subject, presence: true

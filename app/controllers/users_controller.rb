@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-before_action :set_user, only: [:show, :edit, :update, :update_password, :destroy]
+before_action :set_user, only: [:show, :edit, :update, :update_password, :destroy, :moje_studia]
 
   # GET /users
   # GET /users.json
@@ -68,6 +68,7 @@ before_action :set_user, only: [:show, :edit, :update, :update_password, :destro
   end
 
   def moje_studia
+    @course_groups = @user.course_groups
   end
 
   def rejestracje
