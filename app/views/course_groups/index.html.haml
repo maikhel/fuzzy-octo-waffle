@@ -29,8 +29,9 @@
           %p
             %strong= t('.max_limit') + ':'
             %span= group.max_limit
-          %button#show_modal.btn.btn-default{data: {modal: 'select_users', url: select_users_modal_path(course_group_id: group.id) } }
-            = t('.registrate_users')
+          -if policy(:course_group).registrate?
+            %button#show_modal.btn.btn-default{data: {modal: 'select_users', url: select_users_modal_path(course_group_id: group.id) } }
+              = t('.registrate_users')
     - num+= 1
 
   - if @course_groups.empty?

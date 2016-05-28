@@ -32,6 +32,8 @@ class CourseGroupsController < ApplicationController
   end
 
   def registrate
+    authorize @course_group
+
     if params[:user_ids]
       students = User.find params[:user_ids]
       CourseGroupJoiner.new(@course_group).enroll(students)
@@ -42,6 +44,8 @@ class CourseGroupsController < ApplicationController
   end
 
   def deregistrate
+    authorize @course_group
+
     if params[:user_ids]
       nil
     else
@@ -51,6 +55,8 @@ class CourseGroupsController < ApplicationController
   end
 
   def update_grades
+    authorize @course_group
+
     params[:grades].each do |grade_hash|
       grade = Grade.find_or_initialize_by(course_group_id: @course_group.id, user_id: grade_hash["user_id"])
       if grade.value.to_s != grade_hash["value"]

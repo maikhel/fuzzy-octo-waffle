@@ -2,8 +2,8 @@ require 'spec_helper'
 
 describe CourseGroupPolicy do
 
-  subject { CourseGroupPolicy.new(user, field_of_study) }
-  let(:field_of_study) { create(:field_of_study) }
+  subject { CourseGroupPolicy.new(user, course_group) }
+  let(:course_group) { create(:course_group) }
 
   describe '.policy' do
     context "for an admin" do
@@ -13,6 +13,10 @@ describe CourseGroupPolicy do
       it { should pundit_permit(:edit)}
       it { should pundit_permit(:update)}
       it { should pundit_permit(:destroy)}
+      it { should pundit_permit(:update_grades)}
+      it { should pundit_permit(:show_grades)}
+      it { should pundit_permit(:registrate)}
+      it { should pundit_permit(:deregistrate)}
     end
 
     context "for lecturer" do
@@ -22,6 +26,10 @@ describe CourseGroupPolicy do
       it { should_not pundit_permit(:edit)}
       it { should_not pundit_permit(:update)}
       it { should_not pundit_permit(:destroy)}
+      it { should_not pundit_permit(:update_grades)}
+      it { should_not pundit_permit(:show_grades)}
+      it { should_not pundit_permit(:registrate)}
+      it { should_not pundit_permit(:deregistrate)}
     end
 
     context "for student" do
@@ -31,6 +39,10 @@ describe CourseGroupPolicy do
       it { should_not pundit_permit(:edit)}
       it { should_not pundit_permit(:update)}
       it { should_not pundit_permit(:destroy)}
+      it { should_not pundit_permit(:update_grades)}
+      it { should_not pundit_permit(:show_grades)}
+      it { should_not pundit_permit(:registrate)}
+      it { should_not pundit_permit(:deregistrate)}
     end
   end
 
