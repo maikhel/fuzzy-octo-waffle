@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-before_action :set_user, only: [:show, :edit, :update, :update_password, :destroy, :moje_studia]
+before_action :set_user, only: [:show, :edit, :update, :update_password, :destroy]
 
   # GET /users
   # GET /users.json
@@ -67,9 +67,10 @@ before_action :set_user, only: [:show, :edit, :update, :update_password, :destro
     end
   end
 
-  def moje_studia
+  def my_study
+    @user = current_user
     groups_ids = @user.course_groups.pluck(:id)
-    @calendar_events = CalendarEvent.where(course_group: groups_ids)
+    # @calendar_events = CalendarEvent.where(course_group: groups_ids)
   end
 
   def rejestracje

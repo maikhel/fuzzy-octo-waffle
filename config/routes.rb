@@ -19,13 +19,13 @@ Rails.application.routes.draw do
   get 'update_grades' => 'modals#update_grades', as: :update_grades_modal
 
   root 'dashboard#index'
+  get 'my_study' => 'users#my_study', as: :my_study_user
 
   devise_for :users, :skip => [:registrations]
 
   get 'language' => 'languages#change', as: :change_language
 
   resources :users do
-    get 'moje_studia', on: :member
     patch 'update_password', on: :member
   end
 

@@ -1,0 +1,22 @@
+.inline-header
+  %h3= t('.my_study')
+  %ul.nav.nav-tabs
+    %li
+      %a{'aria-expanded' => 'false', 'href' => '#', 'data-toggle' => 'tab'}= t('.grades')
+    %li
+      %a{'aria-expanded' => 'false', 'href' => 'subjects', 'data-toggle' => 'tab'}= t('.subjects')
+    %li
+      %a{'aria-expanded' => 'false', 'href' => 'anohter', 'data-toggle' => 'tab'}= t('.registrations')
+
+/ .container.sidebar-container
+/   .row
+/     .col-md-3
+/       .well.sidebar-nav
+/         %h3 Moje studia
+/         %ul.nav.nav-list
+/           %li= link_to "Przedmioty", "#"
+/           %li= link_to "Etapy", "#"
+/           %li= link_to "Oceny", "#"
+/           %li= link_to "Rejestracje", "#"
+/     .col-md-9
+/       = render 'dashboard/schedule'

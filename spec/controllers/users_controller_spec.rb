@@ -22,4 +22,24 @@ RSpec.describe UsersController, type: :controller do
     end
 
   end
+
+  describe 'GET my_study' do
+    let(:user) { create(:student) }
+
+    it "has a 200 status code" do
+      get :my_study, id: user.id
+      expect(response.status).to eq(200)
+    end
+
+    it "assigns @user" do
+      get :my_study, id: user.id
+      expect(assigns(:user)).to eq Admin.first
+    end
+
+    it "renders the my_study template" do
+      get :my_study, id: user.id
+      expect(response).to render_template("my_study")
+    end
+
+  end
 end
