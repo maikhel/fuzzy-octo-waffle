@@ -111,6 +111,14 @@ describe User do
     end
   end
 
+  describe '.course_groups' do
+    it 'returns all course_groups that user is enrolled' do
+      student = create(:student)
+      student.course_groups << create_list(:course_group, 3)
+      expect(student.course_groups.count).to eq 3
+    end
+  end
+
   describe '.enrolled?' do
     let(:course_group) { create(:course_group) }
     let(:student) { create(:student) }

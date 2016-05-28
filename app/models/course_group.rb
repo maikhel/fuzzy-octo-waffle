@@ -31,6 +31,9 @@ class CourseGroup < ActiveRecord::Base
 
   validates :start_time, :end_time, :weekday, presence: true
 
+  scope :from_semester, ->(semester_id) {
+    includes(:subject).where('subjects.semester_id = ?', semester_id).references(:subject)
+  }
 
   def enrolled_students
     users.where(role: 'Student')

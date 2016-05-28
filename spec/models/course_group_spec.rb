@@ -53,4 +53,12 @@ RSpec.describe CourseGroup, type: :model do
     end
   end
 
+  describe '#from_semester' do
+    it 'returns only course_groups from given semester' do
+      create_list(:course_group, 3)
+      semester = CourseGroup.last.subject.semester
+      expect(CourseGroup.from_semester(semester.id).count).to eq 1
+    end
+  end
+
 end

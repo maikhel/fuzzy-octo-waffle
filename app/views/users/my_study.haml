@@ -8,6 +8,32 @@
     %li
       %a{'aria-expanded' => 'false', 'href' => 'anohter', 'data-toggle' => 'tab'}= t('.registrations')
 
+- @semesters.order(:field_of_study_id).each do |semester|
+  %h4
+    %span= semester
+    %span.glyphicon.glyphicon-menu-down.hoverable{data: {toggle: :collapse, target: "#semester_#{semester.id}"}}
+  - if semester.subjects.any?
+    .row.collapse.in.fold{id: "semester_#{semester.id}"}
+      .col-md-12
+        %table.table
+          %thead
+            %tr
+              %th= t('.subject')
+              %th= t('.group_type')
+              %th= t('.grade')
+
+          %tbody
+            - @user.course_groups.from_semester(semester.id).each do |course_group|
+              %tr
+                %td
+                  %strong= course_group.subject.title
+                %td= course_group.group_type
+                %td= @user.grades.where(course_group: course_group).first.try(:value)
+  - else
+    %p= t('.no_subjects_message')
+
+
+
 / .container.sidebar-container
 /   .row
 /     .col-md-3
