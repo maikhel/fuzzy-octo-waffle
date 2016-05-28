@@ -32,8 +32,17 @@ describe CalendarEventsCreator do
       creator.run
       start_hours = course_group.start_time.strftime('%H:%M')
       end_hours = course_group.end_time.strftime('%H:%M')
-      # expect(CalendarEvent.last.start_date.strftime('%H:%M')).to eq start_hours
+      expect(CalendarEvent.last.start_date.strftime('%H:%M')).to eq start_hours
       expect(CalendarEvent.last.end_date.strftime('%H:%M')).to eq end_hours
+    end
+
+    it 'updates existing CalendarEvents for course group' do
+      creator.run
+      course_group.update(start_time: '2000-01-01 20:00:00 UTC')
+      course_group.reload
+      expect {
+        CalendarEventsCreator.new(course_group).run
+      }.not_to change(CalendarEvent, :count)
     end
 
 

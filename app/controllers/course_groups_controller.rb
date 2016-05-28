@@ -86,6 +86,7 @@ class CourseGroupsController < ApplicationController
 
     respond_to do |format|
       if @course_group.update(course_group_params)
+        CalendarEventsCreator.new(@course_group).run
         format.html { redirect_to subject_course_groups_path(@subject.id) }
         # format.json { render :show, status: :ok, location: @course_group }
       else

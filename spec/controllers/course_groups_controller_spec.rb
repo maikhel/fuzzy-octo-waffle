@@ -167,8 +167,9 @@ RSpec.describe CourseGroupsController, type: :controller do
     end
 
     context "with valid params" do
+      let(:course_group) { create(:course_group) }
+
       it "updates the requested course_group" do
-        course_group = create(:course_group)
         put :update, {
           subject_id: course_group.subject_id,
           id: course_group.id,
@@ -178,8 +179,18 @@ RSpec.describe CourseGroupsController, type: :controller do
         expect(course_group.max_limit).to eq 20
       end
 
+      it 'updates course_group.calendar_events' do
+        CalendarEventsCreator.new(course_group).run
+        put :update, {
+          subject_id: course_group.subject_id,
+          id: course_group.id,
+          course_group: attributes_for(:course_group, start_time: '2000-01-01 18:00:00 UTC')
+        }
+        course_group.reload
+        expect(course_group.calendar_events.last.start_date.strftime('%H:%M')).to eq '18:00'
+      end
+
       it "redirects to the course_group" do
-        course_group = create(:course_group)
         put :update, {
           subject_id: course_group.subject_id,
           id: course_group.id,

@@ -5,6 +5,7 @@ class CalendarEventsCreator < Struct.new(:course_group)
     end_date = course_group.subject.semester.end_date.to_datetime
 
     days = (start_date..end_date).to_a.select {|k| k.wday == course_group.weekday }
+    course_group.calendar_events.destroy_all
     create_calendar_events days
   end
 

@@ -1,4 +1,5 @@
-= week_calendar attribute: :start_date, events: @calendar_events, number_of_weeks: 1, number_of_days: 5 do |date, groups|
+= week_calendar attribute: :start_date, events: @calendar_events, number_of_weeks: 1, number_of_days: 5 do |date, events|
   = date
-  - groups.each do |group|
-    group.start_date
+  - events.each do |event|
+    = "#{event.start_date.strftime('%H:%M')} - #{event.end_date.strftime('%H:%M')}"
+    = event.course_group.subject.title
