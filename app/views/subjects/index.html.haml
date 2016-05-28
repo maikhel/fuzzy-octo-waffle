@@ -16,6 +16,8 @@
               - if policy(:subject).edit?
                 %th
               %th
+              - if policy(:subject).destroy?
+                %th
 
           %tbody
             - semester.subjects.order(:title).each do |subject|
@@ -27,7 +29,10 @@
                 - if policy(:subject).edit?
                   %td= link_to t('.edit'), edit_subject_path(subject)
                 %td= link_to t('.groups'), subject_course_groups_path(subject.id)
-                -#%td= link_to 'Destroy', subject, :method => :delete, :data => { :confirm => 'Are you sure?' }
+                - if policy(:subject).destroy?
+                  %td
+                    = link_to subject_path(subject), method: :delete, :data => { :confirm => "Are you sure?" } do
+                      %span.glyphicon.glyphicon-trash{'aria-hidden'=>"true"}
   - else
     %p= t('.no_subjects_message')
 

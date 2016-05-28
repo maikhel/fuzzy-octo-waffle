@@ -26,4 +26,8 @@ class SubjectPolicy < ApplicationPolicy
     administrable?
   end
 
+  def destroy?
+    administrable?
+  end
+
 end

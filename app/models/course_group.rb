@@ -19,7 +19,7 @@ class CourseGroup < ActiveRecord::Base
   GROUP_TYPES = ['lecture', 'class', 'conversatorium', 'laboratory']
 
   belongs_to :subject
-  belongs_to :lecturer, class_name: 'User'
+  belongs_to :lecturer
   has_and_belongs_to_many :users
   has_many :grades
   accepts_nested_attributes_for :grades

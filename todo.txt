@@ -1,15 +1,13 @@
 TODO
-- dodać warunki rejestracji: nie można do różnych grup w ramach tego samego przedmiotu itp.
-- definiowanie egzaminów, automatyczne zapisanie na egzamin poprawkowy
-- powiadomienia email przy wpisaniu terminu egzaminu
-- zapisywanie do semestru
-- dodac role: student, lecturer, admin
-- Dodać wyświetlanie planu zajęć
-- wyszukiwanie przedmiotów, studentów
+MVP:
+  - naprawić błąd Devise
+  - dodać warunki rejestracji: nie można do różnych grup w ramach tego samego przedmiotu itp.
+  - zapisywanie do semestru
+  - Dodać wyświetlanie planu zajęć
 
-
-- Wygenerować schemat https://github.com/voormedia/rails-erd
-- Wrzucić aplikację na heroku
-
-DETAILS:
- - tłumaczenie błędów simple form
+DODAĆ:
+  - wyszukiwanie przedmiotów, studentów
+  - definiowanie egzaminów, automatyczne zapisanie na egzamin poprawkowy
+  - powiadomienia email przy wpisaniu terminu egzaminu
+  - tłumaczenie błędów
+  - tworzenie komunikatów

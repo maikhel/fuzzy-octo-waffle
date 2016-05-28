@@ -1,6 +1,6 @@
 class SubjectsController < ApplicationController
 
-  before_action :set_subject, only: [:show, :edit, :update]
+  before_action :set_subject, only: [:show, :edit, :update, :destroy]
 
   def index
     authorize Semester
@@ -46,6 +46,16 @@ class SubjectsController < ApplicationController
       end
     end
 
+  end
+
+  def destroy
+    authorize @subject
+
+    @subject.destroy
+    respond_to do |format|
+      format.html { redirect_to subjects_path }
+      # format.json { head :no_content }
+    end
   end
 
 

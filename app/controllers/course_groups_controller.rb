@@ -4,7 +4,7 @@ class CourseGroupsController < ApplicationController
   # GET /course_groups
   def index
     @subject       = Subject.find(params[:subject_id])
-    @course_groups = @subject.course_groups
+    @course_groups = @subject.course_groups.order(:start_time)
   end
 
   # GET /course_groups/overview

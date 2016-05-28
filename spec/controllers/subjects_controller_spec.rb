@@ -140,4 +140,20 @@ RSpec.describe SubjectsController, type: :controller do
     end
   end
 
+  describe "DELETE #destroy" do
+
+    it "destroys the requested subject" do
+      subject = create(:subject)
+      expect {
+        delete :destroy, id: subject.id
+      }.to change(Subject, :count).by -1
+    end
+
+    it "redirects to the subjects list" do
+      subject = create(:subject)
+      delete :destroy, id: subject.id
+      expect(response).to redirect_to subjects_path
+    end
+  end
+
 end

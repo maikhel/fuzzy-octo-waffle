@@ -12,6 +12,7 @@ describe SubjectPolicy do
       it { should pundit_permit(:create)}
       it { should pundit_permit(:edit)}
       it { should pundit_permit(:update)}
+      it { should pundit_permit(:destroy)}
     end
 
     context "for lecturer" do
@@ -20,6 +21,7 @@ describe SubjectPolicy do
       it { should_not pundit_permit(:create)}
       it { should_not pundit_permit(:edit)}
       it { should_not pundit_permit(:update)}
+      it { should_not pundit_permit(:destroy)}
     end
 
     context "for student" do
@@ -28,6 +30,7 @@ describe SubjectPolicy do
       it { should_not pundit_permit(:create)}
       it { should_not pundit_permit(:edit)}
       it { should_not pundit_permit(:update)}
+      it { should_not pundit_permit(:destroy)}
     end
   end
 
