@@ -3,18 +3,22 @@ class RegistrationsController < ApplicationController
   before_action :set_registration, only: [:show, :edit, :update, :destroy]
 
   def index
+    authorize Registration
     @semesters = Semester.all
   end
 
   def new
     @registration = Registration.new
+    authorize @registration
   end
 
   def edit
+    authorize @registration
   end
 
   def create
     @registration = Registration.new(registration_params)
+    authorize @registration
 
     respond_to do |format|
       if @registration.save
@@ -27,6 +31,8 @@ class RegistrationsController < ApplicationController
   end
 
   def update
+    authorize @registration
+
     respond_to do |format|
       if @registration.update(registration_params)
         format.html { redirect_to registrations_path }
@@ -39,6 +45,8 @@ class RegistrationsController < ApplicationController
   end
 
   def destroy
+    authorize @registration
+
     @registration.destroy
     respond_to do |format|
       format.html { redirect_to registrations_path }
