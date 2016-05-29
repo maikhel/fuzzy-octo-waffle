@@ -163,7 +163,7 @@ en:
       registrations: 'Registrations'
       start_date: 'Start date'
       end_date: 'End date'
-      field_of_study: 'Field of study'
+      semester: 'Semester'
       actions: 'Actions'
       show: 'Details'
       edit: 'Edit'
@@ -176,7 +176,7 @@ en:
     form:
       start_date: 'Start date'
       end_date: 'End date'
-      field_of_study: 'Field of study'
+      semester: 'Semester'
       cancel: 'Cancel'
       save: 'Save'
   devise:

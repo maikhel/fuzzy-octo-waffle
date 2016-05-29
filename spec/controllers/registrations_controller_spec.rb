@@ -2,8 +2,8 @@ require 'spec_helper'
 
 RSpec.describe RegistrationsController, type: :controller do
 
-  let(:field_of_study) { create(:field_of_study) }
-  let(:valid_attributes) { attributes_for(:registration, field_of_study_id: field_of_study.id) }
+  let(:semester) { create(:semester) }
+  let(:valid_attributes) { attributes_for(:registration, semester_id: semester.id) }
   let(:invalid_attributes) { attributes_for(:registration, start_date: nil) }
 
   describe "GET index" do
@@ -12,11 +12,10 @@ RSpec.describe RegistrationsController, type: :controller do
       expect(response.status).to eq(200)
     end
 
-    it "assigns @registrations" do
+    it "assigns @semesters" do
       create_list(:registration, 3)
       get :index
-      expect(assigns(:registrations)).to eq(Registration.all)
-      expect(assigns(:course_groups)).to eq(CourseGroup.all)
+      expect(assigns(:semesters)).to eq(Semester.all)
     end
 
     it "renders the index template" do
@@ -112,13 +111,13 @@ RSpec.describe RegistrationsController, type: :controller do
 
       it "updates the requested registration" do
         registration = create(:registration)
-        new_field = create(:field_of_study)
+        new_semester = create(:semester)
         put :update, {
           id: registration.id,
-          registration: attributes_for(:registration, field_of_study_id: new_field.id)
+          registration: attributes_for(:registration, semester_id: new_semester.id)
         }
         registration.reload
-        expect(registration.field_of_study).to eq new_field
+        expect(registration.semester).to eq new_semester
       end
 
       it "redirects to the registrations path" do

@@ -163,7 +163,7 @@ pl:
       registrations: 'Rejestracje'
       start_date: 'Początek'
       end_date: 'Koniec'
-      field_of_study: 'Kierunek studiów'
+      semester: 'Semestr'
       actions: 'Akcje'
       show: 'Szczegóły'
       edit: 'Edytuj'
@@ -176,7 +176,7 @@ pl:
     form:
       start_date: 'Początek'
       end_date: 'Koniec'
-      field_of_study: 'Kierunek'
+      semester: 'Semestr'
       save: 'Zapisz'
       cancel: 'Anuluj'
   devise:

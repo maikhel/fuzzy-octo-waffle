@@ -3,8 +3,7 @@ class RegistrationsController < ApplicationController
   before_action :set_registration, only: [:show, :edit, :update, :destroy]
 
   def index
-    @registrations = Registration.all
-    @course_groups = CourseGroup.all
+    @semesters = Semester.all
   end
 
   def new
@@ -56,7 +55,7 @@ class RegistrationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def registration_params
-      params.require(:registration).permit(:start_date, :end_date, :field_of_study_id)
+      params.require(:registration).permit(:start_date, :end_date, :semester_id)
     end
 
 end
