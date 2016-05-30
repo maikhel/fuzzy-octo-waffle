@@ -11,7 +11,27 @@ class SemesterPolicy < ApplicationPolicy
   end
 
   def index?
-    true
+    administrable?
+  end
+
+  def new?
+    administrable?
+  end
+
+  def create?
+    administrable?
+  end
+
+  def edit?
+    administrable?
+  end
+
+  def update?
+    administrable?
+  end
+
+  def destroy?
+    administrable?
   end
 
 end

@@ -11,7 +11,9 @@ Rails.application.routes.draw do
   end
   get 'course_groups/overview' => 'course_groups#overview'
 
-  resources :field_of_studies
+  resources :field_of_studies do
+    resources :semesters
+  end
   resources :registrations
 
   #modals

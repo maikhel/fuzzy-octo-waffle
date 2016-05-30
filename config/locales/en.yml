@@ -79,6 +79,7 @@ en:
       add_new: 'Add new'
       edit: 'Edit'
       show: 'Show'
+      semesters: 'Semesters'
   subjects:
     index:
       subjects: 'Courses'

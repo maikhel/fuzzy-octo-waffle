@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'devise'
 
 RSpec.describe CourseGroupsController, type: :controller do
 

@@ -79,6 +79,7 @@ pl:
       add_new: 'Dodaj nowy'
       edit: 'Edytuj'
       show: 'Szczegóły'
+      semesters: 'Semestry'
   subjects:
     index:
       subjects: 'Przedmioty'

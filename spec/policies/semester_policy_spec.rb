@@ -9,16 +9,31 @@ describe SemesterPolicy do
     context "for an admin" do
       let(:user) { build(:admin) }
       it { should pundit_permit(:index)}
+      it { should pundit_permit(:new)}
+      it { should pundit_permit(:create)}
+      it { should pundit_permit(:edit)}
+      it { should pundit_permit(:update)}
+      it { should pundit_permit(:destroy)}
     end
 
     context "for lecturer" do
       let(:user) { build(:lecturer) }
-      it { should pundit_permit(:index)}
+      it { should_not pundit_permit(:index)}
+      it { should_not pundit_permit(:new)}
+      it { should_not pundit_permit(:create)}
+      it { should_not pundit_permit(:edit)}
+      it { should_not pundit_permit(:update)}
+      it { should_not pundit_permit(:destroy)}
     end
 
     context "for student" do
       let(:user) { build(:student) }
-      it { should pundit_permit(:index)}
+      it { should_not pundit_permit(:index)}
+      it { should_not pundit_permit(:new)}
+      it { should_not pundit_permit(:create)}
+      it { should_not pundit_permit(:edit)}
+      it { should_not pundit_permit(:update)}
+      it { should_not pundit_permit(:destroy)}
     end
   end
 
