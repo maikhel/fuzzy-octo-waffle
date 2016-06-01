@@ -1,8 +1,8 @@
 .row
-  .col-md-8.col-md-offset-2
+  .col-md-10.col-md-offset-1
     .panel.panel-default
       .panel-heading
-        %h4= @field_of_study.title
+        %h4= @semester
       .panel-body
         %p
           %strong= t('.mode') + ':'
@@ -13,7 +13,42 @@
         %p
           %strong= t('.faculty') + ':'
           %span= @field_of_study.faculty.name
+        %hr
+        .row
+          .col-md-6
+            - if @semester.subjects.any?
+              %h5.mg-b-0
+                = t('.subjects')
+                %small= "(#{@semester.subjects.count})"
+              %table.table
+                %thead
+                  %tr
+                    %th
+                    %th
+
+                %tbody
+                  - @semester.subjects.each do |subject|
+                    %tr
+                      %td= subject.title
+                      %td= link_to t(".details"), subject_path(subject)
+          .col-md-6
+            - if @semester.users.any?
+              %h5.mg-b-0
+                = t('.users')
+                %small= "(#{@semester.users.count})"
+              %table.table
+                %thead
+                  %tr
+                    %th
+                    %th
+
+                %tbody
+                  - @semester.users.each do |user|
+                    %tr
+                      %td= user.name
+                      %td= link_to t(".details"), user_path(user)
+
 
 .row
-  .col-md-8.col-md-offset-2
-    = link_to t('.back'), field_of_studies_path, class: 'btn btn-default last-element'
+  .col-md-10.col-md-offset-1
+    = link_to t('.back'), field_of_study_semesters_path(@field_of_study), class: 'btn btn-default last-element'

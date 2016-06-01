@@ -1,41 +1,33 @@
-%h3= t(".field_of_studies")
+%h3.page-header
+  = t('.semesters')
+  %small= @field_of_study.title
 
-- if @field_of_studies.any?
-  %table.table
-    %thead
-      %tr
-        %th= t('.title')
-        %th= t('.mode')
-        %th= t('.degree')
-        %th= t('.faculty')
-        %th
-        - if policy(:field_of_study).semesters?
-          %th
-        - if policy(:field_of_study).edit?
-          %th
-        - if policy(:field_of_study).destroy?
-          %th
+- if @semesters.any?
+  .row
+    .col-md-12
+      %table.table
+        %thead
+          %tr
+            %th= t('.semester')
+            %th= t('.associated_subjects')
+            %th= t('.registrated_users')
+            - if policy(:semester).show?
+              %th
+            - if policy(:semester).destroy?
+              %th
 
-    %tbody
-      - @field_of_studies.each do |field_of_study|
-        %tr
-          %td
-            %strong= field_of_study.title
-          %td= t("field_of_studies.mode_types.#{field_of_study.mode}")
-          %td= t("field_of_studies.degree_types.#{field_of_study.degree}")
-          %td= field_of_study.faculty.name
-          %td= link_to t('.show'), field_of_study_path(field_of_study)
-          - if policy(:field_of_study).semesters?
-            %td= link_to t('.semesters'), semesters_field_of_study_path(field_of_study)
-          - if policy(:field_of_study).edit?
-            %td= link_to t('.edit'), edit_field_of_study_path(field_of_study)
-          - if policy(:field_of_study).destroy?
-            %td
-              = link_to field_of_study_path(id: field_of_study.id), method: :delete, :data => { :confirm => "Are you sure?" } do
-                %span.glyphicon.glyphicon-trash{'aria-hidden'=>"true"}
+        %tbody
+          - @semesters.each do |semester|
+            %tr
+              %td
+                %strong= semester
+              %th= semester.subjects.count
+              %td= semester.users.count
+              - if policy(:semester).show?
+                %td= link_to t('.details'), field_of_study_semester_path(@field_of_study, semester)
+              - if policy(:semester).destroy?
+                %td
+                  = link_to field_of_study_semester_path(@field_of_study, semester), method: :delete, :data => { :confirm => "Are you sure?" } do
+                    %span.glyphicon.glyphicon-trash{'aria-hidden'=>"true"}
 - else
-  %p= t(".no_records")
-
-%br
-- if policy(:field_of_study).new?
-  = link_to t('.add_new'), new_field_of_study_path, class: 'btn btn-primary last-element'
+  %p= t('.no_semesters_message')

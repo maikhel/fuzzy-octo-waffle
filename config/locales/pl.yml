@@ -60,19 +60,19 @@ pl:
     form:
       title: 'Nazwa'
       mode: 'Tryb'
-      degree: 'Stopeń'
+      degree: 'Stopień'
       faculty: 'Wydział'
       save: 'Zapisz'
       cancel: 'Anuluj'
     show:
       mode: 'Tryb'
-      degree: 'Stopeń'
+      degree: 'Stopień'
       faculty: 'Wydział'
       back: 'Cofnij'
     index:
       title: 'Nazwa'
       mode: 'Tryb'
-      degree: 'Stopeń'
+      degree: 'Stopień'
       faculty: 'Wydział'
       field_of_studies: 'Kierunki studiów'
       no_records: 'Brak kierunków studiów'
@@ -80,6 +80,19 @@ pl:
       edit: 'Edytuj'
       show: 'Szczegóły'
       semesters: 'Semestry'
+  semesters:
+    index:
+      semesters: Semestry
+      semester: 'Semestr'
+      associated_subjects: 'Przedmioty'
+      registrated_users: 'Zapisani studenci'
+      details: 'Szczegóły'
+      no_semesters_message: 'Brak semestrów'
+    show:
+      mode: 'Tryb'
+      degree: 'Stopeń'
+      users: 'Studenci'
+      subjects: 'Przedmioty'
   subjects:
     index:
       subjects: 'Przedmioty'

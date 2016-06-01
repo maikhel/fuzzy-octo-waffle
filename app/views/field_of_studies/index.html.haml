@@ -9,7 +9,7 @@
         %th= t('.degree')
         %th= t('.faculty')
         %th
-        - if policy(:field_of_study).semesters?
+        - if policy(:semester).index?
           %th
         - if policy(:field_of_study).edit?
           %th
@@ -25,8 +25,8 @@
           %td= t("field_of_studies.degree_types.#{field_of_study.degree}")
           %td= field_of_study.faculty.name
           %td= link_to t('.show'), field_of_study_path(field_of_study)
-          - if policy(:field_of_study).semesters?
-            %td= link_to t('.semesters'), semesters_field_of_study_path(field_of_study)
+          - if policy(:semester).index?
+            %td= link_to t('.semesters'), field_of_study_semesters_path(field_of_study)
           - if policy(:field_of_study).edit?
             %td= link_to t('.edit'), edit_field_of_study_path(field_of_study)
           - if policy(:field_of_study).destroy?

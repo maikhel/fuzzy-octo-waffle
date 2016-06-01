@@ -9,6 +9,7 @@ describe SemesterPolicy do
     context "for an admin" do
       let(:user) { build(:admin) }
       it { should pundit_permit(:index)}
+      it { should pundit_permit(:show)}
       it { should pundit_permit(:new)}
       it { should pundit_permit(:create)}
       it { should pundit_permit(:edit)}
@@ -19,6 +20,7 @@ describe SemesterPolicy do
     context "for lecturer" do
       let(:user) { build(:lecturer) }
       it { should_not pundit_permit(:index)}
+      it { should_not pundit_permit(:show)}
       it { should_not pundit_permit(:new)}
       it { should_not pundit_permit(:create)}
       it { should_not pundit_permit(:edit)}
@@ -29,6 +31,7 @@ describe SemesterPolicy do
     context "for student" do
       let(:user) { build(:student) }
       it { should_not pundit_permit(:index)}
+      it { should_not pundit_permit(:show)}
       it { should_not pundit_permit(:new)}
       it { should_not pundit_permit(:create)}
       it { should_not pundit_permit(:edit)}

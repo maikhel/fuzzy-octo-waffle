@@ -80,6 +80,14 @@ en:
       edit: 'Edit'
       show: 'Show'
       semesters: 'Semesters'
+  semesters:
+    index:
+      semesters: 'Semesters'
+      semester: 'Semester'
+      associated_subjects: 'Associated courses'
+      registrated_users: 'Enrolled students'
+      details: 'Details'
+      no_semesters_message: 'There are no semesters'
   subjects:
     index:
       subjects: 'Courses'

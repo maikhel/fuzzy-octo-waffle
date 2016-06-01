@@ -14,6 +14,10 @@ class SemesterPolicy < ApplicationPolicy
     administrable?
   end
 
+  def show?
+    administrable?
+  end
+
   def new?
     administrable?
   end
