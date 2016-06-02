@@ -98,6 +98,7 @@ en:
       subjects: 'Courses'
       details: 'Details'
       back: 'Back'
+      add_students: 'Add students'
     form:
       cancel: 'Back'
       save: 'Save'

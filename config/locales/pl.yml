@@ -98,6 +98,7 @@ pl:
       subjects: 'Przedmioty'
       details: 'Szczegóły'
       back: 'Cofnij'
+      add_students: 'Dodaj studentów'
     form:
       cancel: 'Cofnij'
       save: 'Zapisz'

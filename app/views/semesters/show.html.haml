@@ -13,13 +13,16 @@
         %p
           %strong= t('.faculty') + ':'
           %span= @field_of_study.faculty.name
+
         %hr
         .row
           .col-md-6
             - if @semester.subjects.any?
-              %h5.mg-b-0
-                = t('.subjects')
-                %small= "(#{@semester.subjects.count})"
+              .row
+                .col-md-12
+                  %h5.mg-b-0.show-semester-table-header
+                    = t('.subjects')
+                    %small= "(#{@semester.subjects.count})"
               %table.table
                 %thead
                   %tr
@@ -33,9 +36,15 @@
                       %td= link_to t(".details"), subject_path(subject)
           .col-md-6
             - if @semester.users.any?
-              %h5.mg-b-0
-                = t('.users')
-                %small= "(#{@semester.users.count})"
+              .row
+                .col-md-8
+                  %h5.mg-b-0.show-semester-table-header
+                    = t('.users')
+                    %small= "(#{@semester.users.count})"
+                - if policy(:semester).add_students?
+                  .col-md-4
+                    %button#show_modal.btn.btn-success.pull-right{data: {modal: 'add_students_to_semester', url: add_students_modal_path(semester_id: @semester.id) } }
+                      = t('.add_students')
               %table.table
                 %thead
                   %tr

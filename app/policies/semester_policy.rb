@@ -38,4 +38,8 @@ class SemesterPolicy < ApplicationPolicy
     administrable?
   end
 
+  def add_students?
+    administrable?
+  end
+
 end

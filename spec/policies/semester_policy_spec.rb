@@ -15,6 +15,7 @@ describe SemesterPolicy do
       it { should pundit_permit(:edit)}
       it { should pundit_permit(:update)}
       it { should pundit_permit(:destroy)}
+      it { should pundit_permit(:add_students)}
     end
 
     context "for lecturer" do
@@ -26,6 +27,7 @@ describe SemesterPolicy do
       it { should_not pundit_permit(:edit)}
       it { should_not pundit_permit(:update)}
       it { should_not pundit_permit(:destroy)}
+      it { should_not pundit_permit(:add_students)}
     end
 
     context "for student" do
@@ -37,6 +39,7 @@ describe SemesterPolicy do
       it { should_not pundit_permit(:edit)}
       it { should_not pundit_permit(:update)}
       it { should_not pundit_permit(:destroy)}
+      it { should_not pundit_permit(:add_students)}
     end
   end
 

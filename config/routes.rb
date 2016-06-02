@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   #modals
   get 'select_users' => 'modals#select_users', as: :select_users_modal
   get 'update_grades' => 'modals#update_grades', as: :update_grades_modal
+  get 'add_students' => 'modals#add_students', as: :add_students_modal
 
   root 'dashboard#index'
   get 'my_study' => 'users#my_study', as: :my_study_user

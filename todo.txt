@@ -11,3 +11,6 @@ DODAĆ:
   - powiadomienia email przy wpisaniu terminu egzaminu
   - tłumaczenie błędów
   - tworzenie komunikatów
+
+NA PRZYSZŁOŚĆ:
+  - dodać progress bar do zapełnienia grup
