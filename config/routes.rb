@@ -12,7 +12,9 @@ Rails.application.routes.draw do
   get 'course_groups/overview' => 'course_groups#overview'
 
   resources :field_of_studies do
-    resources :semesters
+    resources :semesters do
+        post 'add_students', on: :member
+    end
   end
   resources :registrations
 

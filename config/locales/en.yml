@@ -222,6 +222,10 @@ en:
       grade: 'Grade'
       cancel: 'Close'
       save: 'Save'
+    add_students_modal:
+      body: 'Add students to chosen semester'
+      cancel: 'Close'
+      add_students: 'Save'
   shared:
     email_footer:
       greetings: 'Greetings'

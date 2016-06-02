@@ -1,5 +1,5 @@
 class SemestersController < ApplicationController
-  before_action :set_field_of_study_and_semester, only: [:show, :edit, :update, :destroy]
+  before_action :set_field_of_study_and_semester, only: [:show, :edit, :update, :destroy, :add_students]
 
 
   def index
@@ -57,6 +57,16 @@ class SemestersController < ApplicationController
     end
   end
 
+  def add_students
+    authorize @semester
+
+    if params[:student_ids]
+      students = Student.find params[:student_ids]
+      SemesterJoiner.new(@semester).join(students)
+    end
+    redirect_to action: 'show', field_of_study: params[:field_of_study], id: params[:id]
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_field_of_study_and_semester
@@ -66,6 +76,6 @@ class SemestersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def semester_params
-      params.require(:semester).permit(:start_date, :end_date, :period_type, :field_of_study_id)
+      params.require(:semester).permit(:start_date, :end_date, :period_type, :field_of_study_id, :student_ids)
     end
 end

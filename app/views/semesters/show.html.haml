@@ -17,12 +17,12 @@
         %hr
         .row
           .col-md-6
+            .row
+              .col-md-12
+                %h5.mg-b-0.show-semester-table-header
+                  = t('.subjects')
+                  %small= "(#{@semester.subjects.count})"
             - if @semester.subjects.any?
-              .row
-                .col-md-12
-                  %h5.mg-b-0.show-semester-table-header
-                    = t('.subjects')
-                    %small= "(#{@semester.subjects.count})"
               %table.table
                 %thead
                   %tr
@@ -34,17 +34,17 @@
                     %tr
                       %td= subject.title
                       %td= link_to t(".details"), subject_path(subject)
-          .col-md-6
+          .col-md-6.modal_button_parent
+            .row
+              .col-md-8
+                %h5.mg-b-0.show-semester-table-header
+                  = t('.users')
+                  %small= "(#{@semester.users.count})"
+              - if policy(:semester).add_students?
+                .col-md-4
+                  %button#show_modal.btn.btn-success.pull-right{data: {modal: 'add_students', url: add_students_modal_path(semester_id: @semester.id) } }
+                    = t('.add_students')
             - if @semester.users.any?
-              .row
-                .col-md-8
-                  %h5.mg-b-0.show-semester-table-header
-                    = t('.users')
-                    %small= "(#{@semester.users.count})"
-                - if policy(:semester).add_students?
-                  .col-md-4
-                    %button#show_modal.btn.btn-success.pull-right{data: {modal: 'add_students_to_semester', url: add_students_modal_path(semester_id: @semester.id) } }
-                      = t('.add_students')
               %table.table
                 %thead
                   %tr
@@ -61,3 +61,5 @@
 .row
   .col-md-10.col-md-offset-1
     = link_to t('.back'), field_of_study_semesters_path(@field_of_study), class: 'btn btn-default last-element'
+
+#modal_placeholder

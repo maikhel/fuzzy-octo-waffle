@@ -32,24 +32,6 @@ RSpec.describe SemestersController, type: :controller do
     end
   end
 
-  # describe "GET #overview" do
-  #   it "has a 200 status code" do
-  #     get :overview
-  #     expect(response.status).to eq(200)
-  #   end
-
-  #   it "assigns field_of_study semesters as @semesters" do
-  #     create_list(:semester, 3)
-  #     get :overview
-  #     expect(assigns(:semesters)).to eq Semester.all
-  #   end
-
-  #   it "renders the overview template" do
-  #     get :overview
-  #     expect(response).to render_template("overview")
-  #   end
-  # end
-
   describe "GET #show" do
     let(:semester) { create(:semester, field_of_study: @field_of_study) }
 
@@ -204,6 +186,33 @@ RSpec.describe SemestersController, type: :controller do
       semester = create(:semester)
       delete :destroy, field_of_study_id: semester.field_of_study_id, id: semester.id
       expect(response).to redirect_to field_of_study_semesters_path(semester.field_of_study_id)
+    end
+  end
+
+  describe 'GET #add_students' do
+
+    let(:semester) { create(:semester) }
+    let(:field_of_study) { semester.field_of_study }
+    let(:students) { create_list(:student, 3)}
+
+    it 'adds students to semester' do
+      get :add_students, {field_of_study_id: field_of_study.id, id: semester.id, student_ids: students.map(&:id) }
+      expect(students).to eq semester.students
+    end
+
+    it "has a 302 status code" do
+      get :add_students, {field_of_study_id: field_of_study.id, id: semester.id}
+      expect(response.status).to eq(302)
+    end
+
+    it "assigns the @semester" do
+      get :add_students, {field_of_study_id: field_of_study.id, id: semester.id}
+      expect(assigns(:semester)).to eq semester
+    end
+
+    it "redirects to show action" do
+      get :add_students, {field_of_study_id: field_of_study.id, id: semester.id}
+      expect(response).to redirect_to field_of_study_semester_path(field_of_study_id: field_of_study.id, id: semester.id)
     end
   end
 

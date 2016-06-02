@@ -222,7 +222,10 @@ pl:
       grade: 'Ocena'
       cancel: 'Anuluj'
       save: 'Zapisz'
-
+    add_students_modal:
+      body: 'Zapisz studentów na semestr'
+      cancel: 'Anuluj'
+      add_students: 'Dodaj'
   shared:
     email_footer:
       greetings: 'Pozdrawiamy,'

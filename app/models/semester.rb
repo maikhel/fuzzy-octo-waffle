@@ -22,9 +22,12 @@ class Semester < ActiveRecord::Base
   validates :start_date, presence: true
   validates :end_date, presence: true
 
-
   def to_s
     "#{field_of_study.title} #{start_date.year}/#{end_date.year}"
+  end
+
+  def students
+    users.where(role: 'Student')
   end
 
 end
