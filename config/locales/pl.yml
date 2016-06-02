@@ -87,12 +87,22 @@ pl:
       associated_subjects: 'Przedmioty'
       registrated_users: 'Zapisani studenci'
       details: 'Szczegóły'
+      edit: 'Edytuj'
       no_semesters_message: 'Brak semestrów'
+      new_semester: 'Dodaj nowy semestr'
     show:
       mode: 'Tryb'
       degree: 'Stopeń'
+      faculty: 'Wydział'
       users: 'Studenci'
       subjects: 'Przedmioty'
+      details: 'Szczegóły'
+      back: 'Cofnij'
+    form:
+      cancel: 'Cofnij'
+      save: 'Zapisz'
+    new:
+      add_new_semester: 'Nowy semestr'
   subjects:
     index:
       subjects: 'Przedmioty'

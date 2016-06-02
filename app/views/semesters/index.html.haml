@@ -13,6 +13,8 @@
             %th= t('.registrated_users')
             - if policy(:semester).show?
               %th
+            - if policy(:semester).edit?
+              %th
             - if policy(:semester).destroy?
               %th
 
@@ -25,9 +27,15 @@
               %td= semester.users.count
               - if policy(:semester).show?
                 %td= link_to t('.details'), field_of_study_semester_path(@field_of_study, semester)
+              - if policy(:semester).edit?
+                %td= link_to t('.edit'), edit_field_of_study_semester_path(@field_of_study, semester)
               - if policy(:semester).destroy?
                 %td
                   = link_to field_of_study_semester_path(@field_of_study, semester), method: :delete, :data => { :confirm => "Are you sure?" } do
                     %span.glyphicon.glyphicon-trash{'aria-hidden'=>"true"}
 - else
   %p= t('.no_semesters_message')
+.row
+  .col-md-12
+    - if policy(:semester).new?
+      = link_to t('.new_semester'), new_field_of_study_semester_path(@field_of_study), class: 'btn btn-primary last-element'

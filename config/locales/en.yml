@@ -87,7 +87,22 @@ en:
       associated_subjects: 'Associated courses'
       registrated_users: 'Enrolled students'
       details: 'Details'
+      edit: 'Edit'
       no_semesters_message: 'There are no semesters'
+      new_semester: 'Add new semester'
+    show:
+      mode: 'Mode'
+      degree: 'Degree'
+      faculty: 'Faculty'
+      users: 'Students'
+      subjects: 'Courses'
+      details: 'Details'
+      back: 'Back'
+    form:
+      cancel: 'Back'
+      save: 'Save'
+    new:
+      add_new_semester: 'Add new semester'
   subjects:
     index:
       subjects: 'Courses'

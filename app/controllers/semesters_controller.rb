@@ -12,6 +12,7 @@ class SemestersController < ApplicationController
   end
 
   def new
+    @field_of_study = FieldOfStudy.find params[:field_of_study_id]
     @semester = Semester.new
     authorize @semester
   end

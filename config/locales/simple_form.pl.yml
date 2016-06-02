@@ -1,4 +1,10 @@
-en:
+pl:
+  activerecord:
+    attributes:
+      semester:
+        start_date: 'Początek'
+        end_date: 'Koniec'
+        field_of_study: 'Kierunek studiów'
   simple_form:
     "yes": 'Tak'
     "no": 'Nie'
