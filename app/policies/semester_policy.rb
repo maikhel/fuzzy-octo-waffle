@@ -42,4 +42,8 @@ class SemesterPolicy < ApplicationPolicy
     administrable?
   end
 
+  def remove_students?
+    administrable?
+  end
+
 end

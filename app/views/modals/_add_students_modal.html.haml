@@ -8,10 +8,13 @@
         %h4.modal-title#add_students_modal_label= @semester
       .modal-body
         %p= t('.body')
-        - @students.each do |student|
-          %p
-            %span= check_box_tag 'student_ids[]', student.id
-            %span= student.name
+        - if @students.any?
+          - @students.each do |student|
+            %p
+              %span= check_box_tag 'student_ids[]', student.id
+              %span= student.name
+        - else
+          %p= t('.no_students_message')
       .modal-footer
         %button.btn.btn-default{'type' => 'button', 'data-dismiss' => 'modal'}
           = t('.cancel')

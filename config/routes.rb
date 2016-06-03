@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :field_of_studies do
     resources :semesters do
         post 'add_students', on: :member
+        delete 'remove_students', on: :member
     end
   end
   resources :registrations

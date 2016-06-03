@@ -1,5 +1,5 @@
 class SemestersController < ApplicationController
-  before_action :set_field_of_study_and_semester, only: [:show, :edit, :update, :destroy, :add_students]
+  before_action :set_field_of_study_and_semester, only: [:show, :edit, :update, :destroy, :add_students, :remove_students]
 
 
   def index
@@ -63,6 +63,16 @@ class SemestersController < ApplicationController
     if params[:student_ids]
       students = Student.find params[:student_ids]
       SemesterJoiner.new(@semester).join(students)
+    end
+    redirect_to action: 'show', field_of_study: params[:field_of_study], id: params[:id]
+  end
+
+  def remove_students
+    authorize @semester
+
+    if params[:student_ids]
+      students = Student.find params[:student_ids]
+      SemesterJoiner.new(@semester).leave(students)
     end
     redirect_to action: 'show', field_of_study: params[:field_of_study], id: params[:id]
   end

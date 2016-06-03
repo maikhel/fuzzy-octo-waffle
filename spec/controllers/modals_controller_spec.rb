@@ -14,7 +14,7 @@ RSpec.describe ModalsController, type: :controller do
     it "assigns @course_group, @students" do
       get :select_users, course_group_id: course_group.id
       expect(assigns(:course_group)).to eq course_group
-      expect(assigns(:students)).to eq course_group.users.where(role: 'Student')
+      expect(assigns(:students)).to eq course_group.enrolled_students
     end
 
     it "renders partial select_users_modal" do

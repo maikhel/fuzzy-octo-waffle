@@ -98,6 +98,7 @@ en:
       subjects: 'Courses'
       details: 'Details'
       back: 'Back'
+      info_message: 'Remove student from semester'
       add_students: 'Add students'
     form:
       cancel: 'Back'
@@ -224,6 +225,7 @@ en:
       save: 'Save'
     add_students_modal:
       body: 'Add students to chosen semester'
+      no_students_message: 'There are no students available.'
       cancel: 'Close'
       add_students: 'Save'
   shared:

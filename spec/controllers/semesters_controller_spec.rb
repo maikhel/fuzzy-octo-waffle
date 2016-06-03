@@ -216,4 +216,33 @@ RSpec.describe SemestersController, type: :controller do
     end
   end
 
+  describe 'DELETE #remove_students' do
+
+    let(:semester) { create(:semester) }
+    let(:field_of_study) { semester.field_of_study }
+    let(:students) { create_list(:student, 3)}
+    before(:each) { SemesterJoiner.new(semester).join(students) }
+
+    it 'removes students from semester' do
+      student = students.first
+      delete :remove_students, {field_of_study_id: field_of_study.id, id: semester.id, student_ids: student.id }
+      expect(student).not_to be_in semester.students
+    end
+
+    it "has a 302 status code" do
+      delete :remove_students, {field_of_study_id: field_of_study.id, id: semester.id, student_ids: students.first.id }
+      expect(response.status).to eq(302)
+    end
+
+    it "assigns the @semester" do
+      delete :remove_students, {field_of_study_id: field_of_study.id, id: semester.id, student_ids: students.first.id }
+      expect(assigns(:semester)).to eq semester
+    end
+
+    it "redirects to show action" do
+      delete :remove_students, {field_of_study_id: field_of_study.id, id: semester.id, student_ids: students.first.id }
+      expect(response).to redirect_to field_of_study_semester_path(field_of_study_id: field_of_study.id, id: semester.id)
+    end
+  end
+
 end

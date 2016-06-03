@@ -44,18 +44,24 @@
                 .col-md-4
                   %button#show_modal.btn.btn-success.pull-right{data: {modal: 'add_students', url: add_students_modal_path(semester_id: @semester.id) } }
                     = t('.add_students')
-            - if @semester.users.any?
+            - if @semester.students.any?
               %table.table
                 %thead
                   %tr
                     %th
                     %th
+                    - if policy(:semester).remove_students?
+                      %th
 
                 %tbody
-                  - @semester.users.each do |user|
+                  - @semester.students.each do |user|
                     %tr
                       %td= user.name
                       %td= link_to t(".details"), user_path(user)
+                      - if policy(:semester).remove_students?
+                        %td
+                          = link_to remove_students_field_of_study_semester_path(field_of_study_id: @field_of_study.id, id: @semester.id, student_ids: user.id), method: :delete, :data => { :confirm => "Are you sure?" } do
+                            %span.glyphicon.glyphicon-remove{"data-toggle" =>"tooltip", "data-placement" => 'top', "title" => t(".info_message")}
 
 
 .row
