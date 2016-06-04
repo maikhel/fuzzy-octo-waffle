@@ -8,6 +8,14 @@ module CourseGroupHelper
     CourseGroup::GROUP_TYPES.map { |k| [I18n.t("course_groups.group_types.#{k}"), k]}
   end
 
+  def time_periods_select
+    time_periods.each_with_index.map { |val, key| [val, key]}
+  end
+
+  def time_periods
+    ['8.00 - 9.30', '9.45 - 11.15', '11.30 - 13.00', '13.15 - 14.45', '15.00 - 16.30', '16.45 - 18.15', '18.30 - 20.00']
+  end
+
   def registration_button(course_group)
     if current_user.enrolled?(course_group)
       link_to t('.deregistrate'), deregistrate_subject_course_group_path(subject_id: course_group.subject.id, id: course_group.id), method: 'POST', class: 'btn btn-info pull-right'

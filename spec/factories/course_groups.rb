@@ -2,16 +2,17 @@
 #
 # Table name: course_groups
 #
-#  id          :integer          not null, primary key
-#  start_time  :time
-#  end_time    :time
-#  weekday     :integer
-#  subject_id  :integer
-#  lecturer_id :integer
-#  max_limit   :integer
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-#  group_type  :string
+#  id              :integer          not null, primary key
+#  start_time      :time
+#  end_time        :time
+#  weekday         :integer
+#  subject_id      :integer
+#  lecturer_id     :integer
+#  max_limit       :integer
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  group_type      :string
+#  time_period_num :integer
 #
 
 FactoryGirl.define do
@@ -22,6 +23,7 @@ FactoryGirl.define do
     association :subject
     association :lecturer
     max_limit 100
+    time_period_num 2
 
 
     factory :course_group_with_students do

@@ -178,6 +178,7 @@ en:
     form:
       start_time: 'Start time'
       end_time: 'End time'
+      hours: 'Hours'
       weekday: 'Weekday'
       subject: 'Course'
       lecturer: 'Lecturer'

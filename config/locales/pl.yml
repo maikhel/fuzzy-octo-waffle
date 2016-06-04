@@ -178,6 +178,7 @@ pl:
     form:
       start_time: 'Początek'
       end_time: 'Koniec'
+      hours: 'Godziny'
       weekday: 'Dzień'
       subject: 'Przedmiot'
       lecturer: 'Prowadzący'
