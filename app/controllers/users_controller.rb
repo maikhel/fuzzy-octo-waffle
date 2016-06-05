@@ -71,7 +71,8 @@ before_action :set_user, only: [:show, :edit, :update, :update_password, :destro
     @user = current_user
     groups_ids = @user.course_groups.pluck(:id)
     @semesters = @user.semesters
-    # @calendar_events = CalendarEvent.where(course_group: groups_ids)
+    # params[:start_date] = Date.today + 2.days
+    @calendar_events = CalendarEvent.where(course_group: groups_ids)
   end
 
   def rejestracje

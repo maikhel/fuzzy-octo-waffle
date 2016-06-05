@@ -36,4 +36,12 @@ module CourseGroupHelper
     end
   end
 
+  def table_group_class(type)
+    if ['class', 'laboratory'].include?(type)
+      'success'
+    else
+      'info'
+    end
+  end
+
 end
