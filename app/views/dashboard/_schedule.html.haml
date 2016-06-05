@@ -11,7 +11,7 @@
           %td.col-md-1= hour
           - date_range.each do |date|
             - events = @calendar_events.fetch(date, [])
-            - event = events.find {|e| e.time_period_num == ifndex }
+            - event = events.find {|e| e.time_period_num == index }
             - if event
               %td.col-md-1{class: "#{table_group_class(event.course_group.group_type)}"}
                 %strong= event.course_group.subject.title
