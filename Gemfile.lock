@@ -150,6 +150,7 @@ GEM
       slop (~> 3.4)
     pry-rails (0.3.4)
       pry (>= 0.9.10)
+    puma (3.4.0)
     pundit (1.1.0)
       activesupport (>= 3.0.0)
     rack (1.6.4)
@@ -278,6 +279,7 @@ DEPENDENCIES
   letter_opener_web
   pg
   pry-rails
+  puma
   pundit
   rails (= 4.2.5)
   rails-i18n

@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.2.5'
 gem 'pg'
+gem 'puma'
 
 gem 'sass-rails', '~> 5.0'
 gem "twitter-bootstrap-rails"

@@ -1,5 +1,5 @@
 .table-responsive
-  %table.table.table-bordered
+  %table.table.table-bordered.table-condensed
     %thead
       %tr
         %th.active
@@ -10,7 +10,8 @@
         %tr
           %td.col-md-1= hour
           - date_range.each do |date|
-            - event = @calendar_events.where('start_date BETWEEN ? AND ? AND time_period_num = ?', date.beginning_of_day, date.end_of_day, index).first
+            - events = @calendar_events.fetch(date, [])
+            - event = events.find {|e| e.time_period_num == ifndex }
             - if event
               %td.col-md-1{class: "#{table_group_class(event.course_group.group_type)}"}
                 %strong= event.course_group.subject.title

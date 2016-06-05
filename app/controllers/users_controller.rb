@@ -71,8 +71,10 @@ before_action :set_user, only: [:show, :edit, :update, :update_password, :destro
     @user = current_user
     groups_ids = @user.course_groups.pluck(:id)
     @semesters = @user.semesters
-    # params[:start_date] = Date.today + 2.days
-    @calendar_events = CalendarEvent.where(course_group: groups_ids)
+    start_date = params[:start_date] || Date.today
+    starting = start_date.to_date.beginning_of_week
+    ending = starting.end_of_week
+    @calendar_events = CalendarEvent.where(course_group: groups_ids).where('start_date BETWEEN ? AND ?', starting.beginning_of_day, ending.end_of_day).group_by {|d| d.start_date.to_date}
   end
 
   def rejestracje

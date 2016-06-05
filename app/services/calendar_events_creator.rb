@@ -17,7 +17,8 @@ class CalendarEventsCreator < Struct.new(:course_group)
       CalendarEvent.create(
         course_group: course_group,
         start_date: day_start,
-        end_date: day_end
+        end_date: day_end,
+        time_period_num: course_group.time_period_num
       )
     end
   end
