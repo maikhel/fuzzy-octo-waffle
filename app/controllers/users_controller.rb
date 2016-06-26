@@ -22,6 +22,11 @@ before_action :set_user, only: [:show, :edit, :update, :update_password, :destro
   def edit
   end
 
+  def edit_account
+    @user = current_user
+    render 'edit'
+  end
+
   # POST /users
   # POST /users.json
   def create
