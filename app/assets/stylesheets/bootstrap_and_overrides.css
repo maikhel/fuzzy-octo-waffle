@@ -50,9 +50,9 @@ html, body {
   float: right;
 }
 .my-jumbotron{
-  padding-left: 40px;
-  padding-right: 40px;
-  background-color: #CCE1E8;
+  /*padding-left: 40px;
+  padding-right: 40px;*/
+  /*background-color: #CCE1E8;*/
 }
 .plain-jumbotron{
   background-color: none;
