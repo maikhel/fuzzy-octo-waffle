@@ -53,3 +53,5 @@ group :development do
   gem 'letter_opener_web'
 end
 
+ruby '2.2.3'
+
