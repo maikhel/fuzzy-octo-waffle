@@ -14,5 +14,6 @@
  *= require devise_bootstrap_views
  *= require theme
  *= require bootstrap_and_overrides
+ *= require fonts
  *= require custom_style
  */
