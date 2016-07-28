@@ -29,7 +29,7 @@ before_action :set_user, only: [:show, :edit, :update, :update_password, :destro
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.html { redirect_to user_path(@user), notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ before_action :set_user, only: [:show, :edit, :update, :update_password, :destro
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.html { redirect_to edit_user_path(@user), notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
@@ -57,7 +57,7 @@ before_action :set_user, only: [:show, :edit, :update, :update_password, :destro
       if @user.update(user_params)
         format.html do
           sign_in @user, :bypass => true
-          redirect_to @user, notice: 'User was successfully updated.'
+          redirect_to user_path(@user), notice: 'User was successfully updated.'
         end
         format.json { render :show, status: :ok, location: @user }
       else
