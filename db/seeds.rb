@@ -37,6 +37,8 @@ semester1.subjects << Subject.create(title: 'Matematyka dyskretna', short_descri
 semester1.subjects << Subject.create(title: 'Bazy danych', short_description: 'Bazy danych')
 semester1.subjects << Subject.create(title: 'Grafika komputerowa', short_description: 'Grafika komputerowa')
 
-
+30.times do
+  Student.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: Faker::Internet.password(8), index_num: Faker::Number.number(6))
+end
 
 puts 'Seeds created successfuly'

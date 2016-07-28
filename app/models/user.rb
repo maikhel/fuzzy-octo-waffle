@@ -83,7 +83,7 @@ class User < ActiveRecord::Base
   end
 
   def average_grade
-    grades.average(:value).round(2)
+    grades.average(:value).round(2) rescue nil
   end
 
   def enrolled?(course)
