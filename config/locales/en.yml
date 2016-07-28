@@ -54,6 +54,8 @@ en:
       show: Show
       edit: Edit
       add_new: Add new
+    new:
+      title: Add new user
     edit:
       title: Account settings
       change_password: Change password
@@ -61,6 +63,7 @@ en:
       first_name: First name
       last_name: Last name
       email: Email
+      role: Role
       save: Save
       street: Street
       postal_code: Postal code

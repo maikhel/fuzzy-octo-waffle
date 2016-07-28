@@ -54,6 +54,8 @@ pl:
       show: Szczegóły
       edit: Edytuj
       add_new: Nowy
+    new:
+      title: Dodaj użytkownika
     edit:
       title: Ustawienia konta
       change_password: Zmień hasło
@@ -61,6 +63,7 @@ pl:
       first_name: Imię
       last_name: Nazwisko
       email: Email
+      role: Rola
       save: Zapisz
       street: Ulica
       postal_code: Kod pocztowy

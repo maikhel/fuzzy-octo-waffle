@@ -5,6 +5,17 @@
       = f.input :first_name, label: t('.first_name')
     .col-md-6
       = f.input :last_name, label: t('.last_name')
+  - if current_user.admin?
+    .row
+      .col-md-6
+        = f.input :role, label: t('.role'), include_blank: false, collection: role_types_select
+      .col-md-6
+        = f.input :index_num, label: t('index_num')
+    .row
+      .col-md-6
+        = f.input :password
+      .col-md-6
+        = f.input :password_confirmation
   .row
     .col-md-12
       = f.input :email, label: t('.email')
