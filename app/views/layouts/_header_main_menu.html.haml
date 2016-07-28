@@ -2,6 +2,9 @@
   %li= link_to t(".dashboard"), root_path
   %li= link_to t(".field_of_studies"), field_of_studies_path
   %li= link_to t(".subjects"), subjects_path
-  %li= link_to t(".my_study"), my_study_user_path
+  - unless current_user.admin?
+    %li= link_to t(".my_study"), my_study_user_path
   %li= link_to t(".registrations"), registrations_path
+  - if current_user.admin?
+    %li= link_to t(".users"), users_path
   %li= link_to t(".settings"), edit_user_path(current_user)

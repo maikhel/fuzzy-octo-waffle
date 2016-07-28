@@ -10,6 +10,7 @@ pl:
       my_study: Moje studia
       field_of_studies: 'Kierunki'
       registrations: Rejestracje
+      users: Użytkownicy
       settings: Ustawienia
       admin: Administracja
     footer:
@@ -20,6 +21,13 @@ pl:
   dashboard:
     index:
       schedule: Plan zajęć
+      dashboard: 'Strona główna'
+      more: Więcej
+      field_of_studies: Kierunki studiów
+      semesters: Semestry
+      subjects: Przedmioty
+      registrations: Rejestracje
+      users: Użytkownicy
   users:
     roles:
       Student: 'Student'
@@ -140,6 +148,7 @@ pl:
       literature: 'Literatura'
       semester: 'Semestr'
       back: 'Cofnij'
+      course_groups: 'Grupy zajęciowe'
   course_groups:
     group_types:
       lecture: 'Wykład'

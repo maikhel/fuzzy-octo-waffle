@@ -1,39 +1,46 @@
 .row
-  .col-md-8
-    %h3.text-center= t(".schedule")
+  .col-md-12
+    %h3.page-header.text-center= t(".dashboard")
+
 .row
-  .col-md-8
-    = render "schedule"
-  .col-md-4
-    .jumbotron.my-jumbotron
-      %h3 Komunikaty
-      %ul
-        %li Otwarto rejestracje
-        %li Biuro Karier ogłasza nabór na warsztaty
-        %li Lorem ipsum ...
+  .col-md-4.col-sm-12
+    .panel.panel-primary
+      .panel-heading
+        %h6.white.mg-0= t(".field_of_studies")
+      .panel-body
+        - FieldOfStudy.last(3).each do |field|
+          %p= field.title
+        %p=link_to t(".more"), field_of_studies_path, class: 'btn btn-info'
+  .col-md-4.col-sm-12
+    .panel.panel-primary
+      .panel-heading
+        %h6.white.mg-0= t(".semesters")
+      .panel-body
+        - Semester.last(3).each do |semester|
+          %p= semester
+        %p=link_to t(".more"), field_of_studies_path, class: 'btn btn-info'
+  .col-md-4.col-sm-12
+    .panel.panel-primary
+      .panel-heading
+        %h6.white.mg-0= t(".subjects")
+      .panel-body
+        - Subject.last(3).each do |subject|
+          %p= subject.title
+        %p=link_to t(".more"), subjects_path, class: 'btn btn-info'
 .row
-  .col-md-4
-    .jumbotron.my-jumbotron
-      %h3 Rejestracje
-      %p Lorem ipsum ...
-  .col-md-4
-    .jumbotron.my-jumbotron
-      %h3 Przedmioty
-      %p Lorem ipsum ...
-  .col-md-4
-    .jumbotron.my-jumbotron
-      %h3 Srednia ocen
-      %p Lorem ipsum ...
-.row
-  .col-md-4
-    .jumbotron.my-jumbotron
-      %h3 Rejestracje
-      %p Lorem ipsum ...
-  .col-md-4
-    .jumbotron.my-jumbotron
-      %h3 Przedmioty
-      %p Lorem ipsum ...
-  .col-md-4
-    .jumbotron.my-jumbotron
-      %h3 Srednia ocen
-      %p Lorem ipsum ...
+  .col-md-6.col-sm-6
+    .panel.panel-default
+      .panel-heading
+        %h6.mg-0= t(".users")
+      .panel-body
+        - Student.last(3).each do |student|
+          %p= student.name
+        %p=link_to t(".more"), users_path, class: 'btn btn-default'
+  .col-md-6.col-sm-6
+    .panel.panel-default
+      .panel-heading
+        %h6.mg-0= t(".registrations")
+      .panel-body
+        - Registration.last(3).each do |registration|
+          %p= registration.title
+        %p=link_to t(".more"), registrations_path, class: 'btn btn-default'

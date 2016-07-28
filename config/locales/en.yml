@@ -10,6 +10,7 @@ en:
       field_of_studies: 'Field of studies'
       my_study: My study
       registrations: Registrations
+      users: Users
       settings: Settings
       admin: Administation
     footer:
@@ -20,6 +21,13 @@ en:
   dashboard:
     index:
       schedule: Schedule
+      dashboard: 'Dashboard'
+      more: More
+      field_of_studies: Field of studies
+      semesters: Semesters
+      subjects: Courses
+      registrations: Registrations
+      users: Users
   users:
     roles:
       Student: 'Student'
@@ -140,6 +148,7 @@ en:
       literature: 'Literature'
       semester: 'Semester'
       back: 'Back'
+      course_groups: 'Course groups'
   course_groups:
     group_types:
       lecture: 'Lecture'

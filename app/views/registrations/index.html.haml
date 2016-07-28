@@ -1,4 +1,4 @@
-%h3= t('.registrations')
+%h3.page-header= t('.registrations')
 
 - @semesters.order(:field_of_study_id).each do |semester|
   %h4

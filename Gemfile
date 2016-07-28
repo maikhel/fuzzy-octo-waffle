@@ -27,7 +27,7 @@ gem 'pundit'
 # Use Unicorn as the app server
 # gem 'unicorn'
 gem "simple_calendar", "~> 2.0"
-
+gem 'faker'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -39,7 +39,6 @@ group :development, :test do
   gem 'byebug'
   gem 'dotenv-rails'
   gem 'rspec-rails'
-  gem 'faker'
   gem 'factory_girl_rails'
   gem 'database_cleaner'
   gem 'annotate'

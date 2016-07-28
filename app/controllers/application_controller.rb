@@ -27,15 +27,9 @@ class ApplicationController < ActionController::Base
     end
 
 
-    # def after_sign_in_path_for(resource)
-    #   if resource && resource.admin?
-    #     rails_admin.dashboard_path
-    #   elsif resource && resource.is_not_activated_customer?
-    #     backend.locked_path
-    #   else
-    #     backend.companies_path
-    #   end
-    # end
+    def after_sign_in_path_for(resource)
+      root_path
+    end
 
     def layout_by_resource
       devise_controller? ? "devise" : "application"
