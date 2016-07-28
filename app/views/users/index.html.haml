@@ -26,6 +26,7 @@
             %td
               = link_to user_path(id: user.id), method: :delete, :data => { :confirm => "Are you sure?" } do
                 %span.glyphicon.glyphicon-trash{'aria-hidden'=>"true"}
+  = will_paginate @users
 - else
   %p= t(".no_records")
 

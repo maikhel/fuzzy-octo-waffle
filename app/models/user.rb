@@ -34,6 +34,8 @@ class User < ActiveRecord::Base
   self.inheritance_column = :role
   ROLES = %w{Admin Student Lecturer}
 
+  self.per_page = 25
+
   devise :database_authenticatable,
          :recoverable, :rememberable, :trackable, :validatable
 

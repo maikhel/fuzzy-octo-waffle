@@ -28,6 +28,8 @@ gem 'pundit'
 # gem 'unicorn'
 gem "simple_calendar", "~> 2.0"
 gem 'faker'
+
+gem 'will_paginate'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
