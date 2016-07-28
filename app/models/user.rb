@@ -70,6 +70,10 @@ class User < ActiveRecord::Base
     Subject.where(id: course_groups.pluck(:subject_id))
   end
 
+  def field_of_studies
+    semesters.includes(:field_of_study).pluck("field_of_studies.title").uniq.to_sentence
+  end
+
   def name
     "#{first_name} #{last_name}".strip
   end

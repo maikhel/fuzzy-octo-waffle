@@ -41,6 +41,15 @@ en:
       details: 'More'
       subjects: 'Courses'
       average_grade: 'Average grade'
+    index:
+      users: Users
+      name: Name
+      email: Email
+      field_of_study: Field of study
+      role: Role
+      show: Show
+      edit: Edit
+      add_new: Add new
     edit:
       title: Account settings
       change_password: Change password

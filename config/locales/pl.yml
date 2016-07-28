@@ -41,6 +41,15 @@ pl:
       details: 'Szczegóły'
       subjects: 'Przedmioty'
       average_grade: 'Średnia ocen'
+    index:
+      users: Użytkownicy
+      name: Imię
+      email: Email
+      field_of_study: Kierunek studiów
+      role: Rola
+      show: Szczegóły
+      edit: Edytuj
+      add_new: Nowy
     edit:
       title: Ustawienia konta
       change_password: Zmień hasło
