@@ -145,3 +145,19 @@
 .show-semester-table-header{
   height: 25px;
 }
+.bg-info{
+  background-color: rgb(225, 190, 231);
+}
+.bg-success{
+  background-color: rgb(223, 240, 216);
+}
+.bg-warning{
+  background-color: rgb(255, 224, 178);
+}
+.bg-danger{
+  background-color: rgb(249, 189, 187);
+}
+.bg-default{
+  background-color: #cceaff;
+}
+

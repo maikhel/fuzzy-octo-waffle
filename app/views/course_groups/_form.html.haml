@@ -3,11 +3,9 @@
 
   .form-inputs
     .row
-      .col-md-2
-        = f.input :start_time, label: t('.start_time')
-      .col-md-2
-        = f.input :end_time, label: t('.end_time')
-      .col-md-2
+      .col-md-3
+        = f.input :time_period_num, label: t('.hours'), include_blank: false, collection: time_periods_select
+      .col-md-3
         = f.input :weekday, label: t('.weekday'), include_blank: false, collection: weekdays_select
       .col-md-6
         = f.input :max_limit, label: t('.max_limit')

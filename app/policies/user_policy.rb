@@ -12,8 +12,12 @@ class UserPolicy < ApplicationPolicy
     administrable?
   end
 
-  def update?
+  def index?
     administrable?
+  end
+
+  def update?
+    administrable? || record.id == current_user.id rescue false
   end
 
   def destroy?

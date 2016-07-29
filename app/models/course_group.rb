@@ -2,16 +2,17 @@
 #
 # Table name: course_groups
 #
-#  id          :integer          not null, primary key
-#  start_time  :time
-#  end_time    :time
-#  weekday     :integer
-#  subject_id  :integer
-#  lecturer_id :integer
-#  max_limit   :integer
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-#  group_type  :string
+#  id              :integer          not null, primary key
+#  start_time      :time
+#  end_time        :time
+#  weekday         :integer
+#  subject_id      :integer
+#  lecturer_id     :integer
+#  max_limit       :integer
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  group_type      :string
+#  time_period_num :integer
 #
 
 class CourseGroup < ActiveRecord::Base
@@ -29,7 +30,7 @@ class CourseGroup < ActiveRecord::Base
   validates :subject, presence: true
   validates :lecturer, presence: true
 
-  validates :start_time, :end_time, :weekday, presence: true
+  validates :time_period_num, :weekday, presence: true
 
   scope :from_semester, ->(semester_id) {
     includes(:subject).where('subjects.semester_id = ?', semester_id).references(:subject)

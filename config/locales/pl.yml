@@ -196,6 +196,7 @@ pl:
       registrated: 'Studenci zapisani na zajęcia'
       registrate: 'Zarejestruj się'
       deregistrate: 'Wyrejestruj się'
+      back: 'Cofnij'
     new:
       add_new_course_group: 'Dodaj nową grupę zajęciową'
     edit:
@@ -203,6 +204,7 @@ pl:
     form:
       start_time: 'Początek'
       end_time: 'Koniec'
+      hours: 'Godziny'
       weekday: 'Dzień'
       subject: 'Przedmiot'
       lecturer: 'Prowadzący'

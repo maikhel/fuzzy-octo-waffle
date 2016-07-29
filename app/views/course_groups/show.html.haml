@@ -8,7 +8,7 @@
         .col-md-6
           %p
             %strong= t(".time") + ':'
-            %span= "#{@course_group.start_time.strftime('%H:%M')} - #{@course_group.end_time.strftime('%H:%M')}"
+            %span= time_periods[@course_group.time_period_num]
           %p
             %strong= t('.registrated') + ':'
             %span= "#{@course_group.enrolled_students.count} / #{@course_group.max_limit}"

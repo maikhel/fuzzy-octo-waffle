@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.2.5'
 gem 'pg'
+gem 'puma'
 
 gem 'sass-rails', '~> 5.0'
 gem "twitter-bootstrap-rails"
@@ -26,7 +27,6 @@ gem 'country_select'
 gem 'pundit'
 # Use Unicorn as the app server
 # gem 'unicorn'
-gem "simple_calendar", "~> 2.0"
 gem 'faker'
 
 gem 'will_paginate'
@@ -52,6 +52,7 @@ group :development do
   gem 'spring'
   gem 'letter_opener'
   gem 'letter_opener_web'
+  gem "rails-erd"
 end
 
 ruby '2.2.3'

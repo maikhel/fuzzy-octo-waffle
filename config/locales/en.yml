@@ -196,6 +196,7 @@ en:
       update_grades: 'Update grades'
       registrate: 'Registrate'
       deregistrate: 'Deregistrate'
+      back: "Back"
     new:
       add_new_course_group: 'Add new course group'
     edit:
@@ -203,6 +204,7 @@ en:
     form:
       start_time: 'Start time'
       end_time: 'End time'
+      hours: 'Hours'
       weekday: 'Weekday'
       subject: 'Course'
       lecturer: 'Lecturer'

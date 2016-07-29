@@ -1,0 +1,2 @@
+class LecturerPolicy < UserPolicy
+end

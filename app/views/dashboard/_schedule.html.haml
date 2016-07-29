@@ -1,5 +1,21 @@
-= week_calendar attribute: :start_date, events: @calendar_events, number_of_weeks: 1, number_of_days: 5 do |date, events|
-  = date
-  - events.each do |event|
-    = "#{event.start_date.strftime('%H:%M')} - #{event.end_date.strftime('%H:%M')}"
-    = event.course_group.subject.title
+.table-responsive
+  %table.table.table-bordered.table-condensed
+    %thead
+      %tr
+        %th.active
+        - date_range.slice(0, 7).each do |day|
+          %th.active= I18n.t("date.day_names")[day.wday]
+    %tbody
+      - time_periods.each_with_index do |hour, index|
+        %tr
+          %td.col-md-1= hour
+          - date_range.each do |date|
+            - events = @calendar_events.fetch(date, [])
+            - event = events.find {|e| e.time_period_num == index }
+            - if event
+              %td.col-md-1{class: "#{table_group_class(event.course_group.group_type)}"}
+                %strong= event.course_group.subject.title
+                = t("course_groups.group_types.#{event.course_group.group_type}")
+            - else
+              %td.col-md-1
+

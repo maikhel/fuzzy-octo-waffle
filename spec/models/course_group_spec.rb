@@ -2,16 +2,17 @@
 #
 # Table name: course_groups
 #
-#  id          :integer          not null, primary key
-#  start_time  :time
-#  end_time    :time
-#  weekday     :integer
-#  subject_id  :integer
-#  lecturer_id :integer
-#  max_limit   :integer
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-#  group_type  :string
+#  id              :integer          not null, primary key
+#  start_time      :time
+#  end_time        :time
+#  weekday         :integer
+#  subject_id      :integer
+#  lecturer_id     :integer
+#  max_limit       :integer
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  group_type      :string
+#  time_period_num :integer
 #
 
 require 'spec_helper'
@@ -35,11 +36,9 @@ RSpec.describe CourseGroup, type: :model do
   end
 
   describe 'validations' do
-    it 'is invalid without start_time/end_time' do
-      group1 = build(:course_group, start_time: nil)
-      group2 = build(:course_group, end_time: nil)
-      expect(group1).not_to be_valid
-      expect(group2).not_to be_valid
+    it 'is invalid without time_period_num' do
+      group = build(:course_group, time_period_num: nil)
+      expect(group).not_to be_valid
     end
 
     it 'is invalid without weekday' do

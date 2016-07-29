@@ -8,6 +8,7 @@
 #  course_group_id :integer
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  time_period_num :integer
 #
 
 require 'spec_helper'
@@ -28,6 +29,11 @@ RSpec.describe CalendarEvent, type: :model do
 
     it 'is invalid without start_date' do
       calendar_event = build(:calendar_event, start_date: nil)
+      expect(calendar_event).not_to be_valid
+    end
+
+    it 'is invalid without time_period_num' do
+      calendar_event = build(:calendar_event, time_period_num: nil)
       expect(calendar_event).not_to be_valid
     end
 

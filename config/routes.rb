@@ -35,6 +35,8 @@ Rails.application.routes.draw do
     patch 'update_password', on: :member
   end
 
+  get 'edit_account' => 'users#edit_account'
+
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end

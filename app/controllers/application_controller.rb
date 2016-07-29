@@ -26,7 +26,6 @@ class ApplicationController < ActionController::Base
       I18n.locale = session[:locale] || params[:locale] || I18n.default_locale
     end
 
-
     def after_sign_in_path_for(resource)
       root_path
     end
