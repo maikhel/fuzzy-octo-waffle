@@ -75,6 +75,7 @@ class CourseGroupsController < ApplicationController
 
     respond_to do |format|
       if @course_group.save
+        @course_group.adjust_dates
         CalendarEventsCreator.new(@course_group).run
         format.html { redirect_to subject_course_group_path(subject: @course_group.subject, id: @course_group.id) }
         format.json { render :show, status: :created, location: @course_group }
@@ -92,6 +93,7 @@ class CourseGroupsController < ApplicationController
 
     respond_to do |format|
       if @course_group.update(course_group_params)
+        @course_group.adjust_dates
         CalendarEventsCreator.new(@course_group).run
         format.html { redirect_to subject_course_groups_path(@subject.id) }
         # format.json { render :show, status: :ok, location: @course_group }
