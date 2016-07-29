@@ -5,7 +5,7 @@
       = f.input :first_name, label: t('.first_name')
     .col-md-6
       = f.input :last_name, label: t('.last_name')
-  - if current_user.admin?
+  - if current_user.admin? && !@user.persisted?
     .row
       .col-md-6
         = f.input :role, label: t('.role'), include_blank: false, collection: role_types_select
