@@ -61,7 +61,7 @@ class CourseGroupsController < ApplicationController
       grade = Grade.find_or_initialize_by(course_group_id: @course_group.id, user_id: grade_hash["user_id"])
       if grade.value.to_s != grade_hash["value"]
         grade.update(value: grade_hash["value"])
-        GradeChangedMailer.notify(grade.id).deliver_later
+        # GradeChangedMailer.notify(grade.id).deliver_later
       end
     end
     redirect_to subject_course_group_path(subject_id: @course_group.subject.id, id: @course_group.id)
