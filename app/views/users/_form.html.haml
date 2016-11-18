@@ -31,7 +31,10 @@
       = f.input :country, label: t('.country'), include_blank: true, priority_countries: ["PL", "GB", "DE"]
   .row
     .col-md-12
-      = f.input :bank_account, label: t('.bank_account')
+      .form-group
+        = f.label t('.bank_account')
+        = f.input_field :bank_account, class: "form-control js-copy-text"
+        %btn.btn.btn-sm.btn-default.btn-in-input.js-copy-btn= 'Copy'
   .row
     .col-md-12
       .pull-right

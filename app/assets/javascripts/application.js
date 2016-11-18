@@ -16,5 +16,6 @@
 //= require twitter/bootstrap
 //= require bootstrap
 //= require modals
+//= require users
 //= require turbolinks
 //= require_tree .
