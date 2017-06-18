@@ -1,28 +1,28 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.2.5'
 gem 'pg'
 gem 'puma'
+gem 'rails', '4.2.5'
 
-gem 'sass-rails', '~> 5.0'
-gem "twitter-bootstrap-rails"
-gem 'haml-rails'
-gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
+gem 'haml-rails'
+gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
 gem 'jquery-turbolinks'
-gem 'turbolinks'
-gem 'jbuilder', '~> 2.0'
+gem 'sass-rails', '~> 5.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'turbolinks'
+gem 'twitter-bootstrap-rails'
+gem 'uglifier', '>= 1.3.0'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
 gem 'devise-bootstrap-views'
 
+gem 'country_select'
 gem 'rails-i18n'
 gem 'simple_form'
-gem 'country_select'
 
 gem 'pundit'
 # Use Unicorn as the app server
@@ -38,22 +38,21 @@ group :production do
 end
 
 group :development, :test do
-  gem 'byebug'
-  gem 'dotenv-rails'
-  gem 'rspec-rails'
-  gem 'factory_girl_rails'
-  gem 'database_cleaner'
   gem 'annotate'
+  gem 'byebug'
+  gem 'database_cleaner'
+  gem 'dotenv-rails'
+  gem 'factory_girl_rails'
   gem 'pry-rails'
+  gem 'rspec-rails'
 end
 
 group :development do
-  gem 'web-console', '~> 2.0'
-  gem 'spring'
   gem 'letter_opener'
   gem 'letter_opener_web'
-  gem "rails-erd"
+  gem 'rails-erd'
+  gem 'spring'
+  gem 'web-console', '~> 2.0'
 end
 
 ruby '2.2.3'
-

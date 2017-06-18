@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe SemesterJoiner do
-
   describe 'initialize' do
     it 'assigns semester' do
       semester = create(:semester)
@@ -32,7 +31,9 @@ describe SemesterJoiner do
       student = create(:student)
       student.semesters << semester
       joiner.join(student)
-      expect(SemestersUser.where(user_id: student.id, semester_id: semester.id).count).to eq 1
+      expect(
+        SemestersUser.where(user_id: student.id, semester_id: semester.id).count
+      ).to eq 1
     end
   end
 
@@ -42,14 +43,14 @@ describe SemesterJoiner do
     it 'deletes semester from user.semesters' do
       student = create(:student)
       semester.users << student
-      joiner = SemesterJoiner.new(semester).leave(student)
+      SemesterJoiner.new(semester).leave(student)
       expect(semester).not_to be_in student.semesters
     end
 
     it 'deletes semester for many users' do
       students = create_list(:student, 3)
       semester.users << students
-      joiner = SemesterJoiner.new(semester).leave(students)
+      SemesterJoiner.new(semester).leave(students)
       expect(semester.users.count).to eq 0
     end
 
@@ -57,17 +58,15 @@ describe SemesterJoiner do
       student = create(:student)
       semester.users << student
       joiner = SemesterJoiner.new(semester)
-      expect {
+      expect do
         joiner.leave(student)
-      }.not_to change(Semester, :count)
+      end.not_to change(Semester, :count)
     end
 
     it 'does not delete semester if user doesnt have it' do
       student = create(:student)
-      joiner = SemesterJoiner.new(semester).leave(student)
+      SemesterJoiner.new(semester).leave(student)
       expect(semester).not_to be_in student.semesters
     end
-
   end
-
 end

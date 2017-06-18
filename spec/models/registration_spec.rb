@@ -13,7 +13,6 @@
 require 'spec_helper'
 
 RSpec.describe Registration, type: :model do
-
   it 'creates valid Registration' do
     registration = build(:registration)
     expect(registration).to be_valid

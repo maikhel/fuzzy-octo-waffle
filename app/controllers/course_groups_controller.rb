@@ -1,5 +1,5 @@
 class CourseGroupsController < ApplicationController
-  before_action :set_course_group_and_subject, only: [:show, :edit, :update, :destroy, :registrate, :deregistrate, :update_grades]
+  before_action :set_course_group_and_subject, only: %i[show edit update destroy registrate deregistrate update_grades]
 
   # GET /course_groups
   def index
@@ -11,7 +11,6 @@ class CourseGroupsController < ApplicationController
   def overview
     @course_groups = CourseGroup.all
   end
-
 
   # GET /course_groups/1
   def show
@@ -58,9 +57,9 @@ class CourseGroupsController < ApplicationController
     authorize @course_group
 
     params[:grades].each do |grade_hash|
-      grade = Grade.find_or_initialize_by(course_group_id: @course_group.id, user_id: grade_hash["user_id"])
-      if grade.value.to_s != grade_hash["value"]
-        grade.update(value: grade_hash["value"])
+      grade = Grade.find_or_initialize_by(course_group_id: @course_group.id, user_id: grade_hash['user_id'])
+      if grade.value.to_s != grade_hash['value']
+        grade.update(value: grade_hash['value'])
         # GradeChangedMailer.notify(grade.id).deliver_later
       end
     end
@@ -117,14 +116,25 @@ class CourseGroupsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_course_group_and_subject
-      @course_group = CourseGroup.find(params[:id])
-      @subject      = Subject.find(params[:subject_id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def course_group_params
-      params.require(:course_group).permit(:start_time, :end_time, :weekday, :subject_id, :lecturer_id, :max_limit, :group_type, :time_period_num)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_course_group_and_subject
+    @course_group = CourseGroup.find(params[:id])
+    @subject      = Subject.find(params[:subject_id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def course_group_params
+    params.require(:course_group)
+          .permit(
+            :start_time,
+            :end_time,
+            :weekday,
+            :subject_id,
+            :lecturer_id,
+            :max_limit,
+            :group_type,
+            :time_period_num
+          )
+  end
 end

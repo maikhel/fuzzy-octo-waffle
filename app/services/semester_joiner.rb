@@ -1,4 +1,9 @@
-class SemesterJoiner < Struct.new(:semester)
+class SemesterJoiner
+  attr_accessor :semester
+
+  def initialize(semester)
+    @semester = semester
+  end
 
   def join(users)
     [*users].each do |user|
@@ -11,6 +16,4 @@ class SemesterJoiner < Struct.new(:semester)
       user.semesters.delete(semester) if user.semesters.include?(semester)
     end
   end
-
-
 end

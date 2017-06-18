@@ -1,11 +1,14 @@
-class CourseGroupJoiner < Struct.new(:course_group)
+class CourseGroupJoiner
+  attr_accessor :course_group
+
+  def initialize(course_group)
+    @course_group = course_group
+  end
 
   def enroll(users)
-    begin
-      course_group.users << users if free_place? [*users].size
-    rescue ActiveRecord::RecordNotUnique
-      nil
-    end
+    course_group.users << users if free_place? [*users].size
+  rescue ActiveRecord::RecordNotUnique
+    nil
   end
 
   def leave(users)
@@ -19,5 +22,4 @@ class CourseGroupJoiner < Struct.new(:course_group)
   def free_place?(num)
     course_group.max_limit - course_group.users.count >= num
   end
-
 end

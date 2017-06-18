@@ -1,6 +1,5 @@
 class SemestersController < ApplicationController
-  before_action :set_field_of_study_and_semester, only: [:show, :edit, :update, :destroy, :add_students, :remove_students]
-
+  before_action :set_field_of_study_and_semester, only: %i[show edit update destroy add_students remove_students]
 
   def index
     @field_of_study = FieldOfStudy.find params[:field_of_study_id]
@@ -78,14 +77,15 @@ class SemestersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_field_of_study_and_semester
-      @field_of_study = FieldOfStudy.find params[:field_of_study_id]
-      @semester = Semester.find params[:id]
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def semester_params
-      params.require(:semester).permit(:start_date, :end_date, :period_type, :field_of_study_id, :student_ids)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_field_of_study_and_semester
+    @field_of_study = FieldOfStudy.find params[:field_of_study_id]
+    @semester = Semester.find params[:id]
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def semester_params
+    params.require(:semester).permit(:start_date, :end_date, :period_type, :field_of_study_id, :student_ids)
+  end
 end

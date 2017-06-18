@@ -30,7 +30,6 @@
 require 'spec_helper'
 
 describe Admin do
-
   it 'creates admin class' do
     admin = create(:admin)
     expect(admin).to be_a Admin
@@ -42,5 +41,4 @@ describe Admin do
       expect(user.admin?).to eq true
     end
   end
-
 end

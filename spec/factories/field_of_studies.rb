@@ -14,7 +14,7 @@
 
 FactoryGirl.define do
   factory :field_of_study do
-    title "Informatyka"
+    title 'Informatyka'
     mode FieldOfStudy::MODE_TYPES.first
     degree FieldOfStudy::DEGREE_TYPES.first
     association :dean

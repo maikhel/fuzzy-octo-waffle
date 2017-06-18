@@ -15,7 +15,6 @@
 require 'spec_helper'
 
 RSpec.describe FieldOfStudy, type: :model do
-
   it 'creates valid FieldOfStudy' do
     field = build(:field_of_study)
     expect(field).to be_valid

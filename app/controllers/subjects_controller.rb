@@ -1,6 +1,5 @@
 class SubjectsController < ApplicationController
-
-  before_action :set_subject, only: [:show, :edit, :update, :destroy]
+  before_action :set_subject, only: %i[show edit update destroy]
 
   def index
     authorize Semester
@@ -27,8 +26,7 @@ class SubjectsController < ApplicationController
     end
   end
 
-  def show
-  end
+  def show; end
 
   def edit
     authorize @subject
@@ -45,7 +43,6 @@ class SubjectsController < ApplicationController
         format.json { render json: @subject.errors, status: :unprocessable_entity }
       end
     end
-
   end
 
   def destroy
@@ -58,15 +55,24 @@ class SubjectsController < ApplicationController
     end
   end
 
+  private
 
-private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_subject
-      @subject = Subject.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_subject
+    @subject = Subject.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def subject_params
-      params.require(:subject).permit(:title, :description, :short_description, :literature, :requirements, :learning_outcomes, :semester_id)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def subject_params
+    params.require(:subject)
+          .permit(
+            :title,
+            :description,
+            :short_description,
+            :literature,
+            :requirements,
+            :learning_outcomes,
+            :semester_id
+          )
+  end
 end

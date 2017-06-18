@@ -16,7 +16,6 @@
 #
 
 FactoryGirl.define do
-
   factory :subject do
     title { Faker::Lorem.word }
     short_description { Faker::Lorem.sentence }
@@ -36,5 +35,4 @@ FactoryGirl.define do
       create_list(:course_group, evaluator.groups_count, subject: subject)
     end
   end
-
 end

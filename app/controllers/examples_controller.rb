@@ -1,5 +1,5 @@
 class ExamplesController < ApplicationController
-  before_action :set_example, only: [:show, :edit, :update, :destroy]
+  before_action :set_example, only: %i[show edit update destroy]
 
   # GET /examples
   # GET /examples.json
@@ -9,8 +9,7 @@ class ExamplesController < ApplicationController
 
   # GET /examples/1
   # GET /examples/1.json
-  def show
-  end
+  def show; end
 
   # GET /examples/new
   def new
@@ -18,8 +17,7 @@ class ExamplesController < ApplicationController
   end
 
   # GET /examples/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /examples
   # POST /examples.json
@@ -62,13 +60,14 @@ class ExamplesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_example
-      @example = Example.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def example_params
-      params.require(:example).permit(:title, :description)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_example
+    @example = Example.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def example_params
+    params.require(:example).permit(:title, :description)
+  end
 end

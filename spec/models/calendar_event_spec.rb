@@ -14,14 +14,12 @@
 require 'spec_helper'
 
 RSpec.describe CalendarEvent, type: :model do
-
   it 'creates valid CalendarEvent' do
     calendar_event = build(:calendar_event)
     expect(calendar_event).to be_valid
   end
 
   describe 'validations' do
-
     it 'is invalid without course group' do
       calendar_event = build(:calendar_event, course_group_id: nil)
       expect(calendar_event).not_to be_valid
@@ -42,5 +40,4 @@ RSpec.describe CalendarEvent, type: :model do
       expect(calendar_event).not_to be_valid
     end
   end
-
 end

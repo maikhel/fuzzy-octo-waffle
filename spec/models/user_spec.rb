@@ -30,7 +30,6 @@
 require 'spec_helper'
 
 describe User do
-
   it 'creates valid user' do
     user = create(:user)
     expect(user).to be_valid
@@ -76,30 +75,29 @@ describe User do
 
   describe '.name' do
     it 'shows first name + last name' do
-      user = create(:user, first_name: "Carl", last_name: "Kovalsky")
-      expect(user.name).to eq "Carl Kovalsky"
+      user = create(:user, first_name: 'Carl', last_name: 'Kovalsky')
+      expect(user.name).to eq 'Carl Kovalsky'
     end
   end
 
   describe '.address' do
     it 'returns string with merget street, zip, city' do
       user = create(:user,
-        street: "Konwaliowa 3",
-        postal_code: '33-222',
-        city: 'Warszawa',
-        country: 'PL'
-      )
-      expect(user.address).to eq "Konwaliowa 3, 33-222, Warszawa"
+                    street: 'Konwaliowa 3',
+                    postal_code: '33-222',
+                    city: 'Warszawa',
+                    country: 'PL')
+      expect(user.address).to eq 'Konwaliowa 3, 33-222, Warszawa'
     end
   end
 
   describe '.average_grade' do
-
     it 'returns average from user grades' do
       student = create(:student)
+      grade_avg = (3 * 4.0 + 2.0) / 4
       create_list(:grade, 3, user_id: student.id, value: 4.0)
       create(:grade, user_id: student.id, value: 2.0)
-      expect(student.average_grade).to eq ((3*4.0 + 2.0)/4)
+      expect(student.average_grade).to eq grade_avg
     end
   end
 
@@ -133,5 +131,4 @@ describe User do
       expect(student.enrolled?(course_group)).to eq false
     end
   end
-
 end

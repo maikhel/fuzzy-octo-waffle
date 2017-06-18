@@ -25,10 +25,8 @@ FactoryGirl.define do
     max_limit 100
     time_period_num 2
 
-
     factory :course_group_with_students do
-
-      after(:create) do |course_group, evaluator|
+      after(:create) do |course_group, _evaluator|
         students = create_list(:student, 5)
         course_group.users << students
       end

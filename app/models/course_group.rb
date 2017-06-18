@@ -16,8 +16,7 @@
 #
 
 class CourseGroup < ActiveRecord::Base
-
-  GROUP_TYPES = ['lecture', 'class', 'conversatorium', 'laboratory']
+  GROUP_TYPES = %w[lecture class conversatorium laboratory].freeze
 
   belongs_to :subject
   belongs_to :lecturer
@@ -31,17 +30,26 @@ class CourseGroup < ActiveRecord::Base
   validates :lecturer, presence: true
 
   validates :time_period_num, :weekday, presence: true
-
+  # rubocop:disable Style/Lambda
   scope :from_semester, ->(semester_id) {
     includes(:subject).where('subjects.semester_id = ?', semester_id).references(:subject)
   }
+  # rubocop:enable Style/Lambda
 
   def enrolled_students
     users.where(role: 'Student')
   end
 
   def adjust_dates
-    hours = [[8.00, 9.30], [9.45, 11.15], [11.30, 13.00], [13.15, 14.45], [15.00, 16.30], [16.45, 18.15], [18.30, 20.00]]
+    hours = [
+      [8.00, 9.30],
+      [9.45, 11.15],
+      [11.30, 13.00],
+      [13.15, 14.45],
+      [15.00, 16.30],
+      [16.45, 18.15],
+      [18.30, 20.00]
+    ]
     chosen = hours[time_period_num]
     self.start_time = Time.now.change(hour: chosen[0])
     self.end_time = Time.now.change(hour: chosen[1])

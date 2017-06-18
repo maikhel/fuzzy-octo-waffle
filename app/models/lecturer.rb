@@ -28,7 +28,6 @@
 #
 
 class Lecturer < User
-
   def lecturer?
     true
   end

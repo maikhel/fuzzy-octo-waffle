@@ -2,7 +2,6 @@
 require 'spec_helper'
 
 describe CalendarEventsCreator do
-
   describe '.initialize' do
     it 'assigns @course_group' do
       course_group = create(:course_group)
@@ -16,7 +15,7 @@ describe CalendarEventsCreator do
     let(:creator) { CalendarEventsCreator.new(course_group) }
 
     it 'creates CalendarEvents' do
-      expect{ creator.run }.to change(CalendarEvent, :count)
+      expect { creator.run }.to change(CalendarEvent, :count)
     end
 
     it 'creates CalendarEvents for each week in semester' do
@@ -24,7 +23,7 @@ describe CalendarEventsCreator do
       start_date = course_group.subject.semester.start_date.to_datetime
       end_date = course_group.subject.semester.end_date.to_datetime
       day = course_group.weekday
-      result = (start_date..end_date).to_a.select {|k| k.wday == day }
+      result = (start_date..end_date).to_a.select { |k| k.wday == day }
       expect(CalendarEvent.count).to eq result.size
     end
 
@@ -40,12 +39,9 @@ describe CalendarEventsCreator do
       creator.run
       course_group.update(start_time: '2000-01-01 20:00:00 UTC')
       course_group.reload
-      expect {
+      expect do
         CalendarEventsCreator.new(course_group).run
-      }.not_to change(CalendarEvent, :count)
+      end.not_to change(CalendarEvent, :count)
     end
-
-
   end
-
 end

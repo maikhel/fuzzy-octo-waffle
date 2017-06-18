@@ -18,7 +18,6 @@
 require 'spec_helper'
 
 RSpec.describe CourseGroup, type: :model do
-
   it 'creates valid CourseGroup' do
     group = create(:course_group)
     expect(group).to be_valid
@@ -31,7 +30,7 @@ RSpec.describe CourseGroup, type: :model do
 
   describe 'CourseGroup::GROUP_TYPES' do
     it 'consists of lecture, class, conversatorium, laboratory' do
-      expect(CourseGroup::GROUP_TYPES).to eq ['lecture', 'class', 'conversatorium', 'laboratory']
+      expect(CourseGroup::GROUP_TYPES).to eq %w[lecture class conversatorium laboratory]
     end
   end
 
@@ -59,5 +58,4 @@ RSpec.describe CourseGroup, type: :model do
       expect(CourseGroup.from_semester(semester.id).count).to eq 1
     end
   end
-
 end

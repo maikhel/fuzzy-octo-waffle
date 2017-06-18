@@ -1,5 +1,4 @@
 class SubjectPolicy < ApplicationPolicy
-
   # class Scope < Scope
   #   def resolve
   #     if user.admin?
@@ -29,5 +28,4 @@ class SubjectPolicy < ApplicationPolicy
   def destroy?
     administrable?
   end
-
 end

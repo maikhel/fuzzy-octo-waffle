@@ -11,12 +11,10 @@
 #
 
 class Registration < ActiveRecord::Base
-
   belongs_to :semester
 
   validates :start_date, :end_date, presence: true
   validates :semester, presence: true
-
 
   def title
     semester.to_s + " -- #{I18n.l(start_date, format: :short)}- #{I18n.l(end_date, format: :short)}"

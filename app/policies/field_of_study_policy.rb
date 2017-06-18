@@ -1,5 +1,4 @@
 class FieldOfStudyPolicy < ApplicationPolicy
-
   def new?
     administrable?
   end
@@ -19,5 +18,4 @@ class FieldOfStudyPolicy < ApplicationPolicy
   def destroy?
     administrable?
   end
-
 end

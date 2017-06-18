@@ -12,12 +12,10 @@
 #
 
 class CalendarEvent < ActiveRecord::Base
-
   belongs_to :course_group
 
   validates :course_group, presence: true
   validates :start_date, presence: true
   validates :end_date, presence: true
   validates :time_period_num, presence: true
-
 end

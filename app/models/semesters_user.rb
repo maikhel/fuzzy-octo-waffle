@@ -9,6 +9,4 @@
 #
 
 class SemestersUser < ActiveRecord::Base
-
-
 end

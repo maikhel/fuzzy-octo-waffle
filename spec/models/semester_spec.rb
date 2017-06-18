@@ -14,7 +14,6 @@
 require 'spec_helper'
 
 RSpec.describe Semester, type: :model do
-
   it 'creates valid Semester' do
     semester = build(:semester)
     expect(semester).to be_valid
@@ -45,9 +44,8 @@ RSpec.describe Semester, type: :model do
   describe '.to_s' do
     it 'returns string with dates and field of study title' do
       semester = create(:semester,
-        start_date: Date.parse('01-10-2016'),
-        end_date: Date.parse('15-03-2017')
-      )
+                        start_date: Date.parse('01-10-2016'),
+                        end_date: Date.parse('15-03-2017'))
       expect(semester.to_s).to eq "#{semester.field_of_study.title} 2016/2017"
     end
   end

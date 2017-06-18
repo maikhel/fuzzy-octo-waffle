@@ -1,12 +1,11 @@
 class UsersController < ApplicationController
-
-before_action :set_user, only: [:show, :edit, :update, :update_password, :destroy]
+  before_action :set_user, only: %i[show edit update update_password destroy]
 
   # GET /users
   # GET /users.json
   def index
     authorize User
-    @users = User.paginate(:page => params[:page])
+    @users = User.paginate(page: params[:page])
   end
 
   # GET /users/1
@@ -67,11 +66,11 @@ before_action :set_user, only: [:show, :edit, :update, :update_password, :destro
     end
   end
 
-   def update_password
+  def update_password
     respond_to do |format|
       if @user.update(user_params)
         format.html do
-          sign_in @user, :bypass => true
+          sign_in @user, bypass: true
           redirect_to user_path(@user), notice: 'User was successfully updated.'
         end
         format.json { render :show, status: :ok, location: @user }
@@ -83,15 +82,16 @@ before_action :set_user, only: [:show, :edit, :update, :update_password, :destro
   end
 
   def my_study
-    @user = current_user
+    @user      = current_user
     groups_ids = @user.course_groups.pluck(:id)
     @semesters = @user.semesters
     start_date = params[:start_date] || Date.today
-    starting = start_date.to_date.beginning_of_week
-    ending = starting.end_of_week
-    @calendar_events = CalendarEvent.where(course_group: groups_ids).where('start_date BETWEEN ? AND ?', starting.beginning_of_day, ending.end_of_day).group_by {|d| d.start_date.to_date}
+    starting   = start_date.to_date.beginning_of_week
+    ending     = starting.end_of_week
+    @calendar_events = CalendarEvent.where(course_group: groups_ids)
+                                    .where('start_date BETWEEN ? AND ?', starting.beginning_of_day, ending.end_of_day)
+                                    .group_by { |d| d.start_date.to_date }
   end
-
 
   # DELETE /users/1
   # DELETE /users/1.json
@@ -105,15 +105,27 @@ before_action :set_user, only: [:show, :edit, :update, :update_password, :destro
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_user
-      @user = User.find params[:id]
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :street, :postal_code, :city, :country, :bank_account, :role, :index_num)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_user
+    @user = User.find params[:id]
+  end
 
-
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def user_params
+    params.require(:user).permit(
+      :first_name,
+      :last_name,
+      :email,
+      :password,
+      :password_confirmation,
+      :street,
+      :postal_code,
+      :city,
+      :country,
+      :bank_account,
+      :role,
+      :index_num
+    )
+  end
 end

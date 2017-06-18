@@ -32,7 +32,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   #:registerable
   self.inheritance_column = :role
-  ROLES = %w{Admin Student Lecturer}
+  ROLES = %w[Admin Student Lecturer].freeze
 
   self.per_page = 25
 
@@ -46,26 +46,22 @@ class User < ActiveRecord::Base
   validates_format_of :index_num, with: /^[0-9]/, multiline: true
   validates :first_name, :last_name, :email, presence: true
 
-
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup
-    if login = conditions.delete(:login)
-      where(conditions).where(["lower(index_num) = :value OR lower(email) = :value", { :value => login.downcase }]).first
+    login = conditions.delete(:login)
+    if login
+      where(conditions).where(['lower(index_num) = :value OR lower(email) = :value', { value: login.downcase }]).first
+    elsif conditions[:index_num].nil?
+      where(conditions).first
     else
-      if conditions[:index_num].nil?
-        where(conditions).first
-      else
-        where(index_num: conditions[:index_num]).first
-      end
+      where(index_num: conditions[:index_num]).first
     end
   end
 
-  def login=(login)
-    @login = login
-  end
+  attr_writer :login
 
   def login
-    @login || self.index_num || self.email
+    @login || index_num || email
   end
 
   def subjects
@@ -73,7 +69,7 @@ class User < ActiveRecord::Base
   end
 
   def field_of_studies
-    semesters.includes(:field_of_study).pluck("field_of_studies.title").uniq.to_sentence
+    semesters.includes(:field_of_study).pluck('field_of_studies.title').uniq.to_sentence
   end
 
   def name
@@ -85,7 +81,9 @@ class User < ActiveRecord::Base
   end
 
   def average_grade
-    grades.average(:value).round(2) rescue nil
+    grades.average(:value).round(2)
+  rescue
+    nil
   end
 
   def enrolled?(course)
@@ -103,6 +101,4 @@ class User < ActiveRecord::Base
   def lecturer?
     false
   end
-
-
 end

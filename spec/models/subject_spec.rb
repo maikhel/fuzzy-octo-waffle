@@ -18,7 +18,6 @@
 require 'spec_helper'
 
 RSpec.describe Subject, type: :model do
-
   it 'creates valid subject' do
     subject = create(:subject)
     expect(subject).to be_valid
@@ -29,7 +28,6 @@ RSpec.describe Subject, type: :model do
     expect(subject).to be_valid
     expect(subject.course_groups.count).to eq 3
   end
-
 
   describe 'validations' do
     it 'is invalid without title' do
@@ -47,5 +45,4 @@ RSpec.describe Subject, type: :model do
       expect(subject).not_to be_valid
     end
   end
-
 end

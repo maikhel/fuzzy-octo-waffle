@@ -1,5 +1,4 @@
 class SemesterPolicy < ApplicationPolicy
-
   class Scope < Scope
     def resolve
       if user.admin?
@@ -45,5 +44,4 @@ class SemesterPolicy < ApplicationPolicy
   def remove_students?
     administrable?
   end
-
 end

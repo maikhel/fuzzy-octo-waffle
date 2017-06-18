@@ -30,7 +30,6 @@
 require 'spec_helper'
 
 describe Student do
-
   it 'creates student class' do
     student = create(:student)
     expect(student).to be_a Student
@@ -42,5 +41,4 @@ describe Student do
       expect(user.student?).to eq true
     end
   end
-
 end

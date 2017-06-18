@@ -16,7 +16,6 @@
 #
 
 class Subject < ActiveRecord::Base
-
   has_many :course_groups, dependent: :destroy
   belongs_to :semester
 

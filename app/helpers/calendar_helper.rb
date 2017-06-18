@@ -1,6 +1,4 @@
 module CalendarHelper
-
-
   def date_range(start_date=Date.today)
     start_date.to_date
     starting = start_date.beginning_of_week
@@ -30,5 +28,4 @@ module CalendarHelper
   def url_for_previous_view
     view_context.url_for(@params.merge(start_date: date_range.first - 1.day))
   end
-
 end

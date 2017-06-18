@@ -1,5 +1,5 @@
 class FieldOfStudiesController < ApplicationController
-  before_action :set_field_of_study, only: [:show, :edit, :update, :destroy]
+  before_action :set_field_of_study, only: %i[show edit update destroy]
 
   # GET /field_of_studies
   def index
@@ -62,13 +62,14 @@ class FieldOfStudiesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_field_of_study
-      @field_of_study = FieldOfStudy.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def field_of_study_params
-      params.require(:field_of_study).permit(:title, :mode, :degree, :dean_id, :faculty_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_field_of_study
+    @field_of_study = FieldOfStudy.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def field_of_study_params
+    params.require(:field_of_study).permit(:title, :mode, :degree, :dean_id, :faculty_id)
+  end
 end

@@ -9,6 +9,4 @@
 #
 
 class CourseGroupsUser < ActiveRecord::Base
-
-
 end

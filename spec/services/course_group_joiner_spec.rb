@@ -2,7 +2,6 @@
 require 'spec_helper'
 
 describe CourseGroupJoiner do
-
   describe 'initialize' do
     let(:course_group) { create(:course_group) }
 
@@ -18,9 +17,9 @@ describe CourseGroupJoiner do
     let(:joiner) { CourseGroupJoiner.new(course_group) }
 
     it 'creates new StudentCourseGroup entity' do
-      expect {
+      expect do
         joiner.enroll(student)
-      }.to change{CourseGroupsUser.count}.by 1
+      end.to change { CourseGroupsUser.count }.by 1
     end
 
     it 'creates associations' do
@@ -31,9 +30,9 @@ describe CourseGroupJoiner do
 
     it 'doesnt duplicate records' do
       joiner.enroll(student)
-      expect{
+      expect do
         joiner.enroll(student)
-      }.not_to change{CourseGroupsUser.count}
+      end.not_to change(CourseGroupsUser, :count)
     end
 
     it 'does not enroll record if max limit reached' do
@@ -55,7 +54,6 @@ describe CourseGroupJoiner do
       expect(course_group.users).to eq students
       expect(course_group.users.count).to eq 4
     end
-
   end
 
   describe '.leave' do
@@ -65,24 +63,25 @@ describe CourseGroupJoiner do
     before(:each) { joiner.enroll(student) }
 
     it 'deletes one StudentCourseGroup entity' do
-      expect {
+      difference = -1
+      expect do
         joiner.leave(student)
-      }.to change{CourseGroupsUser.count}.by -1
+      end.to change { CourseGroupsUser.count }.by difference
     end
 
     it 'deletes many StudentCourseGroup entities' do
       students = create_list(:student, 4)
+      difference = -4
       joiner.enroll(students)
-      expect{
+      expect do
         joiner.leave(students)
-      }.to change{CourseGroupsUser.count}.by -4
+      end.to change { CourseGroupsUser.count }.by difference
     end
 
     it 'returns 0 if leaving student who is not enrolled' do
       student2 = create(:student)
       expect(joiner.leave(student2)).to eq 0
     end
-
   end
 
   describe '.free_place?' do
@@ -101,5 +100,4 @@ describe CourseGroupJoiner do
       expect(joiner.free_place?(1)).to eq false
     end
   end
-
 end

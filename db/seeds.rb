@@ -6,7 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-
 faculty = Faculty.create(name: 'Wydział Matematyczno-Przyrodniczy')
 
 field1 = FieldOfStudy.create(
@@ -29,8 +28,6 @@ field1.semesters << semester1
 semester2 = Semester.create(start_date: Date.parse('01.10.2016'), end_date: Date.parse('14.02.2017'))
 field2.semesters << semester2
 
-
-
 semester1.subjects << Subject.create(title: 'Programowanie obiektowe', short_description: 'Programowanie obiektowe')
 semester1.subjects << Subject.create(title: 'Inżynieria oprogramowania', short_description: 'Inżynieria oprogramowania')
 semester1.subjects << Subject.create(title: 'Matematyka dyskretna', short_description: 'Matematyka dyskretna')
@@ -38,7 +35,13 @@ semester1.subjects << Subject.create(title: 'Bazy danych', short_description: 'B
 semester1.subjects << Subject.create(title: 'Grafika komputerowa', short_description: 'Grafika komputerowa')
 
 30.times do
-  Student.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: Faker::Internet.password(8), index_num: Faker::Number.number(6))
+  Student.create(
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    email: Faker::Internet.email,
+    password: Faker::Internet.password(8),
+    index_num: Faker::Number.number(6)
+  )
 end
 
 puts 'Seeds created successfuly'

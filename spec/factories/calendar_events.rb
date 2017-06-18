@@ -13,8 +13,8 @@
 
 FactoryGirl.define do
   factory :calendar_event do
-    start_date "2016-05-28 13:15:00"
-    end_date "2016-05-28 14:45:00"
+    start_date '2016-05-28 13:15:00'
+    end_date '2016-05-28 14:45:00'
     association :course_group
     time_period_num 3
   end

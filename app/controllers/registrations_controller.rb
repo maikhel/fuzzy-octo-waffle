@@ -1,6 +1,5 @@
 class RegistrationsController < ApplicationController
-
-  before_action :set_registration, only: [:show, :edit, :update, :destroy]
+  before_action :set_registration, only: %i[show edit update destroy]
 
   def index
     authorize Registration
@@ -54,16 +53,15 @@ class RegistrationsController < ApplicationController
     end
   end
 
-
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_registration
-      @registration = Registration.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def registration_params
-      params.require(:registration).permit(:start_date, :end_date, :semester_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_registration
+    @registration = Registration.find(params[:id])
+  end
 
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def registration_params
+    params.require(:registration).permit(:start_date, :end_date, :semester_id)
+  end
 end

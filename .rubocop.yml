@@ -1,0 +1,37 @@
+# see the documentation for this file: https://github.com/bbatsov/rubocop/blob/master/config/default.yml
+AllCops:
+  DisplayCopNames: true
+  DisplayStyleGuide: true
+  Exclude:
+    - db/schema.rb
+    - bin/*
+
+Metrics/LineLength:
+  Max: 120
+  Exclude:
+    - config/**/*
+
+Metrics/ClassLength:
+  Max: 1500
+
+Metrics/BlockLength:
+  Enabled: false
+  Exclude:
+    - config/**/*
+
+Metrics/MethodLength:
+  Max: 15
+  Exclude:
+    - config/**/*
+
+Metrics/AbcSize:
+  Enabled: false
+
+Style/SpaceAroundEqualsInParameterDefault:
+  EnforcedStyle: no_space
+
+Style/PreferredHashMethods:
+  EnforcedStyle: short
+
+Style/Documentation:
+  Enabled: false

@@ -1,5 +1,4 @@
 class UserPolicy < ApplicationPolicy
-
   def new?
     administrable?
   end
@@ -17,11 +16,12 @@ class UserPolicy < ApplicationPolicy
   end
 
   def update?
-    administrable? || record.id == current_user.id rescue false
+    administrable? || record.id == current_user.id
+  rescue
+    false
   end
 
   def destroy?
     administrable?
   end
-
 end

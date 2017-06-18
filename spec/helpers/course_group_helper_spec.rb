@@ -2,7 +2,6 @@
 require 'spec_helper'
 
 describe CourseGroupHelper do
-
   describe '.weekdays_select' do
     before(:all) { I18n.locale = :en }
     after(:all) { I18n.locale = I18n.default_locale }
@@ -24,7 +23,6 @@ describe CourseGroupHelper do
     it 'second element of inner array is value' do
       expect(weekdays_select.first[1]).to eq 0
     end
-
   end
 
   describe '.time_periods_select' do
@@ -46,5 +44,4 @@ describe CourseGroupHelper do
       expect(time_periods_select.first[1]).to eq 0
     end
   end
-
 end

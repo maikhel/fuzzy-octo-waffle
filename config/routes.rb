@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   resources :subjects do
     resources :course_groups do
       member do
@@ -13,13 +12,13 @@ Rails.application.routes.draw do
 
   resources :field_of_studies do
     resources :semesters do
-        post 'add_students', on: :member
-        delete 'remove_students', on: :member
+      post 'add_students', on: :member
+      delete 'remove_students', on: :member
     end
   end
   resources :registrations
 
-  #modals
+  # modals
   get 'select_users' => 'modals#select_users', as: :select_users_modal
   get 'update_grades' => 'modals#update_grades', as: :update_grades_modal
   get 'add_students' => 'modals#add_students', as: :add_students_modal
@@ -27,7 +26,7 @@ Rails.application.routes.draw do
   root 'dashboard#index'
   get 'my_study' => 'users#my_study', as: :my_study_user
 
-  devise_for :users, :skip => [:registrations]
+  devise_for :users, skip: [:registrations]
 
   get 'language' => 'languages#change', as: :change_language
 
@@ -37,9 +36,7 @@ Rails.application.routes.draw do
 
   get 'edit_account' => 'users#edit_account'
 
-  if Rails.env.development?
-    mount LetterOpenerWeb::Engine, at: "/letter_opener"
-  end
+  mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

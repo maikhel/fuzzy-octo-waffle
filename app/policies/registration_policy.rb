@@ -1,5 +1,4 @@
 class RegistrationPolicy < ApplicationPolicy
-
   def index?
     true
   end
@@ -23,5 +22,4 @@ class RegistrationPolicy < ApplicationPolicy
   def destroy?
     administrable?
   end
-
 end

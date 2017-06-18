@@ -1,5 +1,4 @@
 class CourseGroupPolicy < ApplicationPolicy
-
   def new?
     administrable?
   end
@@ -21,7 +20,9 @@ class CourseGroupPolicy < ApplicationPolicy
   end
 
   def update_grades?
-    administrable? || user.id == record.lecturer_id rescue false
+    administrable? || user.id == record.lecturer_id
+  rescue
+    false
   end
 
   def show_grades?
@@ -35,5 +36,4 @@ class CourseGroupPolicy < ApplicationPolicy
   def deregistrate?
     administrable?
   end
-
 end
