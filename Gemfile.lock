@@ -74,6 +74,7 @@ GEM
       warden (~> 1.2.3)
     devise-bootstrap-views (0.0.8)
     diff-lcs (1.2.5)
+    docile (1.1.5)
     dotenv (2.1.1)
     dotenv-rails (2.1.1)
       dotenv (= 2.1.1)
@@ -233,6 +234,11 @@ GEM
     simple_form (3.2.1)
       actionpack (> 4, < 5.1)
       activemodel (> 4, < 5.1)
+    simplecov (0.14.1)
+      docile (~> 1.1.0)
+      json (>= 1.8, < 3)
+      simplecov-html (~> 0.10.0)
+    simplecov-html (0.10.1)
     slop (3.6.0)
     sort_alphabetical (1.0.2)
       unicode_utils (>= 1.2.2)
@@ -300,6 +306,7 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   simple_form
+  simplecov
   spring
   turbolinks
   twitter-bootstrap-rails
@@ -307,5 +314,8 @@ DEPENDENCIES
   web-console (~> 2.0)
   will_paginate
 
+RUBY VERSION
+   ruby 2.2.3p173
+
 BUNDLED WITH
-   1.11.2
+   1.15.1

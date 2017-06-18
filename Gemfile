@@ -55,4 +55,8 @@ group :development do
   gem 'web-console', '~> 2.0'
 end
 
+group :test do
+  gem 'simplecov', :require => false
+end
+
 ruby '2.2.3'
