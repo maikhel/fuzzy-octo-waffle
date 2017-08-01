@@ -56,7 +56,7 @@ group :development do
 end
 
 group :test do
-  gem 'simplecov', :require => false
+  gem 'simplecov', require: false
 end
 
 ruby '2.2.3'
